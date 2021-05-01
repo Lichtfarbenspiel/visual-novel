@@ -9,7 +9,7 @@ var FudgeStory;
         /**
          * Will be called once by [[Progress]] before anything else may happen.
          */
-        static create() {
+        static setup() {
             if (Base.viewport)
                 return;
             let client = document.body.querySelector("scene");
@@ -32,12 +32,14 @@ var FudgeStory;
             let factor = 2 * Math.sqrt(2);
             cmpCamera.projectCentral(Base.size.x / Base.size.y, 20, ƒ.FIELD_OF_VIEW.HORIZONTAL, 1000, Base.size.x * factor + 100);
             //TODO: use orthographic camera, no fov-calculation required
-            cmpCamera.pivot.translateZ(Base.size.x * factor);
-            cmpCamera.pivot.lookAt(ƒ.Vector3.ZERO());
+            cmpCamera.mtxPivot.translateZ(Base.size.x * factor);
+            cmpCamera.mtxPivot.lookAt(ƒ.Vector3.ZERO());
             Base.viewport.draw();
             Base.calculatePositions();
             Base.resize();
             window.addEventListener("resize", Base.resize);
+            ƒ.Loop.start();
+            ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, FudgeStory.Animation.update);
         }
         /**
          * Creates a serialization-object representing the current state of the [[Character]]s currently shown
@@ -78,11 +80,16 @@ var FudgeStory;
             node.addComponent(cmpMaterial);
             return node;
         }
+        static update(_event) {
+            if (!FudgeStory.Animation.isPending)
+                return;
+            Base.viewport.draw();
+        }
         static adjustMesh(_cmpMesh, _origin, _size) {
             let rect = new ƒ.Rectangle(0, 0, _size.x, _size.y, _origin);
-            _cmpMesh.pivot.translateX(rect.x + rect.width / 2);
-            _cmpMesh.pivot.translateY(-rect.y - rect.height / 2);
-            _cmpMesh.pivot.scale(_size.toVector3(1));
+            _cmpMesh.mtxPivot.translateX(rect.x + rect.width / 2);
+            _cmpMesh.mtxPivot.translateY(-rect.y - rect.height / 2);
+            _cmpMesh.mtxPivot.scale(_size.toVector3(1));
         }
         static calculatePositions() {
             let xOffset = Base.size.x / 2;
@@ -117,6 +124,79 @@ var FudgeStory;
     }
     Base.mesh = new ƒ.MeshQuad("Quad");
     FudgeStory.Base = Base;
+})(FudgeStory || (FudgeStory = {}));
+///<reference path="Base.ts"/>
+var FudgeStory;
+///<reference path="Base.ts"/>
+(function (FudgeStory) {
+    var ƒ = FudgeCore;
+    FudgeStory.Color = ƒ.Color;
+    FudgeStory.ANIMATION_PLAYMODE = ƒ.ANIMATION_PLAYMODE;
+    class Animation extends FudgeStory.Base {
+        static get isPending() {
+            return (Animation.activeComponents?.length > 0);
+        }
+        static create(_animation) {
+            let mutator = {};
+            let duration = _animation.duration * 1000;
+            for (let key in _animation.start) {
+                mutator[key] = {};
+                let start = Reflect.get(_animation.start, key);
+                let end = Reflect.get(_animation.end, key);
+                if (!end)
+                    throw (new Error(`Property mismatch in animation: ${key} is missing at the end`));
+                if (start instanceof ƒ.Mutable) {
+                    let mutatorStart = start.getMutator();
+                    let mutatorEnd = end.getMutator();
+                    for (let subKey in mutatorStart) {
+                        let seq = new ƒ.AnimationSequence();
+                        seq.addKey(new ƒ.AnimationKey(0, mutatorStart[subKey]));
+                        seq.addKey(new ƒ.AnimationKey(duration, mutatorEnd[subKey]));
+                        mutator[key][subKey] = seq;
+                    }
+                }
+                else if (key == "rotation") {
+                    let seq = new ƒ.AnimationSequence();
+                    seq.addKey(new ƒ.AnimationKey(0, start));
+                    seq.addKey(new ƒ.AnimationKey(duration, end));
+                    mutator[key]["z"] = seq;
+                }
+            }
+            let result = { components: {} };
+            if (mutator.color) {
+                result.components["ComponentMaterial"] = [{ "ƒ.ComponentMaterial": { clrPrimary: mutator.color } }];
+                delete mutator.color;
+            }
+            if (mutator.translation || mutator.rotation || mutator.scaling)
+                result.components["ComponentTransform"] = [{ "ƒ.ComponentTransform": { mtxLocal: mutator } }];
+            // console.log(result);
+            let animation = new ƒ.Animation("Animation", result);
+            return animation;
+        }
+        static attach(_pose, _animation, _playmode) {
+            // TODO: Mutate must not initiate drawing, implement render event at component to animate  
+            // _pose.cmpTransform.addEventListener(ƒ.EVENT.MUTATE, () => Base.viewport.draw());
+            // ƒ.Loop.addEventListener(ƒ.EVENT.LOOP_FRAME, () => Base.viewport.draw());
+            let cmpAnimator = new ƒ.ComponentAnimator(_animation, _playmode);
+            _pose.addComponent(cmpAnimator);
+            cmpAnimator.addEventListener("componentActivate" /* COMPONENT_ACTIVATE */, Animation.trackComponents);
+            cmpAnimator.addEventListener("componentDeactivate" /* COMPONENT_DEACTIVATE */, Animation.trackComponents);
+            cmpAnimator.activate(true);
+        }
+    }
+    Animation.activeComponents = [];
+    Animation.trackComponents = (_event) => {
+        let index = Animation.activeComponents.indexOf(_event.target);
+        if (_event.type == "componentDeactivate" /* COMPONENT_DEACTIVATE */ && index > -1) {
+            Animation.activeComponents.splice(index, 1);
+            return;
+        }
+        if (index > -1)
+            return;
+        Animation.activeComponents.push(_event.target);
+        // console.log(Animation.activeComponents);
+    };
+    FudgeStory.Animation = Animation;
 })(FudgeStory || (FudgeStory = {}));
 /// <reference path="Base.ts" />
 var FudgeStory;
@@ -153,7 +233,7 @@ var FudgeStory;
         static async show(_character, _pose, _position) {
             let character = Character.get(_character);
             let pose = await character.getPose(_pose);
-            pose.mtxLocal.translation = _position.toVector3(0);
+            pose.mtxLocal.set(ƒ.Matrix4x4.TRANSLATION(_position.toVector3(0)));
             FudgeStory.Base.middle.appendChild(pose);
         }
         /**
@@ -166,6 +246,16 @@ var FudgeStory;
             if (found.length > 1)
                 console.warn(`Multiple characters with name ${_character.name} exist, removing first`);
             FudgeStory.Base.middle.removeChild(found[0]);
+        }
+        /**
+         * Animate the given [[Character]] in the specified pose using the animation given.
+         */
+        static async animate(_character, _pose, _animation) {
+            let character = Character.get(_character);
+            let pose = await character.getPose(_pose);
+            let animation = FudgeStory.Animation.create(_animation);
+            FudgeStory.Animation.attach(pose, animation, _animation.playmode);
+            FudgeStory.Base.middle.appendChild(pose);
         }
         /**
          * Remove all [[Character]]s and objects
@@ -282,6 +372,65 @@ var FudgeStory;
         return position;
     }
     FudgeStory.positionPercent = positionPercent;
+})(FudgeStory || (FudgeStory = {}));
+var FudgeStory;
+(function (FudgeStory) {
+    // import ƒ = FudgeCore;
+    /**
+     * Manages the inventory
+     */
+    class Inventory extends HTMLDialogElement {
+        static get dialog() {
+            if (Inventory.ƒDialog)
+                return Inventory.ƒDialog;
+            Inventory.ƒDialog = document.querySelector("dialog[type=inventory]");
+            return Inventory.ƒDialog;
+        }
+        static add(_item) {
+            let item = Inventory.dialog.querySelector(`[id=${_item.name}]`);
+            if (item) {
+                let amount = item.querySelector("amount");
+                amount.innerText = (parseInt(amount.innerText) + 1).toString();
+                return;
+            }
+            item = document.createElement("li");
+            item.id = _item.name;
+            item.innerHTML = `<name>${_item.name}</name><amount>1</amount><description>${_item.description}</description><img src="${_item.image}"/>`;
+            item.addEventListener("pointerdown", Inventory.hndUseItem);
+            Inventory.dialog.querySelector("ul").appendChild(item);
+        }
+        /**
+         * opens the inventory
+         */
+        static async open() {
+            let dialog = Inventory.dialog;
+            dialog.showModal();
+            Inventory.ƒused = [];
+            return new Promise((_resolve) => {
+                let hndClose = (_event) => {
+                    dialog.querySelector("button").removeEventListener(FudgeStory.EVENT.POINTERDOWN, hndClose);
+                    dialog.close();
+                    _resolve(Inventory.ƒused);
+                };
+                dialog.querySelector("button").addEventListener(FudgeStory.EVENT.POINTERDOWN, hndClose);
+            });
+        }
+        /**
+         * closes the inventory
+         */
+        static close() {
+            Inventory.dialog.close();
+        }
+    }
+    Inventory.hndUseItem = (_event) => {
+        let item = _event.currentTarget;
+        Inventory.ƒused.push(item.querySelector("name").textContent);
+        let amount = item.querySelector("amount");
+        amount.innerText = (parseInt(amount.innerText) - 1).toString();
+        if (amount.innerText == "0")
+            Inventory.dialog.querySelector("ul").removeChild(item);
+    };
+    FudgeStory.Inventory = Inventory;
 })(FudgeStory || (FudgeStory = {}));
 var FudgeStory;
 (function (FudgeStory) {
@@ -407,7 +556,7 @@ var FudgeStory;
          * Starts the story with the scenes-object given and reads the url-searchstring to enter at a point previously saved
          */
         static async go(_scenes) {
-            FudgeStory.Base.create();
+            FudgeStory.Base.setup();
             Progress.scenes = _scenes.flat(100);
             let index = 0;
             let urlSearch = location.search.substr(1);
@@ -577,9 +726,10 @@ var FudgeStory;
                 sound = Sound.play(_url, _toVolume ? 0 : 1, _loop);
             let fromVolume = sound.cmpAudio.volume;
             sound.fadingToVolume = _toVolume; //need to be remembered for serialization
+            let timeStart = ƒ.Time.game.get();
             return new Promise((resolve) => {
                 let hndLoop = function (_event) {
-                    let progress = (ƒ.Time.game.get() - ƒ.Loop.timeStartGame) / (_duration * 1000);
+                    let progress = (ƒ.Time.game.get() - timeStart) / (_duration * 1000);
                     if (progress < 1) {
                         sound.cmpAudio.volume = fromVolume + progress * (_toVolume - fromVolume);
                         return;
@@ -591,7 +741,7 @@ var FudgeStory;
                     resolve();
                 };
                 ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, hndLoop);
-                ƒ.Loop.start(ƒ.LOOP_MODE.FRAME_REQUEST, 30);
+                // ƒ.Loop.start(ƒ.LOOP_MODE.FRAME_REQUEST, 30);
             });
         }
         /**
@@ -786,14 +936,12 @@ var FudgeStory;
      */
     class Text extends HTMLDialogElement {
         static get dialog() {
-            return document.querySelector("dialog[is=text-page]");
+            return document.querySelector("dialog[type=text]");
         }
         /**
          * Prints the text in a modal dialog stylable with css
          */
         static async print(_text) {
-            if (!customElements.get("text-page"))
-                customElements.define("text-page", FudgeStory.Text, { extends: "dialog" });
             let dialog = Text.dialog;
             dialog.close();
             dialog.innerHTML = _text;
@@ -887,9 +1035,10 @@ var FudgeStory;
             return transition;
         }
         static getPromise(_transition, _duration) {
+            let timeStart = ƒ.Time.game.get();
             return new Promise((resolve) => {
                 let hndLoop = function (_event) {
-                    let progress = (ƒ.Time.game.get() - ƒ.Loop.timeStartGame) / _duration;
+                    let progress = (ƒ.Time.game.get() - timeStart) / _duration;
                     if (progress < 1) {
                         _transition(progress);
                         return;
@@ -899,7 +1048,7 @@ var FudgeStory;
                     resolve();
                 };
                 ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, hndLoop);
-                ƒ.Loop.start(ƒ.LOOP_MODE.FRAME_REQUEST, 30);
+                // ƒ.Loop.start(ƒ.LOOP_MODE.FRAME_REQUEST, 30);
             });
         }
     }

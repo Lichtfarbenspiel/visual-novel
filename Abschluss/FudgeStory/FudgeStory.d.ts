@@ -15,7 +15,7 @@ declare namespace FudgeStory {
         /**
          * Will be called once by [[Progress]] before anything else may happen.
          */
-        protected static create(): void;
+        protected static setup(): void;
         /**
          * Creates a serialization-object representing the current state of the [[Character]]s currently shown
          */
@@ -26,9 +26,40 @@ declare namespace FudgeStory {
          */
         protected static deserialize(_serialization: ƒ.Serialization): Promise<void>;
         protected static createImageNode(_name: string, _request: RequestInfo, _origin?: ƒ.ORIGIN2D, _size?: ƒ.Vector2): Promise<ƒ.Node>;
+        private static update;
         private static adjustMesh;
         private static calculatePositions;
         private static resize;
+    }
+}
+declare namespace FudgeStory {
+    import ƒ = FudgeCore;
+    type Scaling = ƒ.Vector2;
+    type Color = ƒ.Color;
+    let Color: typeof ƒ.Color;
+    let ANIMATION_PLAYMODE: typeof ƒ.ANIMATION_PLAYMODE;
+    interface AnimationDefinition {
+        start: {
+            translation?: Position;
+            rotation?: number;
+            scaling?: Scaling;
+            color?: Color;
+        };
+        end: {
+            translation?: Position;
+            rotation?: number;
+            scaling?: Scaling;
+            color?: Color;
+        };
+        duration: number;
+        playmode: ƒ.ANIMATION_PLAYMODE;
+    }
+    class Animation extends Base {
+        private static activeComponents;
+        static get isPending(): boolean;
+        static create(_animation: AnimationDefinition): ƒ.Animation;
+        static attach(_pose: ƒ.Node, _animation: ƒ.Animation, _playmode: ƒ.ANIMATION_PLAYMODE): void;
+        private static trackComponents;
     }
 }
 declare namespace FudgeStory {
@@ -115,6 +146,10 @@ declare namespace FudgeStory {
          */
         static hide(_character: CharacterDefinition): Promise<void>;
         /**
+         * Animate the given [[Character]] in the specified pose using the animation given.
+         */
+        static animate(_character: CharacterDefinition, _pose: RequestInfo, _animation: AnimationDefinition): Promise<void>;
+        /**
          * Remove all [[Character]]s and objects
          */
         static hideAll(): void;
@@ -179,6 +214,31 @@ declare namespace FudgeStory {
      * Pass values in percent relative to the upper left corner.
      */
     function positionPercent(_x: number, _y: number): Position;
+}
+declare namespace FudgeStory {
+    interface ItemDefinition {
+        name: string;
+        description: string;
+        image: RequestInfo;
+    }
+    /**
+     * Manages the inventory
+     */
+    class Inventory extends HTMLDialogElement {
+        private static ƒDialog;
+        private static ƒused;
+        private static get dialog();
+        static add(_item: ItemDefinition): void;
+        /**
+         * opens the inventory
+         */
+        static open(): Promise<string[]>;
+        /**
+         * closes the inventory
+         */
+        static close(): void;
+        private static hndUseItem;
+    }
 }
 declare namespace FudgeStory {
     /**
