@@ -19,13 +19,13 @@ namespace Template {
         }
     };
 
-    ƒS.Speech.setTickerDelays(100);
+    ƒS.Speech.setTickerDelays(50);
     await ƒS.Location.show(locations.dorm);
     await ƒS.update(2);
-    await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.idle, ƒS.positionPercent(1, 100));
+    await ƒS.Character.show(data.Protagonist, data.Protagonist.pose.idle, ƒS.positionPercent(1, 100));
     await ƒS.update(1);
-    await ƒS.Speech.tell(characters.Protagonist, text.Protagonist.T0000);
-    await ƒS.Character.hide(characters.Protagonist);
+    await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0000);
+    await ƒS.Character.hide(data.Protagonist);
     ƒS.Speech.clear();
     
     let choice = {
@@ -33,8 +33,9 @@ namespace Template {
       C0001: "Joe"
     };
 
-    let userInput = await ƒS.Menu.getInput(choice);
 
+    console.log("Score " + data.score);
+    let userInput = await ƒS.Menu.getInput(choice); 
     
     switch (userInput) {
       case choice.C0000:
@@ -53,19 +54,21 @@ namespace Template {
   
         if (userInput2 == choice2.C0000) {
           characters.Allison.friendScore = 1;
-          await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.idle,  ƒS.positionPercent(1, 100));      
+          data.score += 1;
+          await ƒS.Character.show(data.Protagonist, data.Protagonist.pose.idle,  ƒS.positionPercent(1, 100));      
           await ƒS.update(0.5);
-          await ƒS.Speech.tell(characters.Protagonist, text.Protagonist.T0001);
-          await ƒS.Character.hide(characters.Protagonist);
+          await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
+          await ƒS.Character.hide(data.Protagonist);
           await ƒS.Character.hide(characters.Allison);
           ƒS.Speech.clear();
           break;
         } else if (userInput2 == choice2.C0001) {
           characters.Allison.friendScore = -1;
-          await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.idle,  ƒS.positionPercent(1, 100));      
+          data.score -= 1;
+          await ƒS.Character.show(data.Protagonist, data.Protagonist.pose.idle,  ƒS.positionPercent(1, 100));      
           await ƒS.update(0.5);
-          await ƒS.Speech.tell(characters.Protagonist, text.Protagonist.T0001);
-          await ƒS.Character.hide(characters.Protagonist);
+          await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
+          await ƒS.Character.hide(data.Protagonist);
           await ƒS.Character.hide(characters.Allison);
           ƒS.Speech.clear();
           break;
@@ -86,11 +89,12 @@ namespace Template {
   
         if (userInput3 == choice3.C0000) {
           characters.Joe.friendScore += 1;
-          await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.idle,  ƒS.positionPercent(1, 100));      
+          data.score += 1;
+          await ƒS.Character.show(data.Protagonist, data.Protagonist.pose.idle,  ƒS.positionPercent(1, 100));      
           await ƒS.update(0.5);
-          await ƒS.Speech.tell(characters.Protagonist, text.Protagonist.T0001);
+          await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
         
-          await ƒS.Character.hide(characters.Protagonist);
+          await ƒS.Character.hide(data.Protagonist);
           await ƒS.update(0.5);
           await ƒS.Character.hide(characters.Joe);
           await ƒS.update(0.5);
@@ -99,11 +103,12 @@ namespace Template {
 
         } else if (userInput3 == choice3.C0001) {
           characters.Joe.friendScore -= 1;
-          await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.idle,  ƒS.positionPercent(1, 100));      
+          data.score -= 1;
+          await ƒS.Character.show(data.Protagonist, data.Protagonist.pose.idle,  ƒS.positionPercent(1, 100));      
           await ƒS.update(0.5);
-          await ƒS.Speech.tell(characters.Protagonist, text.Protagonist.T0001);
+          await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
           
-          await ƒS.Character.hide(characters.Protagonist);
+          await ƒS.Character.hide(data.Protagonist);
           await ƒS.update(0.5);
           await ƒS.Character.hide(characters.Joe);
           await ƒS.update(0.5);
@@ -111,6 +116,7 @@ namespace Template {
           break;
         }
         break;
+
     }
   }
 }

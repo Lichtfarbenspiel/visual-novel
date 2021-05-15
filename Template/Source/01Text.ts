@@ -23,7 +23,13 @@ namespace Template {
       }
     };
 
-    ƒS.Speech.setTickerDelays(100);
+    let signalDelay1: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(1)]);
+    let signalDelay2: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(2)]);
+
+    data.Protagonist.name = await ƒS.Speech.getInput();
+    console.log(data.Protagonist.name);
+
+    ƒS.Speech.setTickerDelays(50);
 
     ƒS.Sound.fade(sounds.backgroundTheme, 0.2, 0.1, true);
 
@@ -35,6 +41,8 @@ namespace Template {
     await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0001);
     await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0002);
     await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0003);
+    // await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0003, true, "css Klasse");
+    // ƒS.Speech.set(characters.Narrator, text.Narrator.T0003);
 
     
     await ƒS.Character.hide(characters.Narrator);
@@ -55,6 +63,7 @@ namespace Template {
 
     switch (firstDialogueElement) {
       case firstDialogueElementAnswer.A0001:
+        data.score += 2;
         ƒS.Sound.play(sounds.click, 1);
         // continue writing on this path here
         await ƒS.Character.show(characters.Narrator, characters.Narrator.pose.idle, ƒS.positions.bottomleft);
@@ -65,6 +74,7 @@ namespace Template {
         await ƒS.update(1);
         break;
       case firstDialogueElementAnswer.A0002:
+        data.score += 1;
         ƒS.Sound.play(sounds.click, 1);
         await ƒS.Character.show(characters.Narrator, characters.Narrator.pose.idle, ƒS.positions.bottomleft);
         await ƒS.update(0.5);
@@ -74,6 +84,7 @@ namespace Template {
         await ƒS.update(1);
         break;
       case firstDialogueElementAnswer.A0003:
+        data.score += 3;
         ƒS.Sound.play(sounds.click, 1);
         await ƒS.Character.show(characters.Narrator, characters.Narrator.pose.idle, ƒS.positions.bottomleft);
         await ƒS.update(0.5);
@@ -83,7 +94,7 @@ namespace Template {
         await ƒS.update(1);
         break;
     }
-
+    console.log("Score " + data.score);
     ƒS.Sound.fade(sounds.backgroundTheme, 0, 1);
   }
 }

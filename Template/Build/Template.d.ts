@@ -10,6 +10,17 @@ declare namespace Template {
 declare namespace Template {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
+    let data: {
+        Protagonist: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                idle: string;
+                happy: string;
+            };
+        };
+        score: number;
+    };
     let transitions: {
         clock: {
             duration: number;
@@ -43,14 +54,6 @@ declare namespace Template {
                 idle: string;
             };
         };
-        Protagonist: {
-            name: string;
-            origin: ƒ.ORIGIN2D;
-            pose: {
-                idle: string;
-                happy: string;
-            };
-        };
         Joe: {
             name: string;
             origin: ƒ.ORIGIN2D;
@@ -68,6 +71,12 @@ declare namespace Template {
                 happy: string;
             };
             friendScore: number;
+        };
+    };
+    let items: {
+        something: {
+            name: string;
+            description: string;
         };
     };
 }

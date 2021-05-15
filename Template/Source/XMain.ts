@@ -4,6 +4,20 @@ namespace Template {
 
   console.log("FudgeStory template starting");
 
+  // all data that will be stored in json when saving
+  export let data = {
+    Protagonist: {
+      name: "",
+      origin: ƒS.ORIGIN.BOTTOMLEFT,
+      pose: {
+        idle: "Img/Characters/protagonist.png",
+        happy: ""
+      }
+    },
+    score: 0
+  };
+
+
   // define transitions
   export let transitions = {
     clock: {
@@ -47,14 +61,6 @@ namespace Template {
         idle: "Img/Characters/narrator.png"
       }
     },
-    Protagonist: {
-      name: "Lillian",
-      origin: ƒS.ORIGIN.BOTTOMLEFT,
-      pose: {
-        idle: "Img/Characters/protagonist.png",
-        happy: ""
-      }
-    },
     Joe: {
       name: "Joe",
       origin: ƒS.ORIGIN.BOTTOMLEFT,
@@ -75,6 +81,15 @@ namespace Template {
     }
   };
 
+  export let items = {
+    something: {
+      name: "",
+      description: ""
+    }
+  };
+
+  ƒS.Inventory.add(items.something);
+
   window.addEventListener("load", start);
   function start(_event: Event): void {
 
@@ -88,6 +103,8 @@ namespace Template {
       { scene: Class, name: "Scene" }
     ];
 
+    console.log("Score " + data.score);
+    ƒS.Progress.setData(data);
     // start the sequence
     ƒS.Progress.go(scenes);
   }

@@ -23,7 +23,11 @@ var Template;
                 T0001: ""
             }
         };
-        Template.ƒS.Speech.setTickerDelays(100);
+        let signalDelay1 = Template.ƒS.Progress.defineSignal([() => Template.ƒS.Progress.delay(1)]);
+        let signalDelay2 = Template.ƒS.Progress.defineSignal([() => Template.ƒS.Progress.delay(2)]);
+        Template.data.Protagonist.name = await Template.ƒS.Speech.getInput();
+        console.log(Template.data.Protagonist.name);
+        Template.ƒS.Speech.setTickerDelays(50);
         Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.2, 0.1, true);
         await Template.ƒS.Location.show(Template.locations.hall);
         await Template.ƒS.update(2);
@@ -33,6 +37,8 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0001);
         await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0002);
         await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0003);
+        // await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0003, true, "css Klasse");
+        // ƒS.Speech.set(characters.Narrator, text.Narrator.T0003);
         await Template.ƒS.Character.hide(Template.characters.Narrator);
         await Template.ƒS.update(0.5);
         Template.ƒS.Speech.clear();
@@ -45,6 +51,7 @@ var Template;
         let firstDialogueElement = await Template.ƒS.Menu.getInput(firstDialogueElementAnswer, "class");
         switch (firstDialogueElement) {
             case firstDialogueElementAnswer.A0001:
+                Template.data.score += 2;
                 Template.ƒS.Sound.play(Template.sounds.click, 1);
                 // continue writing on this path here
                 await Template.ƒS.Character.show(Template.characters.Narrator, Template.characters.Narrator.pose.idle, Template.ƒS.positions.bottomleft);
@@ -55,6 +62,7 @@ var Template;
                 await Template.ƒS.update(1);
                 break;
             case firstDialogueElementAnswer.A0002:
+                Template.data.score += 1;
                 Template.ƒS.Sound.play(Template.sounds.click, 1);
                 await Template.ƒS.Character.show(Template.characters.Narrator, Template.characters.Narrator.pose.idle, Template.ƒS.positions.bottomleft);
                 await Template.ƒS.update(0.5);
@@ -64,6 +72,7 @@ var Template;
                 await Template.ƒS.update(1);
                 break;
             case firstDialogueElementAnswer.A0003:
+                Template.data.score += 3;
                 Template.ƒS.Sound.play(Template.sounds.click, 1);
                 await Template.ƒS.Character.show(Template.characters.Narrator, Template.characters.Narrator.pose.idle, Template.ƒS.positions.bottomleft);
                 await Template.ƒS.update(0.5);
@@ -73,6 +82,7 @@ var Template;
                 await Template.ƒS.update(1);
                 break;
         }
+        console.log("Score " + Template.data.score);
         Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0, 1);
     }
     Template.Text = Text;
@@ -97,18 +107,19 @@ var Template;
                 T0001: "Well, I want to be the greatest swordswoman there has ever been!"
             }
         };
-        Template.ƒS.Speech.setTickerDelays(100);
+        Template.ƒS.Speech.setTickerDelays(50);
         await Template.ƒS.Location.show(Template.locations.dorm);
         await Template.ƒS.update(2);
-        await Template.ƒS.Character.show(Template.characters.Protagonist, Template.characters.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
+        await Template.ƒS.Character.show(Template.data.Protagonist, Template.data.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
         await Template.ƒS.update(1);
-        await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0000);
-        await Template.ƒS.Character.hide(Template.characters.Protagonist);
+        await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0000);
+        await Template.ƒS.Character.hide(Template.data.Protagonist);
         Template.ƒS.Speech.clear();
         let choice = {
             C0000: "Allison",
             C0001: "Joe"
         };
+        console.log("Score " + Template.data.score);
         let userInput = await Template.ƒS.Menu.getInput(choice);
         switch (userInput) {
             case choice.C0000:
@@ -125,20 +136,22 @@ var Template;
                 let userInput2 = await Template.ƒS.Menu.getInput(choice2);
                 if (userInput2 == choice2.C0000) {
                     Template.characters.Allison.friendScore = 1;
-                    await Template.ƒS.Character.show(Template.characters.Protagonist, Template.characters.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
+                    Template.data.score += 1;
+                    await Template.ƒS.Character.show(Template.data.Protagonist, Template.data.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
                     await Template.ƒS.update(0.5);
-                    await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0001);
-                    await Template.ƒS.Character.hide(Template.characters.Protagonist);
+                    await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0001);
+                    await Template.ƒS.Character.hide(Template.data.Protagonist);
                     await Template.ƒS.Character.hide(Template.characters.Allison);
                     Template.ƒS.Speech.clear();
                     break;
                 }
                 else if (userInput2 == choice2.C0001) {
                     Template.characters.Allison.friendScore = -1;
-                    await Template.ƒS.Character.show(Template.characters.Protagonist, Template.characters.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
+                    Template.data.score -= 1;
+                    await Template.ƒS.Character.show(Template.data.Protagonist, Template.data.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
                     await Template.ƒS.update(0.5);
-                    await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0001);
-                    await Template.ƒS.Character.hide(Template.characters.Protagonist);
+                    await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0001);
+                    await Template.ƒS.Character.hide(Template.data.Protagonist);
                     await Template.ƒS.Character.hide(Template.characters.Allison);
                     Template.ƒS.Speech.clear();
                     break;
@@ -157,10 +170,11 @@ var Template;
                 let userInput3 = await Template.ƒS.Menu.getInput(choice3);
                 if (userInput3 == choice3.C0000) {
                     Template.characters.Joe.friendScore += 1;
-                    await Template.ƒS.Character.show(Template.characters.Protagonist, Template.characters.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
+                    Template.data.score += 1;
+                    await Template.ƒS.Character.show(Template.data.Protagonist, Template.data.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
                     await Template.ƒS.update(0.5);
-                    await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0001);
-                    await Template.ƒS.Character.hide(Template.characters.Protagonist);
+                    await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0001);
+                    await Template.ƒS.Character.hide(Template.data.Protagonist);
                     await Template.ƒS.update(0.5);
                     await Template.ƒS.Character.hide(Template.characters.Joe);
                     await Template.ƒS.update(0.5);
@@ -169,10 +183,11 @@ var Template;
                 }
                 else if (userInput3 == choice3.C0001) {
                     Template.characters.Joe.friendScore -= 1;
-                    await Template.ƒS.Character.show(Template.characters.Protagonist, Template.characters.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
+                    Template.data.score -= 1;
+                    await Template.ƒS.Character.show(Template.data.Protagonist, Template.data.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
                     await Template.ƒS.update(0.5);
-                    await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0001);
-                    await Template.ƒS.Character.hide(Template.characters.Protagonist);
+                    await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0001);
+                    await Template.ƒS.Character.hide(Template.data.Protagonist);
                     await Template.ƒS.update(0.5);
                     await Template.ƒS.Character.hide(Template.characters.Joe);
                     await Template.ƒS.update(0.5);
@@ -209,14 +224,14 @@ var Template;
                 T0001: "I'm sorry, but you will have to repeat this class!"
             }
         };
-        Template.ƒS.Speech.setTickerDelays(100);
+        Template.ƒS.Speech.setTickerDelays(50);
         await Template.ƒS.Location.show(Template.locations.class);
         await Template.ƒS.update(2);
-        await Template.ƒS.Character.show(Template.characters.Protagonist, Template.characters.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
+        await Template.ƒS.Character.show(Template.data.Protagonist, Template.data.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
         await Template.ƒS.update(1);
-        await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0000);
+        await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0000);
         await Template.ƒS.update(0.5);
-        await Template.ƒS.Character.hide(Template.characters.Protagonist);
+        await Template.ƒS.Character.hide(Template.data.Protagonist);
         Template.ƒS.Speech.clear();
         let choice = {
             C0000: "Allison",
@@ -227,20 +242,22 @@ var Template;
             case choice.C0000:
                 // talk to Allison
                 Template.ƒS.Sound.play(Template.sounds.click, 1);
-                await Template.ƒS.Character.show(Template.characters.Protagonist, Template.characters.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
+                await Template.ƒS.Character.show(Template.data.Protagonist, Template.data.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
                 await Template.ƒS.update(1);
-                await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0001);
+                await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0001);
                 await Template.ƒS.Character.show(Template.characters.Allison, Template.characters.Allison.pose.idle, Template.ƒS.positionPercent(60, 100));
                 await Template.ƒS.update(0.5);
                 if (Template.characters.Allison.friendScore > 0) {
+                    Template.data.score += 1;
                     await Template.ƒS.Speech.tell(Template.characters.Allison, text.Allison.T0000);
-                    await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0003);
+                    await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0003);
                 }
                 else {
+                    Template.data.score -= 1;
                     await Template.ƒS.Speech.tell(Template.characters.Allison, text.Allison.T0001);
-                    await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0004);
+                    await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0004);
                 }
-                await Template.ƒS.Character.hide(Template.characters.Protagonist);
+                await Template.ƒS.Character.hide(Template.data.Protagonist);
                 await Template.ƒS.update(0.5);
                 await Template.ƒS.Character.hide(Template.characters.Allison);
                 await Template.ƒS.update(0.5);
@@ -249,24 +266,27 @@ var Template;
             case choice.C0001:
                 // Talk to Joe
                 Template.ƒS.Sound.play(Template.sounds.click, 1);
-                await Template.ƒS.Character.show(Template.characters.Protagonist, Template.characters.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
+                await Template.ƒS.Character.show(Template.data.Protagonist, Template.data.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
                 await Template.ƒS.update(1);
-                await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0002);
+                await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0002);
                 await Template.ƒS.Character.show(Template.characters.Joe, Template.characters.Joe.pose.idle, Template.ƒS.positionPercent(60, 100));
                 await Template.ƒS.update(0.5);
                 if (Template.characters.Joe.friendScore > 0) {
+                    Template.data.score += 1;
                     await Template.ƒS.Speech.tell(Template.characters.Joe, text.Joe.T0000);
-                    await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0003);
+                    await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0003);
                 }
                 else {
+                    Template.data.score -= 1;
                     await Template.ƒS.Speech.tell(Template.characters.Joe, text.Joe.T0001);
-                    await Template.ƒS.Speech.tell(Template.characters.Protagonist, text.Protagonist.T0004);
+                    await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0004);
                 }
-                await Template.ƒS.Character.hide(Template.characters.Protagonist);
+                await Template.ƒS.Character.hide(Template.data.Protagonist);
                 await Template.ƒS.update(0.5);
                 await Template.ƒS.Character.hide(Template.characters.Joe);
                 await Template.ƒS.update(0.5);
                 Template.ƒS.Speech.clear();
+                console.log("Score " + Template.data.score);
                 break;
         }
     }
@@ -277,6 +297,18 @@ var Template;
     Template.ƒ = FudgeCore;
     Template.ƒS = FudgeStory;
     console.log("FudgeStory template starting");
+    // all data that will be stored in json when saving
+    Template.data = {
+        Protagonist: {
+            name: "",
+            origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
+            pose: {
+                idle: "Img/Characters/protagonist.png",
+                happy: ""
+            }
+        },
+        score: 0
+    };
     // define transitions
     Template.transitions = {
         clock: {
@@ -316,14 +348,6 @@ var Template;
                 idle: "Img/Characters/narrator.png"
             }
         },
-        Protagonist: {
-            name: "Lillian",
-            origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
-            pose: {
-                idle: "Img/Characters/protagonist.png",
-                happy: ""
-            }
-        },
         Joe: {
             name: "Joe",
             origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
@@ -343,6 +367,13 @@ var Template;
             friendScore: 0
         }
     };
+    Template.items = {
+        something: {
+            name: "",
+            description: ""
+        }
+    };
+    Template.ƒS.Inventory.add(Template.items.something);
     window.addEventListener("load", start);
     function start(_event) {
         console.log("This is working!");
@@ -352,6 +383,8 @@ var Template;
             { scene: Template.Dorm, name: "Scene" },
             { scene: Template.Class, name: "Scene" }
         ];
+        console.log("Score " + Template.data.score);
+        Template.ƒS.Progress.setData(Template.data);
         // start the sequence
         Template.ƒS.Progress.go(scenes);
     }
