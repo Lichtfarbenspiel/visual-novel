@@ -23,10 +23,11 @@ var Template;
                 T0001: ""
             }
         };
-        let signalDelay1 = Template.ƒS.Progress.defineSignal([() => Template.ƒS.Progress.delay(1)]);
-        let signalDelay2 = Template.ƒS.Progress.defineSignal([() => Template.ƒS.Progress.delay(2)]);
+        // let signalDelay1: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(1)]);
+        // let signalDelay2: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(2)]);
         Template.data.Protagonist.name = await Template.ƒS.Speech.getInput();
         console.log(Template.data.Protagonist.name);
+        // ƒS.Inventory.add(items.item01);
         Template.ƒS.Speech.setTickerDelays(50);
         Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.2, 0.1, true);
         await Template.ƒS.Location.show(Template.locations.hall);
@@ -251,18 +252,24 @@ var Template;
                     Template.data.score += 1;
                     await Template.ƒS.Speech.tell(Template.characters.Allison, text.Allison.T0000);
                     await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0003);
+                    await Template.ƒS.Character.hide(Template.data.Protagonist);
+                    await Template.ƒS.update(0.5);
+                    await Template.ƒS.Character.hide(Template.characters.Allison);
+                    await Template.ƒS.update(0.5);
+                    Template.ƒS.Speech.clear();
+                    return "00004";
                 }
                 else {
                     Template.data.score -= 1;
                     await Template.ƒS.Speech.tell(Template.characters.Allison, text.Allison.T0001);
                     await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0004);
+                    await Template.ƒS.Character.hide(Template.data.Protagonist);
+                    await Template.ƒS.update(0.5);
+                    await Template.ƒS.Character.hide(Template.characters.Allison);
+                    await Template.ƒS.update(0.5);
+                    Template.ƒS.Speech.clear();
+                    return "00005";
                 }
-                await Template.ƒS.Character.hide(Template.data.Protagonist);
-                await Template.ƒS.update(0.5);
-                await Template.ƒS.Character.hide(Template.characters.Allison);
-                await Template.ƒS.update(0.5);
-                Template.ƒS.Speech.clear();
-                break;
             case choice.C0001:
                 // Talk to Joe
                 Template.ƒS.Sound.play(Template.sounds.click, 1);
@@ -275,22 +282,67 @@ var Template;
                     Template.data.score += 1;
                     await Template.ƒS.Speech.tell(Template.characters.Joe, text.Joe.T0000);
                     await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0003);
+                    await Template.ƒS.Character.hide(Template.data.Protagonist);
+                    await Template.ƒS.update(0.5);
+                    await Template.ƒS.Character.hide(Template.characters.Joe);
+                    await Template.ƒS.update(0.5);
+                    Template.ƒS.Speech.clear();
+                    console.log("Score " + Template.data.score);
+                    return "00004";
                 }
                 else {
                     Template.data.score -= 1;
                     await Template.ƒS.Speech.tell(Template.characters.Joe, text.Joe.T0001);
                     await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0004);
+                    await Template.ƒS.Character.hide(Template.data.Protagonist);
+                    await Template.ƒS.update(0.5);
+                    await Template.ƒS.Character.hide(Template.characters.Joe);
+                    await Template.ƒS.update(0.5);
+                    Template.ƒS.Speech.clear();
+                    console.log("Score " + Template.data.score);
+                    return "00005";
                 }
-                await Template.ƒS.Character.hide(Template.data.Protagonist);
-                await Template.ƒS.update(0.5);
-                await Template.ƒS.Character.hide(Template.characters.Joe);
-                await Template.ƒS.update(0.5);
-                Template.ƒS.Speech.clear();
-                console.log("Score " + Template.data.score);
-                break;
         }
     }
     Template.Class = Class;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Failure() {
+        console.log("Class Scene plying");
+        let text = {
+            Protagonist: {
+                T0000: "Great! That was it then, I guess..."
+            }
+        };
+        Template.ƒS.Speech.setTickerDelays(50);
+        await Template.ƒS.Location.show(Template.locations.city);
+        await Template.ƒS.update(2);
+        await Template.ƒS.Character.show(Template.data.Protagonist, Template.data.Protagonist.pose.idle, Template.ƒS.positionPercent(1, 100));
+        await Template.ƒS.update(1);
+        await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0000);
+    }
+    Template.Failure = Failure;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Success() {
+        console.log("Class Scene plying");
+        let text = {
+            Narrator: {
+                T0000: "Well done! Here is your graduation certificate."
+            }
+        };
+        Template.ƒS.Speech.setTickerDelays(50);
+        await Template.ƒS.Location.show(Template.locations.hall);
+        await Template.ƒS.update(2);
+        await Template.ƒS.Character.show(Template.characters.Narrator, Template.characters.Narrator.pose.idle, Template.ƒS.positionPercent(1, 100));
+        await Template.ƒS.update(1);
+        await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
+        Template.ƒS.Inventory.add(Template.items.item01);
+        await Template.ƒS.Inventory.open();
+    }
+    Template.Success = Success;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -337,6 +389,10 @@ var Template;
         class: {
             name: "class",
             background: "Img/hall.jpg"
+        },
+        city: {
+            name: "class",
+            background: "Img/city.jpg"
         }
     };
     //define characters
@@ -368,20 +424,23 @@ var Template;
         }
     };
     Template.items = {
-        something: {
-            name: "",
-            description: ""
+        item01: {
+            name: "Graduation",
+            description: "Graduation hat and certificate.",
+            image: "Img/graduation.png"
         }
     };
-    Template.ƒS.Inventory.add(Template.items.something);
+    Template.sceneID = "";
     window.addEventListener("load", start);
     function start(_event) {
         console.log("This is working!");
         document.addEventListener("keydown", hndKeypress);
         let scenes = [
-            { scene: Template.Text, name: "Scene" },
-            { scene: Template.Dorm, name: "Scene" },
-            { scene: Template.Class, name: "Scene" }
+            { scene: Template.Text, name: "Scene", id: "00001", next: "00002" },
+            { scene: Template.Dorm, name: "Scene", id: "00002", next: "00003" },
+            { scene: Template.Class, name: "Scene", id: "00003" },
+            { scene: Template.Success, name: "Success", id: "00004" },
+            { scene: Template.Failure, name: "Failure", id: "00005" }
         ];
         console.log("Score " + Template.data.score);
         Template.ƒS.Progress.setData(Template.data);
@@ -397,6 +456,9 @@ var Template;
             case Template.ƒ.KEYBOARD_CODE.F9:
                 console.log("loading");
                 await Template.ƒS.Progress.load();
+                break;
+            case Template.ƒ.KEYBOARD_CODE.I:
+                await Template.ƒS.Inventory.open();
                 break;
         }
     }

@@ -8,6 +8,12 @@ declare namespace Template {
     function Class(): ƒS.SceneReturn;
 }
 declare namespace Template {
+    function Failure(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Success(): ƒS.SceneReturn;
+}
+declare namespace Template {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let data: {
@@ -45,6 +51,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        city: {
+            name: string;
+            background: string;
+        };
     };
     let characters: {
         Narrator: {
@@ -74,9 +84,11 @@ declare namespace Template {
         };
     };
     let items: {
-        something: {
+        item01: {
             name: string;
             description: string;
+            image: string;
         };
     };
+    let sceneID: string;
 }

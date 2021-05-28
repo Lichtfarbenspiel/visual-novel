@@ -49,6 +49,10 @@ namespace Template {
     class: {
       name: "class",
       background: "Img/hall.jpg"
+    }, 
+    city: {
+      name: "class",
+      background: "Img/city.jpg"
     }
   };
 
@@ -82,13 +86,14 @@ namespace Template {
   };
 
   export let items = {
-    something: {
-      name: "",
-      description: ""
+    item01: {
+      name: "Graduation",
+      description: "Graduation hat and certificate.",
+      image: "Img/graduation.png"
     }
   };
 
-  ƒS.Inventory.add(items.something);
+  export let sceneID = "";
 
   window.addEventListener("load", start);
   function start(_event: Event): void {
@@ -98,9 +103,11 @@ namespace Template {
     document.addEventListener("keydown", hndKeypress);
 
     let scenes: ƒS.Scenes = [
-      { scene: Text, name: "Scene" },
-      { scene: Dorm, name: "Scene" },
-      { scene: Class, name: "Scene" }
+      { scene: Text, name: "Scene", id: "00001", next: "00002" },
+      { scene: Dorm, name: "Scene", id: "00002", next: "00003" },
+      { scene: Class, name: "Scene", id: "00003" }, 
+      { scene: Success, name: "Success", id: "00004" },
+      { scene: Failure, name: "Failure", id: "00005" }
     ];
 
     console.log("Score " + data.score);
@@ -118,6 +125,9 @@ namespace Template {
       case ƒ.KEYBOARD_CODE.F9:
         console.log("loading");
         await ƒS.Progress.load();
+        break;
+      case ƒ.KEYBOARD_CODE.I:
+        await ƒS.Inventory.open();
         break;
     }
   }

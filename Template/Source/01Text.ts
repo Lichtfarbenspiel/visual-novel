@@ -23,11 +23,14 @@ namespace Template {
       }
     };
 
-    let signalDelay1: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(1)]);
-    let signalDelay2: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(2)]);
+    // let signalDelay1: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(1)]);
+    // let signalDelay2: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(2)]);
 
     data.Protagonist.name = await ƒS.Speech.getInput();
     console.log(data.Protagonist.name);
+
+
+    // ƒS.Inventory.add(items.item01);
 
     ƒS.Speech.setTickerDelays(50);
 
@@ -58,6 +61,7 @@ namespace Template {
 
     // ƒS.Sound.play(sounds.click, 0.2);
     
+
 
     let firstDialogueElement = await ƒS.Menu.getInput(firstDialogueElementAnswer, "class");
 

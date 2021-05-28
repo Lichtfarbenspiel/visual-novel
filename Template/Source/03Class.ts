@@ -52,21 +52,26 @@ namespace Template {
         await ƒS.update(0.5);
 
         if (characters.Allison.friendScore > 0) {
-            data.score += 1;
-            await ƒS.Speech.tell(characters.Allison, text.Allison.T0000);
-            await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
+          data.score += 1;
+          await ƒS.Speech.tell(characters.Allison, text.Allison.T0000);
+          await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
+          await ƒS.Character.hide(data.Protagonist);
+          await ƒS.update(0.5);
+          await ƒS.Character.hide(characters.Allison);
+          await ƒS.update(0.5);
+          ƒS.Speech.clear();
+          return "00004";
         } else {
-            data.score -= 1;
-            await ƒS.Speech.tell(characters.Allison, text.Allison.T0001);
-            await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0004);
+          data.score -= 1;
+          await ƒS.Speech.tell(characters.Allison, text.Allison.T0001);
+          await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0004);
+          await ƒS.Character.hide(data.Protagonist);
+          await ƒS.update(0.5);
+          await ƒS.Character.hide(characters.Allison);
+          await ƒS.update(0.5);
+          ƒS.Speech.clear();
+          return "00005";
         }
-      
-        await ƒS.Character.hide(data.Protagonist);
-        await ƒS.update(0.5);
-        await ƒS.Character.hide(characters.Allison);
-        await ƒS.update(0.5);
-        ƒS.Speech.clear();
-        break;
       case choice.C0001:
         // Talk to Joe
         ƒS.Sound.play(sounds.click, 1);
@@ -77,22 +82,28 @@ namespace Template {
         await ƒS.update(0.5);
 
         if (characters.Joe.friendScore > 0) {
-            data.score += 1;
-            await ƒS.Speech.tell(characters.Joe, text.Joe.T0000);
-            await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
+          data.score += 1;
+          await ƒS.Speech.tell(characters.Joe, text.Joe.T0000);
+          await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
+          await ƒS.Character.hide(data.Protagonist);
+          await ƒS.update(0.5);
+          await ƒS.Character.hide(characters.Joe);
+          await ƒS.update(0.5);
+          ƒS.Speech.clear();
+          console.log("Score " + data.score);
+          return "00004";
         } else {
-            data.score -= 1;
-            await ƒS.Speech.tell(characters.Joe, text.Joe.T0001);
-            await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0004);
+          data.score -= 1;
+          await ƒS.Speech.tell(characters.Joe, text.Joe.T0001);
+          await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0004);
+          await ƒS.Character.hide(data.Protagonist);
+          await ƒS.update(0.5);
+          await ƒS.Character.hide(characters.Joe);
+          await ƒS.update(0.5);
+          ƒS.Speech.clear();
+          console.log("Score " + data.score);
+          return "00005";
         }
-        
-        await ƒS.Character.hide(data.Protagonist);
-        await ƒS.update(0.5);
-        await ƒS.Character.hide(characters.Joe);
-        await ƒS.update(0.5);
-        ƒS.Speech.clear();
-        console.log("Score " + data.score);
-        break;
-    }
+      }
   }
 }    
