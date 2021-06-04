@@ -19,20 +19,20 @@ namespace Template {
       
 
       await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0000);
-      ƒS.Sound.fade(sounds.backgroundTheme, 0.2, 0.1, true);
+      ƒS.Sound.fade(sounds.backgroundTheme, 0.15, 0.1, true);
 
-      await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0001);
+      // await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0001);
       ƒS.Sound.play(sounds.cars, 0.05, false);
       await ƒS.update(2);
-      await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0002);
+      // await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0002);
   
       ƒS.Sound.play(sounds.pidgeons, 0.05, false);
       await ƒS.update(2);
-      await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0003);
+      // await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0003);
 
       ƒS.Sound.play(sounds.dogs, 0.05, false);
       await ƒS.update(2);
-      await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0004);
+      // await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0004);
     
       ƒS.Sound.play(sounds.drums, 0.05, false);
       await ƒS.update(2);
