@@ -352,20 +352,27 @@ var Template;
         let text = {
             Narrator: {
                 T0000: "Welcome to the street!",
-                T0001: ""
+                T0001: "Cars",
+                T0002: "Pidgons",
+                T0003: "dogs",
+                T0004: "drums"
             }
         };
         await Template.ƒS.Location.show(Template.locations.street);
         await Template.ƒS.update(2);
         Template.ƒS.Sound.fade(Template.sounds.street, 0.5, 0.1, true);
         await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
-        Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.5, 0.1, true);
+        Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.2, 0.1, true);
+        await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0001);
         Template.ƒS.Sound.play(Template.sounds.cars, 0.05, false);
         await Template.ƒS.update(2);
+        await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0002);
         Template.ƒS.Sound.play(Template.sounds.pidgeons, 0.05, false);
         await Template.ƒS.update(2);
+        await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0003);
         Template.ƒS.Sound.play(Template.sounds.dogs, 0.05, false);
         await Template.ƒS.update(2);
+        await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0004);
         Template.ƒS.Sound.play(Template.sounds.drums, 0.05, false);
         await Template.ƒS.update(2);
         // let playSound = {
