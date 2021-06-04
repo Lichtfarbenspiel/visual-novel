@@ -360,29 +360,46 @@ var Template;
         Template.ƒS.Sound.fade(Template.sounds.street, 0.5, 0.1, true);
         await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
         Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.05, 0.1, true);
-        let playSound = {
-            cars: "play cars sound",
-            pidgeons: "play pidgeons sound",
-            dogs: "play dogs sound",
-            drums: "play drums"
-        };
-        let userInput = await Template.ƒS.Menu.getInput(playSound);
-        while (true) {
-            switch (userInput) {
-                case playSound.cars:
-                    Template.ƒS.Sound.fade(Template.sounds.cars, 0.05, 0.1, false);
-                    break;
-                case playSound.pidgeons:
-                    Template.ƒS.Sound.fade(Template.sounds.pidgeons, 0.05, 0.1, false);
-                    break;
-                case playSound.dogs:
-                    Template.ƒS.Sound.fade(Template.sounds.dogs, 0.05, 0.1, false);
-                    break;
-                case playSound.drums:
-                    Template.ƒS.Sound.fade(Template.sounds.drums, 0.05, 0.1, true);
-                    break;
-            }
-        }
+        Template.ƒS.Sound.play(Template.sounds.cars, 0.05, false);
+        await Template.ƒS.update(2);
+        Template.ƒS.Sound.play(Template.sounds.pidgeons, 0.05, false);
+        await Template.ƒS.update(2);
+        Template.ƒS.Sound.play(Template.sounds.dogs, 0.05, false);
+        await Template.ƒS.update(2);
+        Template.ƒS.Sound.play(Template.sounds.drums, 0.05, false);
+        await Template.ƒS.update(2);
+        // let playSound = {
+        //   cars: "play cars sound",
+        //   pidgeons: "play pidgeons sound",
+        //   dogs: "play dogs sound",
+        //   drums: "play drums"
+        // };
+        // let userInput = await ƒS.Menu.getInput(playSound); 
+        // let round = 1;
+        // for (let i = 0; i <= round; i++) {
+        //   switch (userInput) {
+        //     case playSound.cars:
+        //       ƒS.Sound.play(sounds.cars, 0.05, false);
+        //       await ƒS.update(2);
+        //       round += 1;
+        //       break;
+        //     case playSound.pidgeons:
+        //       ƒS.Sound.play(sounds.pidgeons, 0.05, false);
+        //       await ƒS.update(2);
+        //       round += 1;
+        //       break;
+        //     case playSound.dogs:
+        //       ƒS.Sound.play(sounds.dogs, 0.05, false);
+        //       await ƒS.update(2);
+        //       round += 1;
+        //       break;
+        //     case playSound.drums:
+        //       ƒS.Sound.play(sounds.drums, 0.05, false);
+        //       await ƒS.update(2);
+        //       round += 1;
+        //       break;
+        //   }
+        // }      
     }
     Template.Street = Street;
 })(Template || (Template = {}));
