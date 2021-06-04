@@ -8,7 +8,13 @@ declare namespace Template {
     function Class(): ƒS.SceneReturn;
 }
 declare namespace Template {
+    function Animation(): ƒS.SceneReturn;
+}
+declare namespace Template {
     function Failure(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Street(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function Success(): ƒS.SceneReturn;
@@ -52,6 +58,10 @@ declare namespace Template {
             background: string;
         };
         city: {
+            name: string;
+            background: string;
+        };
+        street: {
             name: string;
             background: string;
         };

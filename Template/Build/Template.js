@@ -308,6 +308,27 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function Animation() {
+        console.log("Animation Scene plying");
+        // let text = {      
+        //   Narrator: {
+        //     T0000: "Well done! Here is your graduation certificate."
+        //   }
+        // };
+        let animation = {
+            start: { translation: Template.ƒS.positionPercent(60, 100), color: Template.ƒS.Color.CSS("red", 0) },
+            end: { translation: Template.ƒS.positionPercent(1, 100), color: Template.ƒS.Color.CSS("blue", 0) },
+            duration: 1,
+            playmode: Template.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+        await Template.ƒS.Location.show(Template.locations.city);
+        // Character translation -> Animation findet mit diesem Aufruf statt
+        await Template.ƒS.Character.animate(Template.characters.Allison, Template.characters.Allison.pose.idle, animation);
+    }
+    Template.Animation = Animation;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function Failure() {
         console.log("Class Scene plying");
         let text = {
@@ -323,6 +344,22 @@ var Template;
         await Template.ƒS.Speech.tell(Template.data.Protagonist, text.Protagonist.T0000);
     }
     Template.Failure = Failure;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function Street() {
+        console.log("Straße Scene playing");
+        let text = {
+            Narrator: {
+                T0000: "Welcome to the street!"
+            }
+        };
+        await Template.ƒS.Location.show(Template.locations.street);
+        await Template.ƒS.update(2);
+        Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.05, 0.1, true);
+        await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
+    }
+    Template.Street = Street;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -372,7 +409,7 @@ var Template;
     //define sound
     Template.sounds = {
         //Music
-        backgroundTheme: "Sounds/Background.mp3",
+        backgroundTheme: "Sounds/mus_Music L1_01.wav",
         //Sound
         click: "Sounds/click.mp3"
     };
@@ -393,6 +430,10 @@ var Template;
         city: {
             name: "class",
             background: "Img/city.jpg"
+        },
+        street: {
+            name: "street",
+            background: "Img/Street.jpg"
         }
     };
     //define characters
@@ -426,7 +467,7 @@ var Template;
     Template.items = {
         item01: {
             name: "Graduation",
-            description: "Graduation hat and certificate.",
+            description: "Hat and certificate.",
             image: "Img/graduation.png"
         }
     };
@@ -436,11 +477,13 @@ var Template;
         console.log("This is working!");
         document.addEventListener("keydown", hndKeypress);
         let scenes = [
-            { scene: Template.Text, name: "Scene", id: "00001", next: "00002" },
-            { scene: Template.Dorm, name: "Scene", id: "00002", next: "00003" },
-            { scene: Template.Class, name: "Scene", id: "00003" },
-            { scene: Template.Success, name: "Success", id: "00004" },
-            { scene: Template.Failure, name: "Failure", id: "00005" }
+            // { scene: Text, name: "Scene", id: "00001", next: "00002" },
+            // { scene: Dorm, name: "Scene", id: "00002", next: "00003" },
+            // { scene: Class, name: "Scene", id: "00003" }, 
+            // { scene: Success, name: "Success", id: "00004", next: "0" },
+            // { scene: Failure, name: "Failure", id: "00005", next: "0" }
+            // { scene: Animation, name: "Animation", id: "00006", next: "0" }
+            { scene: Template.Street, name: "Street", id: "00006", next: "0" }
         ];
         console.log("Score " + Template.data.score);
         Template.ƒS.Progress.setData(Template.data);

@@ -5,7 +5,9 @@
       "../Source/01Text.ts",
       "../Source/02Dorm.ts",
       "../Source/03Class.ts",
+      "../Source/Animation.ts",
       "../Source/Failure.ts",
+      "../Source/Street.ts",
       "../Source/Success.ts",
       "../Source/XMain.ts"
     ],
@@ -19,7 +21,7 @@
         },
         {
           "pos": 15,
-          "end": 23004,
+          "end": 24831,
           "kind": "text"
         }
       ],
@@ -47,7 +49,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 2142,
+          "end": 2382,
           "kind": "text"
         }
       ]
