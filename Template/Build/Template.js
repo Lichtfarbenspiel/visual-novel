@@ -351,13 +351,34 @@ var Template;
         console.log("Straße Scene playing");
         let text = {
             Narrator: {
-                T0000: "Welcome to the street!"
+                T0000: "Welcome to the street!",
+                T0001: ""
             }
         };
         await Template.ƒS.Location.show(Template.locations.street);
         await Template.ƒS.update(2);
-        Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.05, 0.1, true);
+        Template.ƒS.Sound.fade(Template.sounds.street, 0.5, 0.1, true);
         await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
+        Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.05, 0.1, true);
+        let playSound = {
+            cars: "play cars sound",
+            pidgeons: "play pidgeons sound",
+            dogs: "play dogs sound",
+            drums: "play drums"
+        };
+        let userInput = await Template.ƒS.Menu.getInput(playSound);
+        while (true) {
+            switch (userInput) {
+                case playSound.cars:
+                    break;
+                case playSound.pidgeons:
+                    break;
+                case playSound.dogs:
+                    break;
+                case playSound.drums:
+                    break;
+            }
+        }
     }
     Template.Street = Street;
 })(Template || (Template = {}));
@@ -409,9 +430,14 @@ var Template;
     //define sound
     Template.sounds = {
         //Music
-        backgroundTheme: "Sounds/mus_Music L1_01.wav",
+        backgroundTheme: "Sounds/mus_maintheme.wav",
         //Sound
-        click: "Sounds/click.mp3"
+        // click: "Sounds/click.mp3", 
+        cars: "Sounds/sfx_cars.wav",
+        pidgeons: "Sounds/sfx_pidgeon.wav",
+        dogs: "Sounds/sfx_dogs.wav",
+        drums: "Sounds/sfx_drums.wav",
+        street: "Sounds/amb_street.wav"
     };
     // define locations
     Template.locations = {

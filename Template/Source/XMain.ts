@@ -30,10 +30,15 @@ namespace Template {
   //define sound
   export let sounds = {
     //Music
-    backgroundTheme: "Sounds/mus_Music L1_01.wav",
-    
+    backgroundTheme: "Sounds/mus_maintheme.wav",
     //Sound
-    click: "Sounds/click.mp3"
+    // click: "Sounds/click.mp3", 
+    cars: "Sounds/sfx_cars.wav",
+    pidgeons: "Sounds/sfx_pidgeon.wav",
+    dogs: "Sounds/sfx_dogs.wav",
+    drums: "Sounds/sfx_drums.wav",
+    street: "Sounds/amb_street.wav"
+
   };
 
   // define locations

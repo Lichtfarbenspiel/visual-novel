@@ -42,7 +42,11 @@ declare namespace Template {
     };
     let sounds: {
         backgroundTheme: string;
-        click: string;
+        cars: string;
+        pidgeons: string;
+        dogs: string;
+        drums: string;
+        street: string;
     };
     let locations: {
         hall: {
