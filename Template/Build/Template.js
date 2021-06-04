@@ -359,7 +359,7 @@ var Template;
         await Template.ƒS.update(2);
         Template.ƒS.Sound.fade(Template.sounds.street, 0.5, 0.1, true);
         await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
-        Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.05, 0.1, true);
+        Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.5, 0.1, true);
         Template.ƒS.Sound.play(Template.sounds.cars, 0.05, false);
         await Template.ƒS.update(2);
         Template.ƒS.Sound.play(Template.sounds.pidgeons, 0.05, false);
