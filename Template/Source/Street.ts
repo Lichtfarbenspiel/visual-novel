@@ -32,12 +32,16 @@ namespace Template {
       while (true) {
         switch (userInput) {
           case playSound.cars:
+            ƒS.Sound.fade(sounds.cars, 0.05, 0.1, false);
             break;
           case playSound.pidgeons:
+            ƒS.Sound.fade(sounds.pidgeons, 0.05, 0.1, false);
             break;
           case playSound.dogs:
+            ƒS.Sound.fade(sounds.dogs, 0.05, 0.1, false);
             break;
           case playSound.drums:
+            ƒS.Sound.fade(sounds.drums, 0.05, 0.1, true);
             break;
         }
       }

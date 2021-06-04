@@ -370,12 +370,16 @@ var Template;
         while (true) {
             switch (userInput) {
                 case playSound.cars:
+                    Template.ƒS.Sound.fade(Template.sounds.cars, 0.05, 0.1, false);
                     break;
                 case playSound.pidgeons:
+                    Template.ƒS.Sound.fade(Template.sounds.pidgeons, 0.05, 0.1, false);
                     break;
                 case playSound.dogs:
+                    Template.ƒS.Sound.fade(Template.sounds.dogs, 0.05, 0.1, false);
                     break;
                 case playSound.drums:
+                    Template.ƒS.Sound.fade(Template.sounds.drums, 0.05, 0.1, true);
                     break;
             }
         }
