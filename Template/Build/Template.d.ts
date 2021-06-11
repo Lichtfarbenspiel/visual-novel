@@ -31,7 +31,11 @@ declare namespace Template {
                 happy: string;
             };
         };
+        state: {
+            a: number;
+        };
         score: number;
+        ended: boolean;
     };
     let transitions: {
         clock: {
@@ -42,6 +46,7 @@ declare namespace Template {
     };
     let sounds: {
         backgroundTheme: string;
+        click: string;
         cars: string;
         pidgeons: string;
         dogs: string;

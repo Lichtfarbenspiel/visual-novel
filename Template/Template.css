@@ -47,3 +47,7 @@ speech.Protagonist, speech.Narrator, speech.Joe, speech.Allison name {
 speech.Protagonist, speech.Narrator, speech.Joe, speech.Allison name content {
   color: rgb(203, 253, 255);
 }
+
+meter::-webkit-meter-optimum-value {
+  background-color: aquamarine;
+}

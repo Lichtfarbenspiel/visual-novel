@@ -14,7 +14,11 @@ namespace Template {
         happy: ""
       }
     },
-    score: 0
+    state: {
+      a: 0
+    },
+    score: 0,
+    ended: false
   };
 
 
@@ -30,9 +34,9 @@ namespace Template {
   //define sound
   export let sounds = {
     //Music
-    backgroundTheme: "Sounds/mus_maintheme.wav",
+    backgroundTheme: "Sounds/Background.mp3",
     //Sound
-    // click: "Sounds/click.mp3", 
+    click: "Sounds/click.mp3", 
     cars: "Sounds/sfx_cars.wav",
     pidgeons: "Sounds/sfx_pidgeon.wav",
     dogs: "Sounds/sfx_dogs.wav",
@@ -112,18 +116,21 @@ namespace Template {
     document.addEventListener("keydown", hndKeypress);
 
     let scenes: ƒS.Scenes = [
-      // { scene: Text, name: "Scene", id: "00001", next: "00002" },
+      { scene: Text, name: "Scene", id: "00001", next: "00002" }
       // { scene: Dorm, name: "Scene", id: "00002", next: "00003" },
       // { scene: Class, name: "Scene", id: "00003" }, 
       // { scene: Success, name: "Success", id: "00004", next: "0" },
       // { scene: Failure, name: "Failure", id: "00005", next: "0" }
       // { scene: Animation, name: "Animation", id: "00006", next: "0" }
-      { scene: Street, name: "Street", id: "00006", next: "0" }
+      // { scene: Street, name: "Street", id: "00006", next: "0" },
 
     ];
 
-    console.log("Score " + data.score);
-    ƒS.Progress.setData(data);
+    let uiElement: HTMLElement = document.querySelector("[type=interface]");
+    data.state = ƒS.Progress.setDataInterface(data.state, uiElement);
+
+    // console.log("Score " + data.score);
+    // ƒS.Progress.setData(data);
     // start the sequence
     ƒS.Progress.go(scenes);
   }

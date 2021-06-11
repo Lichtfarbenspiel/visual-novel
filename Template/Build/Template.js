@@ -40,6 +40,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0003);
         // await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0003, true, "css Klasse");
         // ƒS.Speech.set(characters.Narrator, text.Narrator.T0003);
+        Template.data.state.a += 52;
         await Template.ƒS.Character.hide(Template.characters.Narrator);
         await Template.ƒS.update(0.5);
         Template.ƒS.Speech.clear();
@@ -360,6 +361,7 @@ var Template;
         };
         await Template.ƒS.Location.show(Template.locations.street);
         await Template.ƒS.update(2);
+        Template.ƒS.Sound.play(Template.sounds.street, 0.01, true);
         Template.ƒS.Sound.fade(Template.sounds.street, 0.5, 0.1, true);
         await Template.ƒS.Speech.tell(Template.characters.Narrator, text.Narrator.T0000);
         Template.ƒS.Sound.fade(Template.sounds.backgroundTheme, 0.15, 0.1, true);
@@ -445,7 +447,11 @@ var Template;
                 happy: ""
             }
         },
-        score: 0
+        state: {
+            a: 0
+        },
+        score: 0,
+        ended: false
     };
     // define transitions
     Template.transitions = {
@@ -458,9 +464,9 @@ var Template;
     //define sound
     Template.sounds = {
         //Music
-        backgroundTheme: "Sounds/mus_maintheme.wav",
+        backgroundTheme: "Sounds/Background.mp3",
         //Sound
-        // click: "Sounds/click.mp3", 
+        click: "Sounds/click.mp3",
         cars: "Sounds/sfx_cars.wav",
         pidgeons: "Sounds/sfx_pidgeon.wav",
         dogs: "Sounds/sfx_dogs.wav",
@@ -531,16 +537,18 @@ var Template;
         console.log("This is working!");
         document.addEventListener("keydown", hndKeypress);
         let scenes = [
-            // { scene: Text, name: "Scene", id: "00001", next: "00002" },
+            { scene: Template.Text, name: "Scene", id: "00001", next: "00002" }
             // { scene: Dorm, name: "Scene", id: "00002", next: "00003" },
             // { scene: Class, name: "Scene", id: "00003" }, 
             // { scene: Success, name: "Success", id: "00004", next: "0" },
             // { scene: Failure, name: "Failure", id: "00005", next: "0" }
             // { scene: Animation, name: "Animation", id: "00006", next: "0" }
-            { scene: Template.Street, name: "Street", id: "00006", next: "0" }
+            // { scene: Street, name: "Street", id: "00006", next: "0" },
         ];
-        console.log("Score " + Template.data.score);
-        Template.ƒS.Progress.setData(Template.data);
+        let uiElement = document.querySelector("[type=interface]");
+        Template.data.state = Template.ƒS.Progress.setDataInterface(Template.data.state, uiElement);
+        // console.log("Score " + data.score);
+        // ƒS.Progress.setData(data);
         // start the sequence
         Template.ƒS.Progress.go(scenes);
     }

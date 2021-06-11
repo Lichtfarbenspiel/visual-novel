@@ -47,6 +47,8 @@ namespace Template {
     // await ƒS.Speech.tell(characters.Narrator, text.Narrator.T0003, true, "css Klasse");
     // ƒS.Speech.set(characters.Narrator, text.Narrator.T0003);
 
+    data.state.a += 52;
+
     
     await ƒS.Character.hide(characters.Narrator);
     await ƒS.update(0.5);
