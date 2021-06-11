@@ -59,8 +59,8 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.Scene, name: "Scene" }
-            // { scene: Scene02, name: "Scene02" }
+            { scene: Template.Scene, name: "Scene" },
+            { scene: Template.Scene02, name: "Scene02" }
         ];
         document.addEventListener("keydown", hndKeypress);
         // start the sequence

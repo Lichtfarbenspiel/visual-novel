@@ -7,5 +7,7 @@ namespace Template {
     await ƒS.update(2);
     await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positions.bottomleft);
     await ƒS.update(1);
+
+    
   }
 }

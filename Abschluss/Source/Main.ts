@@ -67,8 +67,8 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: ƒS.Scenes = [
-      { scene: Scene, name: "Scene" }
-      // { scene: Scene02, name: "Scene02" }
+      { scene: Scene, name: "Scene" },
+      { scene: Scene02, name: "Scene02" }
     ];
 
     document.addEventListener("keydown", hndKeypress);
