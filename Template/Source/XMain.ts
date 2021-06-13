@@ -127,7 +127,7 @@ namespace Template {
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
-    data.state = ƒS.Progress.setDataInterface(data.state, uiElement);
+    data.state = ƒS.Progress.setData(data.state, uiElement);
 
     // console.log("Score " + data.score);
     // ƒS.Progress.setData(data);

@@ -1,0 +1,115 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+  overflow: hidden;
+  font-family:'Gill Sans', 'Gill Sans MT', sans-serif;
+}
+
+scene {
+  width: 1280px;
+  height: 720px;
+  display: inline-block;
+  position: absolute;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+} 
+
+/* speech bar */
+speech {
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  color: beige;
+  background-color: rgba(11, 14, 19, 0.9);
+  width: 100%;
+  height: 10vh;
+  padding: 1em 3em;
+}
+
+speech[class=""] content {
+  margin: 0 auto;
+  color: rgb(181, 222, 255);
+  font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
+}
+
+speech name {
+  font-size: 14pt;
+  display: block;
+  color: rgb(98, 113, 161);
+  margin-bottom: 10px;
+} 
+
+/* speech.Mermaid name {
+  font-size: 14pt;
+  display: block;
+  color: rgb(98, 113, 161);
+  margin-bottom: 10px;
+}  */
+
+speech content {
+  color: rgb(203, 253, 255);
+}
+
+/* speech.Mermaid content {
+  color: rgb(203, 253, 255);
+} */
+
+dialog {
+  background-color: rgba(11, 14, 19, 0.9);
+  color: rgb(203, 253, 255);
+  border: none;
+}
+
+dialog Button {
+  background-color: aquamarine;
+  color: black;
+  border: none;
+  height: 2em;
+  margin: 0.2em;
+}
+
+dialog Button:hover {
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+dialog[class="gameMenu"] {
+  color: rgb(203, 253, 255);
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  background-color: rgba(11, 14, 19, 0.9);
+  padding: 5%;
+  margin: 0 auto;
+  position: relative;
+}
+
+dialog[class="gameMenu"] Button {
+  background-color: aquamarine;
+  color: black;
+  border: none;
+  width: 30vw;
+  height: 3em;
+  margin-left: 28vw;
+  margin-top: 2em;
+}
+
+dialog[class="gameMenu"] Button:hover {
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+meter::-webkit-meter-optimum-value {
+  background-color: aquamarine;
+}

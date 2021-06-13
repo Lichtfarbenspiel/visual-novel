@@ -1,4 +1,10 @@
 declare namespace Template {
+    function RockyBeach(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function TurtleBeach(): ƒS.SceneReturn;
+}
+declare namespace Template {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let data: {
@@ -47,10 +53,7 @@ declare namespace Template {
             image: string;
         };
     };
-}
-declare namespace Template {
-    function Scene(): ƒS.SceneReturn;
-}
-declare namespace Template {
-    function Scene02(): ƒS.SceneReturn;
+    function increaseSound(): void;
+    function decreaseSound(): void;
+    function tickerDelay(_delay: number): void;
 }
