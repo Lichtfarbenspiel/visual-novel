@@ -1,9 +1,11 @@
-namespace Template {
+namespace Abschluss {
   export async function RockyBeach(): ƒS.SceneReturn {
-    console.log("First scene starting");
+    console.log("RockyBeach scene starting");
 
-    // data.Protagonist.name = await ƒS.Speech.getInput();
-    // console.log(data.Protagonist.name);
+    tickerDelay(30);
+
+    data.Protagonist.name = await ƒS.Speech.getInput();
+    console.log(data.Protagonist.name);
 
     let text = {
       Mermaid: {
@@ -20,12 +22,10 @@ namespace Template {
       }
     };
 
-    tickerDelay(50);
-
     await ƒS.Location.show(locations.rockyBeach);
     await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
     await ƒS.update(0.5);
-    await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positions.bottomright);
+    await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positionPercent(0, 100));
     await ƒS.update(1);
 
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0000);

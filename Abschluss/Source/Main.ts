@@ -1,4 +1,4 @@
-namespace Template {
+namespace Abschluss {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
 
@@ -35,11 +35,15 @@ namespace Template {
   export let locations = {
     rockyBeach: {
       name: "Rocky Beach",
-      background: "Img/Backgrounds/Felsenstrand.jpg"
+      background: "Img/Backgrounds/RockyBeach.jpg"
     },
     turtleBeach: {
       name: "Turtle Beach",
-      background: "Img/Backgrounds/BabySchildkröte.jpg"
+      background: "Img/Backgrounds/TurtleBeach.jpg"
+    },
+    trashBeach: {
+      name: "Trash Beach",
+      background: "Img/Backgrounds/TrashBeach.jpg"
     }
   };
 
@@ -47,9 +51,10 @@ namespace Template {
   export let characters = {
     Mermaid: {
       name: "Meerjungfrau",
-      origin: ƒS.ORIGIN.BOTTOMRIGHT,
+      origin: ƒS.ORIGIN.BOTTOMLEFT,
       pose: {
-        idle: "Img/Characters/Mermaid/mermaid-idle.png"
+        idle: "Img/Characters/Mermaid/mermaid-idle.png",
+        floating: "Img/Characters/Mermaid/mermaid-floating.png"
       }
     }
   };
@@ -120,10 +125,12 @@ namespace Template {
   function start(_event: Event): void {
 
     gameMenu = ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
+    gameMenu.close();
 
     let scenes: ƒS.Scenes = [
-      // { scene: RockyBeach, name: "Scene", id: "00001", next: "00002" },
-      { scene: TurtleBeach, name: "Scene02", id: "00002", next: "" }
+      { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+      { scene: TurtleBeach, name: "02TurtleBeach", id: "02"},
+      { scene: TrashBeach, name: "03TrashBeach", id: "03"}
     ];
 
     document.addEventListener("keydown", hndKeypress);
@@ -145,12 +152,12 @@ namespace Template {
         console.log("loading");
         await ƒS.Progress.load();
         break;
-      case ƒ.KEYBOARD_CODE.I:
-        await ƒS.Inventory.open();
-        break;
-      case ƒ.KEYBOARD_CODE.M:
-        gameMenu.open();
-        break;
+      // case ƒ.KEYBOARD_CODE.CTRL_LEFT && ƒ.KEYBOARD_CODE.I:
+      //   await ƒS.Inventory.open();
+      //   break;
+      // case ƒ.KEYBOARD_CODE.CTRL_LEFT && ƒ.KEYBOARD_CODE.M:
+      //   gameMenu.open();
+      //   break;
     }
   }
 

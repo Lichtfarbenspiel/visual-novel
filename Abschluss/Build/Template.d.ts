@@ -1,10 +1,13 @@
-declare namespace Template {
+declare namespace Abschluss {
     function RockyBeach(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Abschluss {
     function TurtleBeach(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Abschluss {
+    function TrashBeach(): ƒS.SceneReturn;
+}
+declare namespace Abschluss {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let data: {
@@ -36,6 +39,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        trashBeach: {
+            name: string;
+            background: string;
+        };
     };
     let characters: {
         Mermaid: {
@@ -43,6 +50,7 @@ declare namespace Template {
             origin: ƒ.ORIGIN2D;
             pose: {
                 idle: string;
+                floating: string;
             };
         };
     };

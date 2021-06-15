@@ -1,6 +1,8 @@
-namespace Template {
+namespace Abschluss {
   export async function TurtleBeach(): ƒS.SceneReturn {
-    console.log("Second scene starting");
+    console.log("TurtleBeach scene starting");
+
+    tickerDelay(30);
 
     let text = {
       Mermaid: {
@@ -27,7 +29,7 @@ namespace Template {
     await ƒS.update(0.5);
 
     await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0000);
-    await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positions.bottomleft);
+    await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positionPercent(0, 100));
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0000);
     await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
@@ -37,10 +39,15 @@ namespace Template {
 
     switch (userInput) {
       case turtleChoices.C0001:
-        break;
+        await ƒS.Character.hide(characters.Mermaid);
+        await ƒS.update(0.5);
+        ƒS.Speech.clear();
+        return "";
       case turtleChoices.C0002:
-        break;
+        await ƒS.Character.hide(characters.Mermaid);
+        await ƒS.update(0.5);
+        ƒS.Speech.clear();
+        return "03";
     }
-
   }
 }
