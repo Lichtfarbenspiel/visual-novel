@@ -133,9 +133,9 @@ namespace Abschluss {
     gameMenu.close();
 
     let scenes: ƒS.Scenes = [
-      // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-      // { scene: TurtleBeach, name: "02TurtleBeach", id: "02"},
-      // { scene: TrashBeach, name: "03TrashBeach", id: "03"},
+      { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+      { scene: TurtleBeach, name: "02TurtleBeach", id: "02"},
+      { scene: TrashBeach, name: "03TrashBeach", id: "03"},
       { scene: WaterBeach, name: "04WaterBeach", id: "04"}
     ];
 
