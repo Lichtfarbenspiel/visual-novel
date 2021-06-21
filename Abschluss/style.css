@@ -39,6 +39,10 @@ speech[class=""] content {
   color: rgb(181, 222, 255);
 }
 
+speech input {
+  border: none;
+}
+
 speech name {
   font-size: 1.2rem;
   display: block;

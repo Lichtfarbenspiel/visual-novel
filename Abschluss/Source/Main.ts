@@ -3,6 +3,7 @@ namespace Abschluss {
   export import ƒS = FudgeStory;
 
 
+  // DATA TO SAVE
   export let data = {
     Protagonist: {
       name: "Protagonist"
@@ -14,7 +15,7 @@ namespace Abschluss {
   };
 
 
-  // define transitions
+  // TRANSITIONS
   export let transition = {
     wave: {
       duration: 1.5,
@@ -23,7 +24,7 @@ namespace Abschluss {
     }
   };
 
-  //define sound
+  // SOUND
   export let sounds = {
     //Music
     backgroundTheme: "Sounds/",
@@ -31,7 +32,7 @@ namespace Abschluss {
     click: "Sounds/" 
   };
 
-  // define locations
+  // LOCATIONS
   export let locations = {
     rockyBeach: {
       name: "Rocky Beach",
@@ -44,10 +45,14 @@ namespace Abschluss {
     trashBeach: {
       name: "Trash Beach",
       background: "Img/Backgrounds/TrashBeach.jpg"
+    },
+    waterBeach: {
+      name: "Water Beach",
+      background: "Img/Backgrounds/WaterBeach.jpg"
     }
   };
 
-  //define characters
+  // CHARACTERS
   export let characters = {
     Mermaid: {
       name: "Meerjungfrau",
@@ -67,7 +72,7 @@ namespace Abschluss {
     }
   };
 
-  // Menu audio functions
+  // MENU AUDIO FUNCTIONS
   let volume: number = 1.0;
 
   export function increaseSound(): void {
@@ -95,7 +100,7 @@ namespace Abschluss {
     about: "Über das Spiel"
   };
 
-  // Menu Buttons
+  // MENU BUTTONS
   let gameMenu: ƒS.Menu;
 
   async function menuOptions(_option: string): Promise<void> {
@@ -128,9 +133,10 @@ namespace Abschluss {
     gameMenu.close();
 
     let scenes: ƒS.Scenes = [
-      { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-      { scene: TurtleBeach, name: "02TurtleBeach", id: "02"},
-      { scene: TrashBeach, name: "03TrashBeach", id: "03"}
+      // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+      // { scene: TurtleBeach, name: "02TurtleBeach", id: "02"},
+      // { scene: TrashBeach, name: "03TrashBeach", id: "03"},
+      { scene: WaterBeach, name: "04WaterBeach", id: "04"}
     ];
 
     document.addEventListener("keydown", hndKeypress);

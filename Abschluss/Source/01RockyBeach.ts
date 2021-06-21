@@ -3,7 +3,11 @@ namespace Abschluss {
     console.log("RockyBeach scene starting");
 
     tickerDelay(30);
+    await ƒS.Location.show(locations.rockyBeach);
+    await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
+    await ƒS.update(0.5);
 
+    await ƒS.Speech.tell(null, "Bitte gib deinen Namen hier ein: ");
     data.Protagonist.name = await ƒS.Speech.getInput();
     console.log(data.Protagonist.name);
 
@@ -22,10 +26,8 @@ namespace Abschluss {
       }
     };
 
-    await ƒS.Location.show(locations.rockyBeach);
-    await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
-    await ƒS.update(0.5);
-    await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positionPercent(0, 100));
+    
+    await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positionPercent(60, 100));
     await ƒS.update(1);
 
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0000);

@@ -12,13 +12,29 @@ namespace Abschluss {
             T0002: "Ich habe einmal gehört, wie zwei Meeresbiologen darüber geredet haben.",
             T0003: "Sie meinten, dass jedes Jahr etwa 1,15 bis 2,41 Millionen Tonnen Plastik über die Flüsse in die Meere gelangt. Das sind mehr als 6.000 beziehungsweise  11.000 Blauwale.",
             T0004: "Achso, klar. Ein Blauwal wiegt bis zu 190 Tonnen.",
-            T0005: "Aber nein. Ich habe im Meer schon an vielen Stellen Müll schwimmen sehen. Sowohl am Meeresboden, als auch weit draußen auf offener See."
+            T0005: "Aber nein. Ich habe im Meer schon an vielen Stellen Müll schwimmen sehen. Sowohl am Meeresboden, als auch weit draußen auf offener See.",
+            T0006: "Das liegt daran, dass Meeresschildkröten immer wieder zu ihrem eigenen Geburtsstrand zurückkehren, um dort ihre Eier abzulegen.",
+            T0007: "Das ist richtig. Hier graben sie dann eine Mulde, in die sie über 100 Eier ablegen, die dann von der Sonne ausgebrütet werden.",
+            T0008: "Das kann ich dir nicht sagen, das wissen bisher nur die Schildkröten selbst.",
+            T0009: "Es gibt noch sieben Meeresschildkrötenarten und alle sind sie vom Aussterben bedroht.",
+            T0010: "Eigentlich ausschließlich wegen Menschen.",
+            T0011: "Auch, aber vor allem, weil sie gejagt werden. Seit Jahrhunderten schon werden sie, wegen ihrem Fleisch und den Panzern, und auch die Eier gejagt.",
+            T0012: "Dazu kommt, dass sie oft von ihren Niststränden durch Menschen verdrängt werden.",
+            T0013: "Ja leider und eben für ganz viele andere marine Lebewesen auch. Sowas sollte es einfach nicht geben! Außerdem verenden die Schildkröten auch viel zu oft als Beifang.",
+            T0014: "Als Beifang werden in der Fischerei die Tiere oder Arten bezeichnet, die sie eigentlich nicht fangen wollen.",
+            T0015: "Diese geraten bei sehr umweltgefährdenden Fangmethoden ungewollt mit in die Netze.",
+            T0016: "Naja, ganz unmöglich ist es nicht…",
+            T0017: "Das Fischen einfach ganz lassen, zumindest diese überdimensionale Industriefischerei. Das zerstört einfach so viele Ökosysteme!",
+            T0018: "Das Trawling beispielsweise.",
+            T0019: "Dabei werden riesige Grundschleppnetze eingesetzt, die direkt über den Meeresboden gezogen werden und so alles zerstören, was dort vorher war."
+
           },
           Protagonist: {
             T0000: "Wieso liegt hier denn so viel Müll? ",
-            T0001: ".",
-            T0002: "",
-            T0003: ""
+            T0001: "Achso, dann müssten alle Mütter der Jungen hier am Strand also auch hier geboren sein…",
+            T0002: "Oh, wegen all dem Müll?",
+            T0003: "Hm stimmt, daran hab ich gar nicht gedacht. Ich meine, da gibt es auch einen unglaublich großen Schwarzmarkt für solche Tiere.",
+            T0004: "Ja, macht Sinn. So ein Netz lässt sich ja auch nicht wirklich Steuern, da ist es ja unmöglich sowas zu verhindern."
           }
         };
 
@@ -61,11 +77,106 @@ namespace Abschluss {
                 case questionChoices01.C0002:
                     // Liegt das dann alles immer an den Stränden?
                     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0005);
+                    // weiter zu GPGP
                     break;
             }
             break;
         case questionChoices.C0002:
             // Wieso werden die Eier überhaupt hier abgelegt?
+            await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0006);
+            await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
+            await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0007);
+
+            let questionChoices02 = {
+                C0001: "Wieso kommen sie denn immer nur an den Geburtsstrand zurück?",
+                C0002: "Wie viele Arten von Wasserschildkröten gibt es denn?",
+                C0003: "Und wieso schaust du jetzt nach den Schildkrötenjungen?"
+            };
+
+            let userInput02 = await ƒS.Menu.getInput(questionChoices02, "class");
+
+            switch (userInput02) {
+                case questionChoices02.C0001:
+                    // Wieso kommen sie denn immer nur an den Geburtsstrand zurück?
+                    await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0008);
+                    break;
+                case questionChoices02.C0002:
+                    // Wie viele Arten von Wasserschildkröten gibt es denn?
+                    await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
+
+                    
+                    let questionChoices03 = {
+                        C0001: "Warum sind sie vom Aussterben bedroht?",
+                        C0002: "Und wieso schaust du jetzt nach den Schildkrötenjungen?"
+                    };
+
+                    let userInput03 = await ƒS.Menu.getInput(questionChoices03, "class");
+
+                    switch (userInput03) {
+                        case questionChoices03.C0001:
+                            // Warum sind sie vom Aussterben bedroht?
+                            await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
+                            await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0002);
+                            await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0011);
+                            await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0012);
+                            await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
+                            await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0013);
+
+                            let questionChoices04 = {
+                                C0001: "Was meinst du mit Beifang?",
+                                C0002: "" // TO DO
+                            };
+        
+                            let userInput04 = await ƒS.Menu.getInput(questionChoices04, "class");
+
+                            switch (userInput04) {
+                                case questionChoices04.C0001:
+                                    // Was meinst du mit Beifang?
+                                    await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
+                                    await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
+                                    await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0004);
+                                    await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0016);
+
+                                    let questionChoices05 = {
+                                        C0001: "Was genau meinst du?",
+                                        C0002: "Was sind denn das für Fangmethoden?"
+                                    };
+                
+                                    let userInput05 = await ƒS.Menu.getInput(questionChoices05, "class");
+
+                                    switch (userInput05) {
+                                        case questionChoices05.C0001:
+                                            // Was genau meinst du?
+                                            await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0017);
+                                            break;
+                                        case questionChoices05.C0002:
+                                            // Was sind denn das für Fangmethoden?
+                                            await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0018);
+                                            await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0019);
+                                            break;
+                                    }
+
+                                    break;
+                                case questionChoices04.C0002:
+                                    // TO DO
+                                    break;
+                            }
+
+                            break;
+                        case questionChoices03.C0002:
+                            // Und wieso schaust du jetzt nach den Schildkrötenjungen?
+
+                            // TO DO
+                            break;
+                    }
+                    break;
+                case questionChoices02.C0003:
+                    // Und wieso schaust du jetzt nach den Schildkrötenjungen?
+
+                    // TO DO
+                    break;
+                    }
+
             break;
         }
     }

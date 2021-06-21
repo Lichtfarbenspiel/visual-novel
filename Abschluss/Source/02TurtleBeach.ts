@@ -39,11 +39,13 @@ namespace Abschluss {
 
     switch (userInput) {
       case turtleChoices.C0001:
+        // Schildkröten zum Wasser tragen
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();
-        return "";
+        return "04";
       case turtleChoices.C0002:
+        // Schildkröten beobachten
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();

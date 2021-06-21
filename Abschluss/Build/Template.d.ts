@@ -8,6 +8,9 @@ declare namespace Abschluss {
     function TrashBeach(): ƒS.SceneReturn;
 }
 declare namespace Abschluss {
+    function WaterBeach(): ƒS.SceneReturn;
+}
+declare namespace Abschluss {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let data: {
@@ -43,6 +46,10 @@ declare namespace Abschluss {
             name: string;
             background: string;
         };
+        waterBeach: {
+            name: string;
+            background: string;
+        };
     };
     let characters: {
         Mermaid: {
@@ -64,4 +71,7 @@ declare namespace Abschluss {
     function increaseSound(): void;
     function decreaseSound(): void;
     function tickerDelay(_delay: number): void;
+}
+declare namespace Abschluss {
+    function SceneTemplate(): ƒS.SceneReturn;
 }
