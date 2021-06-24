@@ -25,8 +25,12 @@ namespace Abschluss {
     };
 
     await ƒS.Location.show(locations.turtleBeach);
+    ƒS.Sound.play(sounds.singleWave, 0.5, false);
     await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
     await ƒS.update(0.5);
+
+    // ƒS.Sound.play(sounds.wavesOnSandyBeach, 0.01, true);
+    // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.03, 0.1, true);
 
     await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0000);
     await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positionPercent(0, 100));
@@ -43,12 +47,14 @@ namespace Abschluss {
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();
+        // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.001, 0.1, false);
         return "04";
       case turtleChoices.C0002:
         // Schildkröten beobachten
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();
+        // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.001, 0.1, false);
         return "03";
     }
   }

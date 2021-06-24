@@ -36,7 +36,10 @@ declare namespace Abschluss {
     };
     let sounds: {
         backgroundTheme: string;
-        click: string;
+        wavesOnRocks: string;
+        wavesOnSandyBeach: string;
+        seagull: string;
+        singleWave: string;
     };
     let locations: {
         rockyBeach: {

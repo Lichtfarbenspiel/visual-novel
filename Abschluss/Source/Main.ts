@@ -32,9 +32,12 @@ namespace Abschluss {
   // SOUND
   export let sounds = {
     //Music
-    backgroundTheme: "Sounds/",
+    backgroundTheme: "Sounds/open-sea-morning-puddle-of-infinity-youtube-royalty-free-music-download.mp3",
     //Sound
-    click: "Sounds/" 
+    wavesOnRocks: "Sounds/waves-on-seaside-rocks.wav",
+    wavesOnSandyBeach: "Sounds/",
+    seagull: "Sounds/seagull.wav",
+    singleWave: "Sounds/single-wave.wav"
   };
 
   // LOCATIONS

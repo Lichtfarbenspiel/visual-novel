@@ -47,6 +47,7 @@ namespace Abschluss {
         };
 
         await ƒS.Location.show(locations.waterBeach);
+        ƒS.Sound.play(sounds.singleWave, 0.5, false);
         await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
         await ƒS.update(0.5);
 

@@ -5,8 +5,11 @@ var Abschluss;
         console.log("RockyBeach scene starting");
         Abschluss.tickerDelay(30);
         await Abschluss.ƒS.Location.show(Abschluss.locations.rockyBeach);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
         await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
         await Abschluss.ƒS.update(0.5);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.wavesOnRocks, 0.01, true);
+        Abschluss.ƒS.Sound.fade(Abschluss.sounds.wavesOnRocks, 0.5, 0.1, true);
         await Abschluss.ƒS.Speech.tell(null, "Bitte gib deinen Namen hier ein: ");
         Abschluss.data.Protagonist.name = await Abschluss.ƒS.Speech.getInput();
         console.log(Abschluss.data.Protagonist.name);
@@ -26,10 +29,13 @@ var Abschluss;
         };
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.idle, Abschluss.ƒS.positionPercent(60, 100));
         await Abschluss.ƒS.update(1);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.backgroundTheme, 0.01, true);
+        Abschluss.ƒS.Sound.fade(Abschluss.sounds.backgroundTheme, 0.03, 0.1, true);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0001);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0001);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.5, false);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0002);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0002);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0003);
@@ -37,6 +43,7 @@ var Abschluss;
         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
         await Abschluss.ƒS.update(0.5);
         Abschluss.ƒS.Speech.clear();
+        Abschluss.ƒS.Sound.fade(Abschluss.sounds.wavesOnRocks, 0.001, 0.1, false);
     }
     Abschluss.RockyBeach = RockyBeach;
 })(Abschluss || (Abschluss = {}));
@@ -64,8 +71,11 @@ var Abschluss;
             C0002: "Schildkröten beobachten"
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.turtleBeach);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
         await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
         await Abschluss.ƒS.update(0.5);
+        // ƒS.Sound.play(sounds.wavesOnSandyBeach, 0.01, true);
+        // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.03, 0.1, true);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.idle, Abschluss.ƒS.positionPercent(0, 100));
         await Abschluss.ƒS.update(1);
@@ -79,12 +89,14 @@ var Abschluss;
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
+                // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.001, 0.1, false);
                 return "04";
             case turtleChoices.C0002:
                 // Schildkröten beobachten
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
+                // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.001, 0.1, false);
                 return "03";
         }
     }
@@ -132,6 +144,7 @@ var Abschluss;
             C0003: "Müll einsammeln"
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.trashBeach);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
         await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
         await Abschluss.ƒS.update(0.5);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(-5, 110));
@@ -301,6 +314,7 @@ var Abschluss;
             }
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.waterBeach);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
         await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
         await Abschluss.ƒS.update(0.5);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(40, 105));
@@ -412,9 +426,12 @@ var Abschluss;
     // SOUND
     Abschluss.sounds = {
         //Music
-        backgroundTheme: "Sounds/",
+        backgroundTheme: "Sounds/open-sea-morning-puddle-of-infinity-youtube-royalty-free-music-download.mp3",
         //Sound
-        click: "Sounds/"
+        wavesOnRocks: "Sounds/waves-on-seaside-rocks.wav",
+        wavesOnSandyBeach: "Sounds/",
+        seagull: "Sounds/seagull.wav",
+        singleWave: "Sounds/single-wave.wav"
     };
     // LOCATIONS
     Abschluss.locations = {
@@ -522,9 +539,10 @@ var Abschluss;
         gameMenu = Abschluss.ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
         gameMenu.close();
         let scenes = [
-            // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-            // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
+            { scene: Abschluss.RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+            { scene: Abschluss.TurtleBeach, name: "02TurtleBeach", id: "02", next: "null" },
             { scene: Abschluss.TrashBeach, name: "03TrashBeach", id: "03", next: "null" },
+            { scene: Abschluss.WaterBeach, name: "04WaterBeach", id: "04", next: "null" }
         ];
         document.addEventListener("keydown", hndKeypress);
         let uiElement = document.querySelector("[type=interface]");

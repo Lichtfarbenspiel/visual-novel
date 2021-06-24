@@ -4,8 +4,12 @@ namespace Abschluss {
 
     tickerDelay(30);
     await ƒS.Location.show(locations.rockyBeach);
+    ƒS.Sound.play(sounds.singleWave, 0.5, false);
     await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
     await ƒS.update(0.5);
+
+    ƒS.Sound.play(sounds.wavesOnRocks, 0.01, true);
+    ƒS.Sound.fade(sounds.wavesOnRocks, 0.5, 0.1, true);
 
     await ƒS.Speech.tell(null, "Bitte gib deinen Namen hier ein: ");
     data.Protagonist.name = await ƒS.Speech.getInput();
@@ -30,10 +34,14 @@ namespace Abschluss {
     await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positionPercent(60, 100));
     await ƒS.update(1);
 
+    ƒS.Sound.play(sounds.backgroundTheme, 0.01, true);
+    ƒS.Sound.fade(sounds.backgroundTheme, 0.03, 0.1, true);
+
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0000);
     await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0000);
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0001);
     await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
+    ƒS.Sound.play(sounds.seagull, 0.5, false);
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0002);
     await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0002);
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0003);
@@ -42,5 +50,6 @@ namespace Abschluss {
     await ƒS.Character.hide(characters.Mermaid);
     await ƒS.update(0.5);
     ƒS.Speech.clear();
+    ƒS.Sound.fade(sounds.wavesOnRocks, 0.001, 0.1, false);
   }
 }
