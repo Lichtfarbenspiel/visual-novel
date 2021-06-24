@@ -21,6 +21,11 @@ namespace Abschluss {
       duration: 1.5,
       alpha: "Transitions/waves06.png",
       edge: 1.5
+    },
+    swirl: {
+      duration: 1.5,
+      alpha: "Transitions/swirl.png",
+      edge: 1.5
     }
   };
 
@@ -44,7 +49,11 @@ namespace Abschluss {
     },
     trashBeach: {
       name: "Trash Beach",
-      background: "Img/Backgrounds/TrashBeach.jpg"
+      background: "Img/Backgrounds/TrashBeach02.jpg"
+    },
+    trashBeachClean: {
+      name: "Trash Beach",
+      background: "Img/Backgrounds/TrashBeach02-cleaner.jpg"
     },
     waterBeach: {
       name: "Water Beach",
@@ -65,10 +74,15 @@ namespace Abschluss {
   };
 
   export let items = {
-    item01: {
-      name: "item01",
-      description: "item01",
-      image: "Img/Items"
+    recycleBadge: {
+      name: "Recycle Badge",
+      description: "Du hast am Strand Müll eingesammelt.",
+      image: "Img/Items/recycle-badge.png"
+    },
+    plasticBottles: {
+      name: "Plastik Flaschen",
+      description: "Wenn du die Plastik Flaschen wieder weg wirfst, verlierst du xy Punkte.",
+      image: "Img/Items/plastic-bottles.png"
     }
   };
 

@@ -128,12 +128,13 @@ var Abschluss;
         };
         let questionChoices = {
             C0001: "Wieso wird es immer schlimmer?",
-            C0002: "Wieso werden die Eier überhaupt hier abgelegt?"
+            C0002: "Wieso werden die Eier überhaupt hier abgelegt?",
+            C0003: "Müll einsammeln"
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.trashBeach);
         await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
         await Abschluss.ƒS.update(0.5);
-        await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(-5, 105));
+        await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(-5, 110));
         await Abschluss.ƒS.update(1);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
@@ -239,6 +240,15 @@ var Abschluss;
                         // TO DO
                         break;
                 }
+                break;
+            case questionChoices.C0003:
+                // Müll einsammeln
+                await Abschluss.ƒS.Location.show(Abschluss.locations.trashBeachClean);
+                await Abschluss.ƒS.update(Abschluss.transition.swirl.duration, Abschluss.transition.swirl.alpha, Abschluss.transition.swirl.edge);
+                await Abschluss.ƒS.update(0.5);
+                Abschluss.ƒS.Inventory.add(Abschluss.items.recycleBadge);
+                Abschluss.ƒS.Inventory.add(Abschluss.items.plasticBottles);
+                await Abschluss.ƒS.Inventory.open();
                 break;
         }
     }
@@ -392,6 +402,11 @@ var Abschluss;
             duration: 1.5,
             alpha: "Transitions/waves06.png",
             edge: 1.5
+        },
+        swirl: {
+            duration: 1.5,
+            alpha: "Transitions/swirl.png",
+            edge: 1.5
         }
     };
     // SOUND
@@ -413,7 +428,11 @@ var Abschluss;
         },
         trashBeach: {
             name: "Trash Beach",
-            background: "Img/Backgrounds/TrashBeach.jpg"
+            background: "Img/Backgrounds/TrashBeach02.jpg"
+        },
+        trashBeachClean: {
+            name: "Trash Beach",
+            background: "Img/Backgrounds/TrashBeach02-cleaner.jpg"
         },
         waterBeach: {
             name: "Water Beach",
@@ -432,10 +451,15 @@ var Abschluss;
         }
     };
     Abschluss.items = {
-        item01: {
-            name: "item01",
-            description: "item01",
-            image: "Img/Items"
+        recycleBadge: {
+            name: "Recycle Badge",
+            description: "Du hast am Strand Müll eingesammelt.",
+            image: "Img/Items/recycle-badge.png"
+        },
+        plasticBottles: {
+            name: "Plastik Flaschen",
+            description: "Wenn du die Plastik Flaschen wieder weg wirfst, verlierst du xy Punkte.",
+            image: "Img/Items/plastic-bottles.png"
         }
     };
     // MENU AUDIO FUNCTIONS
@@ -498,10 +522,9 @@ var Abschluss;
         gameMenu = Abschluss.ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
         gameMenu.close();
         let scenes = [
-            { scene: Abschluss.RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-            { scene: Abschluss.TurtleBeach, name: "02TurtleBeach", id: "02", next: "null" },
+            // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+            // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
             { scene: Abschluss.TrashBeach, name: "03TrashBeach", id: "03", next: "null" },
-            { scene: Abschluss.WaterBeach, name: "04WaterBeach", id: "04", next: "null" }
         ];
         document.addEventListener("keydown", hndKeypress);
         let uiElement = document.querySelector("[type=interface]");

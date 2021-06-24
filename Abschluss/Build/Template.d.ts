@@ -28,6 +28,11 @@ declare namespace Abschluss {
             alpha: string;
             edge: number;
         };
+        swirl: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
     };
     let sounds: {
         backgroundTheme: string;
@@ -43,6 +48,10 @@ declare namespace Abschluss {
             background: string;
         };
         trashBeach: {
+            name: string;
+            background: string;
+        };
+        trashBeachClean: {
             name: string;
             background: string;
         };
@@ -62,7 +71,12 @@ declare namespace Abschluss {
         };
     };
     let items: {
-        item01: {
+        recycleBadge: {
+            name: string;
+            description: string;
+            image: string;
+        };
+        plasticBottles: {
             name: string;
             description: string;
             image: string;
