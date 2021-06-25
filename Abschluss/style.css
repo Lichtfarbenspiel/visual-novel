@@ -133,7 +133,7 @@ dialog[class="gameMenu"] Button:hover {
 }
 
 dialog[type="inventory"] {
-  display: grid;
+  /* display: grid; */
   width: 55vw;
   height: 30vh;
 }
