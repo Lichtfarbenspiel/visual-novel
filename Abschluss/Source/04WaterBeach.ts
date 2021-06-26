@@ -51,6 +51,9 @@ namespace Abschluss {
         await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
         await ƒS.update(0.5);
 
+        ƒS.Sound.play(sounds.bigWavesOnSandyBeach, 0.001, true);
+        ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 1, 0.1, true);
+
         await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.floating, ƒS.positionPercent(40, 105));
         await ƒS.update(1);
 

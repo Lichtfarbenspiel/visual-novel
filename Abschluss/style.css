@@ -15,8 +15,10 @@ input {
 button {
   border: none;
 }
-
+  
 scene {
+  /* width: 1920px;
+  height: 1080px; */
   width: 80em;
   height: 45em;
   display: inline-block;

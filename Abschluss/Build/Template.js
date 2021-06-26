@@ -74,11 +74,13 @@ var Abschluss;
         Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
         await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
         await Abschluss.ƒS.update(0.5);
-        // ƒS.Sound.play(sounds.wavesOnSandyBeach, 0.01, true);
-        // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.03, 0.1, true);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.softWavesOnSandyBeach, 0.001, true);
+        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.01, 0.1, true);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.softSandSteps, 1.5, true);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.idle, Abschluss.ƒS.positionPercent(0, 100));
         await Abschluss.ƒS.update(1);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0001);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0001);
@@ -89,14 +91,16 @@ var Abschluss;
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
-                // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.001, 0.1, false);
+                Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
+                Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
                 return "04";
             case turtleChoices.C0002:
                 // Schildkröten beobachten
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
-                // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.001, 0.1, false);
+                Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
+                Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
                 return "03";
         }
     }
@@ -118,17 +122,18 @@ var Abschluss;
                 T0006: "Das liegt daran, dass Meeresschildkröten immer wieder zu ihrem eigenen Geburtsstrand zurückkehren, um dort ihre Eier abzulegen.",
                 T0007: "Das ist richtig. Hier graben sie dann eine Mulde, in die sie über 100 Eier ablegen, die dann von der Sonne ausgebrütet werden.",
                 T0008: "Das kann ich dir nicht sagen, das wissen bisher nur die Schildkröten selbst.",
-                T0009: "Es gibt noch sieben Meeresschildkrötenarten und alle sind sie vom Aussterben bedroht.",
-                T0010: "Eigentlich ausschließlich wegen Menschen.",
-                T0011: "Auch, aber vor allem, weil sie gejagt werden. Seit Jahrhunderten schon werden sie, wegen ihrem Fleisch und den Panzern, und auch die Eier gejagt.",
-                T0012: "Dazu kommt, dass sie oft von ihren Niststränden durch Menschen verdrängt werden.",
-                T0013: "Ja leider und eben für ganz viele andere marine Lebewesen auch. Sowas sollte es einfach nicht geben! Außerdem verenden die Schildkröten auch viel zu oft als Beifang.",
-                T0014: "Als Beifang werden in der Fischerei die Tiere oder Arten bezeichnet, die sie eigentlich nicht fangen wollen.",
-                T0015: "Diese geraten bei sehr umweltgefährdenden Fangmethoden ungewollt mit in die Netze.",
-                T0016: "Naja, ganz unmöglich ist es nicht…",
-                T0017: "Das Fischen einfach ganz lassen, zumindest diese überdimensionale Industriefischerei. Das zerstört einfach so viele Ökosysteme!",
-                T0018: "Das Trawling beispielsweise.",
-                T0019: "Dabei werden riesige Grundschleppnetze eingesetzt, die direkt über den Meeresboden gezogen werden und so alles zerstören, was dort vorher war."
+                T0009: "Hm, was denkst du denn? (Bitte gib nur Zahlen ein) ",
+                T0010: "Es gibt weltweit noch sieben Meeresschildkrötenarten und alle sind sie vom Aussterben bedroht.",
+                T0011: "Eigentlich ausschließlich wegen Menschen.",
+                T0012: "Auch, aber vor allem, weil sie gejagt werden. Seit Jahrhunderten schon werden sie, wegen ihrem Fleisch und den Panzern, und auch die Eier gejagt.",
+                T0013: "Dazu kommt, dass sie oft von ihren Niststränden durch Menschen verdrängt werden.",
+                T0014: "Ja leider und eben für ganz viele andere marine Lebewesen auch. Sowas sollte es einfach nicht geben! Außerdem verenden die Schildkröten auch viel zu oft als Beifang.",
+                T0015: "Als Beifang werden in der Fischerei die Tiere oder Arten bezeichnet, die sie eigentlich nicht fangen wollen.",
+                T0016: "Diese geraten bei sehr umweltgefährdenden Fangmethoden ungewollt mit in die Netze.",
+                T0017: "Naja, ganz unmöglich ist es nicht…",
+                T0018: "Das Fischen einfach ganz lassen, zumindest diese überdimensionale Industriefischerei. Das zerstört einfach so viele Ökosysteme!",
+                T0019: "Das Trawling beispielsweise.",
+                T0020: "Dabei werden riesige Grundschleppnetze eingesetzt, die direkt über den Meeresboden gezogen werden und so alles zerstören, was dort vorher war."
             },
             Protagonist: {
                 T0000: "Wieso liegt hier denn so viel Müll? ",
@@ -193,7 +198,33 @@ var Abschluss;
                         break;
                     case questionChoices02.C0002:
                         // Wie viele Arten von Wasserschildkröten gibt es denn?
-                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0009);
+                        let repeat = 2;
+                        let count = 0;
+                        for (let i = 0; count <= repeat; i++) {
+                            if (!Abschluss.data.correct) {
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0009);
+                                let turtleGuess = await Abschluss.ƒS.Speech.getInput();
+                                console.log(turtleGuess);
+                                let response = hndTurtleGuess(turtleGuess);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, response);
+                                if (count == repeat)
+                                    break;
+                                let retryChoices = {
+                                    C0001: "Nochmal versuchen!",
+                                    C0002: "Bitte sag mir die Lösung."
+                                };
+                                let retryInput = await Abschluss.ƒS.Menu.getInput(retryChoices, "class");
+                                switch (retryInput) {
+                                    case retryChoices.C0001:
+                                        count++;
+                                        break;
+                                    case retryChoices.C0002:
+                                        break;
+                                }
+                            }
+                        }
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
+                        Abschluss.data.correct = false;
                         let questionChoices03 = {
                             C0001: "Warum sind sie vom Aussterben bedroht?",
                             C0002: "Und wieso schaust du jetzt nach den Schildkrötenjungen?"
@@ -202,12 +233,12 @@ var Abschluss;
                         switch (userInput03) {
                             case questionChoices03.C0001:
                                 // Warum sind sie vom Aussterben bedroht?
-                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
-                                await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0002);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0011);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0002);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0012);
-                                await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0003);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0013);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0003);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0014);
                                 let questionChoices04 = {
                                     C0001: "Was meinst du mit Beifang?",
                                     C0002: "" // TO DO
@@ -216,10 +247,10 @@ var Abschluss;
                                 switch (userInput04) {
                                     case questionChoices04.C0001:
                                         // Was meinst du mit Beifang?
-                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0014);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
-                                        await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0004);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0016);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0004);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0017);
                                         let questionChoices05 = {
                                             C0001: "Was genau meinst du?",
                                             C0002: "Was sind denn das für Fangmethoden?"
@@ -228,12 +259,12 @@ var Abschluss;
                                         switch (userInput05) {
                                             case questionChoices05.C0001:
                                                 // Was genau meinst du?
-                                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0017);
+                                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0018);
                                                 break;
                                             case questionChoices05.C0002:
                                                 // Was sind denn das für Fangmethoden?
-                                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0018);
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0019);
+                                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0020);
                                                 break;
                                         }
                                         break;
@@ -261,11 +292,31 @@ var Abschluss;
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Inventory.add(Abschluss.items.recycleBadge);
                 Abschluss.ƒS.Inventory.add(Abschluss.items.plasticBottles);
-                await Abschluss.ƒS.Inventory.open();
+                Abschluss.ƒS.Inventory.open();
                 break;
         }
     }
     Abschluss.TrashBeach = TrashBeach;
+    // tslint:disable-next-line: no-any
+    function hndTurtleGuess(turtleGuess) {
+        if (isNaN(turtleGuess) || !turtleGuess) {
+            Abschluss.data.correct = false;
+            return "Das war doch keine Zahl, oder?";
+        }
+        else if (turtleGuess > 0 && turtleGuess < 7 || turtleGuess > 7 && turtleGuess <= 13) {
+            Abschluss.data.correct = false;
+            return "Ja, fast richtig.";
+        }
+        else if (turtleGuess > 14) {
+            Abschluss.data.correct = false;
+            return "Nein, nicht ganz so viele.";
+        }
+        else if (turtleGuess == 7) {
+            Abschluss.data.correct = true;
+            return "Ja genau!";
+        }
+        return null;
+    }
 })(Abschluss || (Abschluss = {}));
 var Abschluss;
 (function (Abschluss) {
@@ -317,6 +368,8 @@ var Abschluss;
         Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
         await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
         await Abschluss.ƒS.update(0.5);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.bigWavesOnSandyBeach, 0.001, true);
+        Abschluss.ƒS.Sound.fade(Abschluss.sounds.bigWavesOnSandyBeach, 1, 0.1, true);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(40, 105));
         await Abschluss.ƒS.update(1);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);
@@ -408,14 +461,15 @@ var Abschluss;
         state: {
             a: 0
         },
-        ended: false
+        ended: false,
+        correct: false
     };
     // TRANSITIONS
     Abschluss.transition = {
         wave: {
             duration: 1.5,
             alpha: "Transitions/waves06.png",
-            edge: 1.5
+            edge: 1
         },
         swirl: {
             duration: 1.5,
@@ -428,10 +482,12 @@ var Abschluss;
         //Music
         backgroundTheme: "Sounds/open-sea-morning-puddle-of-infinity-youtube-royalty-free-music-download.mp3",
         //Sound
-        wavesOnRocks: "Sounds/waves-on-seaside-rocks.wav",
-        wavesOnSandyBeach: "Sounds/",
-        seagull: "Sounds/seagull.wav",
-        singleWave: "Sounds/single-wave.wav"
+        wavesOnRocks: "Sounds/213495__arnaud-coutancier__waves-on-seaside-rocks-3.wav",
+        bigWavesOnSandyBeach: "Sounds/197714__tim-kahn__atlantic-ocean-waves.wav",
+        softWavesOnSandyBeach: "Sounds/412308__straget__big-waves-hit-land.wav",
+        seagull: "Sounds/166703__snapper4298__sea-gulls.wav",
+        singleWave: "Sounds/61012__kayyy__wave2.wav",
+        softSandSteps: "Sounds/197714__tim-kahn__atlantic-ocean-waves.wav"
     };
     // LOCATIONS
     Abschluss.locations = {
@@ -539,10 +595,8 @@ var Abschluss;
         gameMenu = Abschluss.ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
         gameMenu.close();
         let scenes = [
-            { scene: Abschluss.RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+            // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
             { scene: Abschluss.TurtleBeach, name: "02TurtleBeach", id: "02", next: "null" },
-            { scene: Abschluss.TrashBeach, name: "03TrashBeach", id: "03", next: "null" },
-            { scene: Abschluss.WaterBeach, name: "04WaterBeach", id: "04", next: "null" }
         ];
         document.addEventListener("keydown", hndKeypress);
         let uiElement = document.querySelector("[type=interface]");

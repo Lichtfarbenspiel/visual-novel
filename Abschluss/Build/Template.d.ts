@@ -21,6 +21,7 @@ declare namespace Abschluss {
             a: number;
         };
         ended: boolean;
+        correct: boolean;
     };
     let transition: {
         wave: {
@@ -37,9 +38,11 @@ declare namespace Abschluss {
     let sounds: {
         backgroundTheme: string;
         wavesOnRocks: string;
-        wavesOnSandyBeach: string;
+        bigWavesOnSandyBeach: string;
+        softWavesOnSandyBeach: string;
         seagull: string;
         singleWave: string;
+        softSandSteps: string;
     };
     let locations: {
         rockyBeach: {

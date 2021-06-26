@@ -29,15 +29,17 @@ namespace Abschluss {
     await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
     await ƒS.update(0.5);
 
-    // ƒS.Sound.play(sounds.wavesOnSandyBeach, 0.01, true);
-    // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.03, 0.1, true);
-
+    ƒS.Sound.play(sounds.softWavesOnSandyBeach, 0.001, true);
+    ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.01, 0.1, true);
+    ƒS.Sound.play(sounds.softSandSteps, 1.5, true);
     await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0000);
     await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positionPercent(0, 100));
     await ƒS.update(1);
+    ƒS.Sound.play(sounds.seagull, 0.8, false);
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0000);
     await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0001);
+
 
     let userInput = await ƒS.Menu.getInput(turtleChoices, "class");
 
@@ -47,14 +49,16 @@ namespace Abschluss {
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();
-        // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.001, 0.1, false);
+        ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
+        ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
         return "04";
       case turtleChoices.C0002:
         // Schildkröten beobachten
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();
-        // ƒS.Sound.fade(sounds.wavesOnSandyBeach, 0.001, 0.1, false);
+        ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
+        ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
         return "03";
     }
   }

@@ -11,7 +11,8 @@ namespace Abschluss {
     state: {
       a: 0
     },
-    ended: false
+    ended: false,
+    correct: false
   };
 
 
@@ -20,7 +21,7 @@ namespace Abschluss {
     wave: {
       duration: 1.5,
       alpha: "Transitions/waves06.png",
-      edge: 1.5
+      edge: 1
     },
     swirl: {
       duration: 1.5,
@@ -34,10 +35,12 @@ namespace Abschluss {
     //Music
     backgroundTheme: "Sounds/open-sea-morning-puddle-of-infinity-youtube-royalty-free-music-download.mp3",
     //Sound
-    wavesOnRocks: "Sounds/waves-on-seaside-rocks.wav",
-    wavesOnSandyBeach: "Sounds/",
-    seagull: "Sounds/seagull.wav",
-    singleWave: "Sounds/single-wave.wav"
+    wavesOnRocks: "Sounds/213495__arnaud-coutancier__waves-on-seaside-rocks-3.wav",
+    bigWavesOnSandyBeach: "Sounds/197714__tim-kahn__atlantic-ocean-waves.mp3",
+    softWavesOnSandyBeach: "Sounds/412308__straget__big-waves-hit-land.mp3",
+    seagull: "Sounds/166703__snapper4298__sea-gulls.wav",
+    singleWave: "Sounds/61012__kayyy__wave2.wav",
+    softSandSteps: "Sounds/197714__tim-kahn__atlantic-ocean-waves.wav"
   };
 
   // LOCATIONS
@@ -152,7 +155,7 @@ namespace Abschluss {
     let scenes: ƒS.Scenes = [
       { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
       { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
-      { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},
+      { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
       { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"}
     ];
 

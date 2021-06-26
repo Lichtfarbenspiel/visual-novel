@@ -16,17 +16,18 @@ namespace Abschluss {
             T0006: "Das liegt daran, dass Meeresschildkröten immer wieder zu ihrem eigenen Geburtsstrand zurückkehren, um dort ihre Eier abzulegen.",
             T0007: "Das ist richtig. Hier graben sie dann eine Mulde, in die sie über 100 Eier ablegen, die dann von der Sonne ausgebrütet werden.",
             T0008: "Das kann ich dir nicht sagen, das wissen bisher nur die Schildkröten selbst.",
-            T0009: "Es gibt noch sieben Meeresschildkrötenarten und alle sind sie vom Aussterben bedroht.",
-            T0010: "Eigentlich ausschließlich wegen Menschen.",
-            T0011: "Auch, aber vor allem, weil sie gejagt werden. Seit Jahrhunderten schon werden sie, wegen ihrem Fleisch und den Panzern, und auch die Eier gejagt.",
-            T0012: "Dazu kommt, dass sie oft von ihren Niststränden durch Menschen verdrängt werden.",
-            T0013: "Ja leider und eben für ganz viele andere marine Lebewesen auch. Sowas sollte es einfach nicht geben! Außerdem verenden die Schildkröten auch viel zu oft als Beifang.",
-            T0014: "Als Beifang werden in der Fischerei die Tiere oder Arten bezeichnet, die sie eigentlich nicht fangen wollen.",
-            T0015: "Diese geraten bei sehr umweltgefährdenden Fangmethoden ungewollt mit in die Netze.",
-            T0016: "Naja, ganz unmöglich ist es nicht…",
-            T0017: "Das Fischen einfach ganz lassen, zumindest diese überdimensionale Industriefischerei. Das zerstört einfach so viele Ökosysteme!",
-            T0018: "Das Trawling beispielsweise.",
-            T0019: "Dabei werden riesige Grundschleppnetze eingesetzt, die direkt über den Meeresboden gezogen werden und so alles zerstören, was dort vorher war."
+            T0009: "Hm, was denkst du denn? (Bitte gib nur Zahlen ein) ",
+            T0010: "Es gibt weltweit noch sieben Meeresschildkrötenarten und alle sind sie vom Aussterben bedroht.",
+            T0011: "Eigentlich ausschließlich wegen Menschen.",
+            T0012: "Auch, aber vor allem, weil sie gejagt werden. Seit Jahrhunderten schon werden sie, wegen ihrem Fleisch und den Panzern, und auch die Eier gejagt.",
+            T0013: "Dazu kommt, dass sie oft von ihren Niststränden durch Menschen verdrängt werden.",
+            T0014: "Ja leider und eben für ganz viele andere marine Lebewesen auch. Sowas sollte es einfach nicht geben! Außerdem verenden die Schildkröten auch viel zu oft als Beifang.",
+            T0015: "Als Beifang werden in der Fischerei die Tiere oder Arten bezeichnet, die sie eigentlich nicht fangen wollen.",
+            T0016: "Diese geraten bei sehr umweltgefährdenden Fangmethoden ungewollt mit in die Netze.",
+            T0017: "Naja, ganz unmöglich ist es nicht…",
+            T0018: "Das Fischen einfach ganz lassen, zumindest diese überdimensionale Industriefischerei. Das zerstört einfach so viele Ökosysteme!",
+            T0019: "Das Trawling beispielsweise.",
+            T0020: "Dabei werden riesige Grundschleppnetze eingesetzt, die direkt über den Meeresboden gezogen werden und so alles zerstören, was dort vorher war."
 
           },
           Protagonist: {
@@ -104,8 +105,39 @@ namespace Abschluss {
                         break;
                     case questionChoices02.C0002:
                         // Wie viele Arten von Wasserschildkröten gibt es denn?
-                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
 
+                        let repeat = 2;
+                        let count = 0;
+
+                        for (let i: number = 0; count <= repeat; i++) {
+                            if (!data.correct) {
+
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
+                                let turtleGuess = await ƒS.Speech.getInput();
+                                console.log(turtleGuess);
+                                let response = hndTurtleGuess(turtleGuess);
+                                await ƒS.Speech.tell(characters.Mermaid, response);
+
+                                if (count == repeat) break;
+
+                                let retryChoices = {
+                                    C0001: "Nochmal versuchen!",
+                                    C0002: "Bitte sag mir die Lösung."
+                                };
+ 
+                                let retryInput = await ƒS.Menu.getInput(retryChoices, "class");
+                                switch (retryInput) {
+                                    case retryChoices.C0001:
+                                        count ++;
+                                        break;
+                                    case retryChoices.C0002:
+                                        break;
+                                }
+                            }
+                        }
+
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
+                        data.correct = false;
                         
                         let questionChoices03 = {
                             C0001: "Warum sind sie vom Aussterben bedroht?",
@@ -117,12 +149,12 @@ namespace Abschluss {
                         switch (userInput03) {
                             case questionChoices03.C0001:
                                 // Warum sind sie vom Aussterben bedroht?
-                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
-                                await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0002);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0011);
+                                await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0002);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0012);
-                                await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0013);
+                                await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
 
                                 let questionChoices04 = {
                                     C0001: "Was meinst du mit Beifang?",
@@ -134,10 +166,10 @@ namespace Abschluss {
                                 switch (userInput04) {
                                     case questionChoices04.C0001:
                                         // Was meinst du mit Beifang?
-                                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
-                                        await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0004);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0016);
+                                        await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0004);
+                                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0017);
 
                                         let questionChoices05 = {
                                             C0001: "Was genau meinst du?",
@@ -149,12 +181,12 @@ namespace Abschluss {
                                         switch (userInput05) {
                                             case questionChoices05.C0001:
                                                 // Was genau meinst du?
-                                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0017);
+                                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0018);
                                                 break;
                                             case questionChoices05.C0002:
                                                 // Was sind denn das für Fangmethoden?
-                                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0018);
                                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0019);
+                                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0020);
                                                 break;
                                         }
 
@@ -187,8 +219,29 @@ namespace Abschluss {
                 await ƒS.update(0.5);
                 ƒS.Inventory.add(items.recycleBadge);
                 ƒS.Inventory.add(items.plasticBottles);
-                await ƒS.Inventory.open();  
+                ƒS.Inventory.open();  
                 break;    
         }
+    }
+
+    // tslint:disable-next-line: no-any
+    function hndTurtleGuess(turtleGuess: any): string {
+        if (isNaN(turtleGuess) || !turtleGuess) {
+            data.correct = false;
+            return "Das war doch keine Zahl, oder?";
+        } 
+        else if (turtleGuess > 0 && turtleGuess < 7 || turtleGuess > 7 && turtleGuess <= 13) {
+            data.correct = false;
+            return "Ja, fast richtig.";
+        }
+        else if (turtleGuess > 14) {
+            data.correct = false;
+            return "Nein, nicht ganz so viele.";
+        }
+        else if (turtleGuess == 7) {
+            data.correct = true;
+            return "Ja genau!";
+        }
+        return null;
     }
 }
