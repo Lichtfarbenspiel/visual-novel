@@ -74,8 +74,8 @@ var Abschluss;
         Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
         await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
         await Abschluss.ƒS.update(0.5);
-        Abschluss.ƒS.Sound.play(Abschluss.sounds.softWavesOnSandyBeach, 0.001, true);
-        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.01, 0.1, true);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.softWavesOnSandyBeach, 0.01, true);
+        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
         Abschluss.ƒS.Sound.play(Abschluss.sounds.softSandSteps, 1.5, true);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.idle, Abschluss.ƒS.positionPercent(0, 100));
@@ -152,6 +152,8 @@ var Abschluss;
         Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
         await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
         await Abschluss.ƒS.update(0.5);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.softWavesOnSandyBeach, 0.01, true);
+        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(-5, 110));
         await Abschluss.ƒS.update(1);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);
@@ -370,7 +372,7 @@ var Abschluss;
         await Abschluss.ƒS.update(0.5);
         Abschluss.ƒS.Sound.play(Abschluss.sounds.bigWavesOnSandyBeach, 0.001, true);
         Abschluss.ƒS.Sound.fade(Abschluss.sounds.bigWavesOnSandyBeach, 1, 0.1, true);
-        await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(40, 105));
+        await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(40, 115));
         await Abschluss.ƒS.update(1);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
@@ -483,8 +485,8 @@ var Abschluss;
         backgroundTheme: "Sounds/open-sea-morning-puddle-of-infinity-youtube-royalty-free-music-download.mp3",
         //Sound
         wavesOnRocks: "Sounds/213495__arnaud-coutancier__waves-on-seaside-rocks-3.wav",
-        bigWavesOnSandyBeach: "Sounds/197714__tim-kahn__atlantic-ocean-waves.wav",
-        softWavesOnSandyBeach: "Sounds/412308__straget__big-waves-hit-land.wav",
+        bigWavesOnSandyBeach: "Sounds/197714__tim-kahn__atlantic-ocean-waves.mp3",
+        softWavesOnSandyBeach: "Sounds/412308__straget__big-waves-hit-land.mp3",
         seagull: "Sounds/166703__snapper4298__sea-gulls.wav",
         singleWave: "Sounds/61012__kayyy__wave2.wav",
         softSandSteps: "Sounds/197714__tim-kahn__atlantic-ocean-waves.wav"
@@ -595,8 +597,10 @@ var Abschluss;
         gameMenu = Abschluss.ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
         gameMenu.close();
         let scenes = [
-            // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+            { scene: Abschluss.RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
             { scene: Abschluss.TurtleBeach, name: "02TurtleBeach", id: "02", next: "null" },
+            { scene: Abschluss.TrashBeach, name: "03TrashBeach", id: "03", next: "null" },
+            { scene: Abschluss.WaterBeach, name: "04WaterBeach", id: "04", next: "null" }
         ];
         document.addEventListener("keydown", hndKeypress);
         let uiElement = document.querySelector("[type=interface]");

@@ -54,7 +54,7 @@ namespace Abschluss {
         ƒS.Sound.play(sounds.bigWavesOnSandyBeach, 0.001, true);
         ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 1, 0.1, true);
 
-        await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.floating, ƒS.positionPercent(40, 105));
+        await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.floating, ƒS.positionPercent(40, 115));
         await ƒS.update(1);
 
         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0000);

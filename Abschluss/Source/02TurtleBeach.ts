@@ -29,8 +29,9 @@ namespace Abschluss {
     await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
     await ƒS.update(0.5);
 
-    ƒS.Sound.play(sounds.softWavesOnSandyBeach, 0.001, true);
-    ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.01, 0.1, true);
+    ƒS.Sound.play(sounds.softWavesOnSandyBeach, 0.01, true);
+    ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
+    
     ƒS.Sound.play(sounds.softSandSteps, 1.5, true);
     await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0000);
     await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.idle, ƒS.positionPercent(0, 100));
