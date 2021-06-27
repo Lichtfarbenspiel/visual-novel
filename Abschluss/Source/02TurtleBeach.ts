@@ -47,6 +47,7 @@ namespace Abschluss {
     switch (userInput) {
       case turtleChoices.C0001:
         // Schildkröten zum Wasser tragen
+        addScore(3);
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();
@@ -55,6 +56,7 @@ namespace Abschluss {
         return "04";
       case turtleChoices.C0002:
         // Schildkröten beobachten
+        addScore(5);
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();

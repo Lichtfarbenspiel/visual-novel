@@ -88,6 +88,7 @@ var Abschluss;
         switch (userInput) {
             case turtleChoices.C0001:
                 // Schildkröten zum Wasser tragen
+                Abschluss.addScore(3);
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
@@ -96,6 +97,7 @@ var Abschluss;
                 return "04";
             case turtleChoices.C0002:
                 // Schildkröten beobachten
+                Abschluss.addScore(5);
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
@@ -174,6 +176,7 @@ var Abschluss;
         switch (userInput) {
             case questionChoices.C0001:
                 // Wieso wird es immer schlimmer
+                Abschluss.addScore(5);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0002);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0003);
                 let questionChoices01 = {
@@ -184,10 +187,12 @@ var Abschluss;
                 switch (userInput01) {
                     case questionChoices01.C0001:
                         // Wieviel wiegt denn so ein Blauwal?
+                        Abschluss.addScore(3);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
                         break;
                     case questionChoices01.C0002:
                         // Liegt das dann alles immer an den Stränden?
+                        Abschluss.addScore(5);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0005);
                         // weiter zu GPGP
                         break;
@@ -195,6 +200,7 @@ var Abschluss;
                 break;
             case questionChoices.C0002:
                 // Wieso werden die Eier überhaupt hier abgelegt?
+                Abschluss.addScore(5);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0006);
                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0001);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0007);
@@ -207,13 +213,16 @@ var Abschluss;
                 switch (userInput02) {
                     case questionChoices02.C0001:
                         // Wieso kommen sie denn immer nur an den Geburtsstrand zurück?
+                        Abschluss.addScore(2);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0008);
                         break;
                     case questionChoices02.C0002:
                         // Wie viele Arten von Wasserschildkröten gibt es denn?
+                        Abschluss.addScore(2);
                         let repeat = 2;
                         let count = 0;
                         for (let i = 0; count <= repeat; i++) {
+                            console.log("correct? " + Abschluss.data.correct);
                             if (!Abschluss.data.correct) {
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0009);
                                 let turtleGuess = await Abschluss.ƒS.Speech.getInput();
@@ -226,15 +235,21 @@ var Abschluss;
                                     C0001: "Nochmal versuchen!",
                                     C0002: "Bitte sag mir die Lösung."
                                 };
-                                let retryInput = await Abschluss.ƒS.Menu.getInput(retryChoices, "class");
-                                switch (retryInput) {
-                                    case retryChoices.C0001:
-                                        count++;
-                                        break;
-                                    case retryChoices.C0002:
-                                        break;
+                                if (!Abschluss.data.correct) {
+                                    let retryInput = await Abschluss.ƒS.Menu.getInput(retryChoices, "class");
+                                    switch (retryInput) {
+                                        case retryChoices.C0001:
+                                            count++;
+                                            break;
+                                        case retryChoices.C0002:
+                                            break;
+                                    }
                                 }
+                                else
+                                    break;
                             }
+                            else
+                                break;
                         }
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
                         Abschluss.data.correct = false;
@@ -246,6 +261,7 @@ var Abschluss;
                         switch (userInput03) {
                             case questionChoices03.C0001:
                                 // Warum sind sie vom Aussterben bedroht?
+                                Abschluss.addScore(5);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0011);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0002);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0012);
@@ -260,6 +276,7 @@ var Abschluss;
                                 switch (userInput04) {
                                     case questionChoices04.C0001:
                                         // Was meinst du mit Beifang?
+                                        Abschluss.addScore(5);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0016);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0004);
@@ -276,6 +293,7 @@ var Abschluss;
                                                 break;
                                             case questionChoices05.C0002:
                                                 // Was sind denn das für Fangmethoden?
+                                                Abschluss.addScore(5);
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0019);
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0020);
                                                 break;
@@ -283,12 +301,28 @@ var Abschluss;
                                         break;
                                     case questionChoices04.C0002:
                                         // Könnte die Fischerei nicht besser kontrolliert werden?
+                                        Abschluss.addScore(5);
                                         // TO DO
+                                        let questionChoices06 = {
+                                            C0001: "Mehr erfahren!",
+                                            C0002: "Nein danke."
+                                        };
+                                        let userInput06 = await Abschluss.ƒS.Menu.getInput(questionChoices06, "class");
+                                        switch (userInput06) {
+                                            case questionChoices06.C0001:
+                                                Abschluss.addScore(8);
+                                                let learnMore = ["„Große ausländische industrielle Fabrikschiffe (Schleppnetzschiffe, die in der früheren Sowjetunion gefertigt wurden) hielten sich an der Grenze zu Namibias AWZ auf, überquerten diese heimlich nachts und plünderten Fischbestände. <br><br>Der illegale Fang wurde dann auf große Kühlschiffe verladen, die gleich hinter der Grenze zur AWZ darauf warteten, die Ladung entgegenzunehmen. Kühlschiffe tragen viel zur Verschleierung der IUU-Fischerei bei, da legal gefangene Fische mit illegalen Fängen vermischt werden. <br><br>Das macht es unmöglich, die Herkunft der Fische nachzuvollziehen. Aus diesem Grund verbietet die namibische Verordnung für Meeresressourcen das Umladen auf See und gestattet es nur im Hafen oder unter Aufsicht von Polizeibeamten.“ <br><br> <a href='https://sea-shepherd.de/kampagnen/operation-vanguard/' target='_blank'>Quelle</a> | Stand 06/2021"];
+                                                Abschluss.nvlMode(learnMore);
+                                                break;
+                                            case questionChoices06.C0002:
+                                                break;
+                                        }
                                         break;
                                 }
                                 break;
                             case questionChoices03.C0002:
                                 // Und wieso schaust du jetzt nach den Schildkrötenjungen?
+                                Abschluss.addScore(2);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0021);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0022);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0023);
@@ -300,6 +334,7 @@ var Abschluss;
                         break;
                     case questionChoices02.C0003:
                         // Und wieso schaust du jetzt nach den Schildkrötenjungen?
+                        Abschluss.addScore(5);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0021);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0026);
                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0007);
@@ -310,6 +345,7 @@ var Abschluss;
                 break;
             case questionChoices.C0003:
                 // Müll einsammeln
+                Abschluss.addScore(8);
                 await Abschluss.ƒS.Location.show(Abschluss.locations.trashBeachClean);
                 await Abschluss.ƒS.update(Abschluss.transition.swirl.duration, Abschluss.transition.swirl.alpha, Abschluss.transition.swirl.edge);
                 await Abschluss.ƒS.update(0.5);
@@ -328,6 +364,7 @@ var Abschluss;
         }
         else if (turtleGuess > 0 && turtleGuess < 7 || turtleGuess > 7 && turtleGuess <= 13) {
             Abschluss.data.correct = false;
+            Abschluss.addScore(1);
             return "Ja, fast richtig.";
         }
         else if (turtleGuess > 14) {
@@ -336,6 +373,7 @@ var Abschluss;
         }
         else if (turtleGuess == 7) {
             Abschluss.data.correct = true;
+            Abschluss.addScore(7);
             return "Ja genau!";
         }
         return null;
@@ -406,6 +444,7 @@ var Abschluss;
         switch (userInput) {
             case questionChoices.C0001:
                 // Warst du schon überall?
+                Abschluss.addScore(5);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0002);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0003);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
@@ -423,6 +462,7 @@ var Abschluss;
                 switch (userInput01) {
                     case questionChoices01.C0001:
                         // Weißt du denn, wieviel Wasser es auf der Erde gibt?
+                        Abschluss.addScore(4);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0009);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0003);
@@ -430,6 +470,7 @@ var Abschluss;
                         break;
                     case questionChoices01.C0002:
                         // Stimmt es denn, dass es den Meeren immer schlechter geht?
+                        Abschluss.addScore(6);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0012);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0013);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0014);
@@ -463,6 +504,7 @@ var Abschluss;
                 break;
             case questionChoices.C0002:
                 // Wow, wieviel unterschiedliches Leben es da unten wohl geben muss?
+                Abschluss.addScore(5);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0026);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0027);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0028);
@@ -481,7 +523,7 @@ var Abschluss;
         Protagonist: {
             name: "Protagonist"
         },
-        state: {
+        score: {
             a: 0
         },
         ended: false,
@@ -550,7 +592,8 @@ var Abschluss;
         recycleBadge: {
             name: "Recycle Badge",
             description: "Du hast am Strand Müll eingesammelt.",
-            image: "Img/Items/recycle-badge.png"
+            image: "Img/Items/recycle-badge.png",
+            static: true
         },
         plasticBottles: {
             name: "Plastik Flaschen",
@@ -564,49 +607,81 @@ var Abschluss;
         if (volume >= 100)
             return;
         volume += 0.1;
-        Abschluss.ƒS.Sound.setVolume(Abschluss.sounds.backgroundTheme, volume);
+        Abschluss.ƒS.Sound.setMasterVolume(volume);
     }
     Abschluss.increaseSound = increaseSound;
     function decreaseSound() {
         if (volume > 0)
             return;
         volume -= 0.1;
-        Abschluss.ƒS.Sound.setVolume(Abschluss.sounds.backgroundTheme, volume);
+        Abschluss.ƒS.Sound.setMasterVolume(volume);
     }
     Abschluss.decreaseSound = decreaseSound;
+    // MENU PAGES FUNCTIONS
+    async function about() {
+        let about = ["<h3>Über das Spiel</h3> <br>“Wie die Meere untergehen” ist eine Visual Novel die, neben dem klassischen Unterhaltungsaspekt, Wissen über die Weltmeere vermitteln soll. Dabei begegnen die Spieler einer Meerjungfrau, die sich darum bemüht, hilfsbedürftige Meeresbewohner zu unterstützen wo sie nur kann. <br> Gleichzeitig versucht sie ihren Lebensraum und den vieler anderer Spezies von der konstanten und immer weiter ansteigenden, von Menschen verursachten, Verschmutzung zu befreien. Bei dieser, schier unmöglichen Aufgabe kann sie die Hilfe der Spieler sehr gut gebrauchen. <br>Im Gegenzug begleitet sie dann die Spieler durch die Visual Novel hindurch und gibt dabei interessantes und teils auch sehr erschreckendes Wissen weiter, wie beispielsweise Informationen über die aktuellen Zustände dieser bewundernswerten und eindrucksvollen Unterwasserwelten.<br><br>Durch diese etwas andere Form des Japanischen Adventure Games, soll spielerisch Wissen vermittelt werden, wie auch ein Bewusstsein gegenüber unserer Natur – besonders gegenüber den Meeren – erschaffen bzw. verstärkt werden. So sollen die Spieler dann auch zum weiteren Nachdenken und vielleicht sogar zum eigenem Handeln angeregt werden."];
+        let buttons = { done: "schließen x" };
+        let choice;
+        do {
+            Abschluss.ƒS.Text.print(about[0]);
+            choice = await Abschluss.ƒS.Menu.getInput(buttons, "aboutBtn");
+        } while (choice != buttons.done);
+        Abschluss.ƒS.Text.close();
+    }
+    async function credits() {
+        let credits = ["<h3>Credits</h3> <br> XYZ", "<h3>Quellen<h3><br> XYZ"];
+        let current = 0;
+        let buttons = { back: "zurück", next: "weiter", done: "schließen x" };
+        let choice;
+        do {
+            Abschluss.ƒS.Text.print(credits[current]);
+            choice = await Abschluss.ƒS.Menu.getInput(buttons, "aboutBtn");
+            switch (choice) {
+                case buttons.back:
+                    current = Math.max(0, current - 1);
+                    break;
+                case buttons.next:
+                    current = Math.min(credits.length - 1, current + 1);
+                    break;
+            }
+        } while (choice != buttons.done);
+        Abschluss.ƒS.Text.close();
+    }
     // MENU
     let inGameMenu = {
+        close: "schließen x",
         save: "Spielstand speichern",
         load: "Spielstand laden",
-        close: "Menü schließen",
         turnUpVolume: "Musik lauter",
         turnDownVolume: "Musik leiser",
-        credits: "Credits",
-        about: "Über das Spiel"
+        about: "Über das Spiel",
+        credits: "Credits"
     };
     // MENU BUTTONS
     let gameMenu;
     async function menuOptions(_option) {
         console.log(_option);
-        if (_option == inGameMenu.save) {
+        if (_option == inGameMenu.close) {
+            gameMenu.close();
+        }
+        else if (_option == inGameMenu.save) {
             await Abschluss.ƒS.Progress.save();
         }
         else if (_option == inGameMenu.load) {
             await Abschluss.ƒS.Progress.load();
         }
-        else if (_option == inGameMenu.close) {
-            gameMenu.close();
-        }
         else if (_option == inGameMenu.turnUpVolume) {
             increaseSound();
         }
-        else if (_option == inGameMenu.turnUpVolume) {
+        else if (_option == inGameMenu.turnDownVolume) {
             decreaseSound();
         }
-        else if (_option == inGameMenu.credits) {
+        else if (_option == inGameMenu.about) {
+            about();
             return;
         }
-        else if (_option == inGameMenu.about) {
+        else if (_option == inGameMenu.credits) {
+            credits();
             return;
         }
         else
@@ -616,16 +691,16 @@ var Abschluss;
     window.addEventListener("load", start);
     function start(_event) {
         gameMenu = Abschluss.ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
-        gameMenu.close();
+        // gameMenu.close();
         let scenes = [
-            { scene: Abschluss.RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-            { scene: Abschluss.TurtleBeach, name: "02TurtleBeach", id: "02", next: "null" },
+            // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+            // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
             { scene: Abschluss.TrashBeach, name: "03TrashBeach", id: "03", next: "null" },
             { scene: Abschluss.WaterBeach, name: "04WaterBeach", id: "04", next: "null" }
         ];
         document.addEventListener("keydown", hndKeypress);
         let uiElement = document.querySelector("[type=interface]");
-        Abschluss.data.state = Abschluss.ƒS.Progress.setData(Abschluss.data.state, uiElement);
+        Abschluss.data.score = Abschluss.ƒS.Progress.setData(Abschluss.data.score, uiElement);
         // start the sequence
         Abschluss.ƒS.Progress.go(scenes);
     }
@@ -639,18 +714,47 @@ var Abschluss;
                 console.log("loading");
                 await Abschluss.ƒS.Progress.load();
                 break;
-            // case ƒ.KEYBOARD_CODE.CTRL_LEFT && ƒ.KEYBOARD_CODE.I:
-            //   await ƒS.Inventory.open();
-            //   break;
-            // case ƒ.KEYBOARD_CODE.CTRL_LEFT && ƒ.KEYBOARD_CODE.M:
-            //   gameMenu.open();
-            //   break;
+            case Abschluss.ƒ.KEYBOARD_CODE.F2:
+                await Abschluss.ƒS.Inventory.open();
+                break;
+            case Abschluss.ƒ.KEYBOARD_CODE.F8:
+                gameMenu.open();
+                break;
         }
     }
+    // ADDITIONAL FUNCTIONS
     function tickerDelay(_delay) {
         Abschluss.ƒS.Speech.setTickerDelays(_delay);
     }
     Abschluss.tickerDelay = tickerDelay;
+    function addScore(amount) {
+        Abschluss.data.score.a += amount;
+    }
+    Abschluss.addScore = addScore;
+    function subtractScore(amount) {
+        Abschluss.data.score.a -= amount;
+    }
+    Abschluss.subtractScore = subtractScore;
+    async function nvlMode(content) {
+        Abschluss.ƒS.Speech.hide();
+        let current = 0;
+        let buttons = { back: "zurück", next: "weiter", done: "schließen x" };
+        let choice;
+        do {
+            Abschluss.ƒS.Text.print(content[current]);
+            choice = await Abschluss.ƒS.Menu.getInput(buttons, "aboutBtn");
+            switch (choice) {
+                case buttons.back:
+                    current = Math.max(0, current - 1);
+                    break;
+                case buttons.next:
+                    current = Math.min(content.length - 1, current + 1);
+                    break;
+            }
+        } while (choice != buttons.done);
+        Abschluss.ƒS.Text.close();
+    }
+    Abschluss.nvlMode = nvlMode;
 })(Abschluss || (Abschluss = {}));
 var Abschluss;
 (function (Abschluss) {

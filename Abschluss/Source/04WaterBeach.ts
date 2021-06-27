@@ -71,6 +71,7 @@ namespace Abschluss {
         switch (userInput) {
             case questionChoices.C0001:
                 // Warst du schon überall?
+                addScore(5);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0002);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0003);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0004);
@@ -91,6 +92,7 @@ namespace Abschluss {
                 switch (userInput01) {
                     case questionChoices01.C0001:
                         // Weißt du denn, wieviel Wasser es auf der Erde gibt?
+                        addScore(4);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
@@ -98,6 +100,7 @@ namespace Abschluss {
                         break;
                     case questionChoices01.C0002:
                         // Stimmt es denn, dass es den Meeren immer schlechter geht?
+                        addScore(6);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0012);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0013);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
@@ -135,6 +138,7 @@ namespace Abschluss {
                 break;
             case questionChoices.C0002:
                 // Wow, wieviel unterschiedliches Leben es da unten wohl geben muss?
+                addScore(5);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0026);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0027);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0028);

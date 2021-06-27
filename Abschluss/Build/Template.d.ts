@@ -17,7 +17,7 @@ declare namespace Abschluss {
         Protagonist: {
             name: string;
         };
-        state: {
+        score: {
             a: number;
         };
         ended: boolean;
@@ -81,6 +81,7 @@ declare namespace Abschluss {
             name: string;
             description: string;
             image: string;
+            static: boolean;
         };
         plasticBottles: {
             name: string;
@@ -91,6 +92,9 @@ declare namespace Abschluss {
     function increaseSound(): void;
     function decreaseSound(): void;
     function tickerDelay(_delay: number): void;
+    function addScore(amount: number): void;
+    function subtractScore(amount: number): void;
+    function nvlMode(content: string[]): Promise<void>;
 }
 declare namespace Abschluss {
     function SceneTemplate(): ƒS.SceneReturn;

@@ -8,7 +8,21 @@ html, body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+a {
+  color: rgb(203, 253, 255);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: rgb(203, 253, 255);
+  cursor: pointer;
+}
+
 input {
+  border: none;
+}
+
+input:active {
   border: none;
 }
 
@@ -106,7 +120,26 @@ dialog Button:hover {
   cursor: pointer;
 }
 
-dialog[class="gameMenu"] {
+dialog[type="text"] {
+  width: 75vw;
+  height: 45vh;
+  padding: 5em 2.5em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.aboutBtn {
+  position: relative;
+  bottom: -50vh;
+  background: none;
+}
+
+/* .aboutBtn {
+  position: relative;
+  bottom: 0;
+} */
+
+/* dialog[class="gameMenu"] {
   color: rgb(203, 253, 255);
   width: 100vw;
   height: 100vh;
@@ -132,7 +165,7 @@ dialog[class="gameMenu"] Button:hover {
   color: white;
   text-decoration: none;
   cursor: pointer;
-}
+} */
 
 dialog[type="inventory"] {
   /* display: grid; */
@@ -186,7 +219,34 @@ dialog[type="inventory"] description {
   position: relative;
 } */
 
+div[type="interface"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 1.5em;
+  margin-right: 2em;;
+}
+
+div[type="interface"] meter {
+  width: 12em;
+  height: 2em;
+}
+
+div[type="interface"] input {
+  /* margin-right: 1em;
+  width: 3em;
+  background: none;
+  color: white;
+  position: relative;
+  left: 0;
+  top: 0; */
+  display: none;
+}
 
 meter::-webkit-meter-optimum-value {
   background-color: aquamarine;
+}
+
+meter::-webkit-meter-bar {
+  background-color: rgba(11, 14, 19, 0.9);
 }
