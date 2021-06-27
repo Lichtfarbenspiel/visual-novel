@@ -27,7 +27,15 @@ namespace Abschluss {
             T0017: "Naja, ganz unmöglich ist es nicht…",
             T0018: "Das Fischen einfach ganz lassen, zumindest diese überdimensionale Industriefischerei. Das zerstört einfach so viele Ökosysteme!",
             T0019: "Das Trawling beispielsweise.",
-            T0020: "Dabei werden riesige Grundschleppnetze eingesetzt, die direkt über den Meeresboden gezogen werden und so alles zerstören, was dort vorher war."
+            T0020: "Dabei werden riesige Grundschleppnetze eingesetzt, die direkt über den Meeresboden gezogen werden und so alles zerstören, was dort vorher war.",
+            T0021: "Weil es leider immer weniger helfende Hände gibt, um die Strände zu kontrollieren und die Nester zu schützen.",
+            T0022: "Außerdem kommt dazu, dass die freiwilligen Helfer und Helferinnen teilweise keine Genehmigung der zuständigen Behörden erhielten und so die Strände nicht abgehen durften.",
+            T0023: "Darum mache ich es einfach.",
+            T0024: "Aus dem Grund habe ich dich ja jetzt!",
+            T0025: "Ja, also ich kann ja schon auch über den Strand robben, das ist dann halt super anstrengend für mich und zu lange sollte ich auch nicht unbedingt an Land bleiben.",
+            T0026: "Für die ist es nämlich leider auch nicht ganz ungefährlich. Darum mache ich es einfach.",
+            T0027: "Grundsätzlich eigentlich nichts, allerdings sind einige Strände sehr beliebt bei Wilderern. Denen möchte ich tatsächlich auch nicht begegnen!",
+            T0028: "Aber keine Sorge, hier habe ich noch nie welche gesehen."
 
           },
           Protagonist: {
@@ -35,7 +43,10 @@ namespace Abschluss {
             T0001: "Achso, dann müssten alle Mütter der Jungen hier am Strand also auch hier geboren sein…",
             T0002: "Oh, wegen all dem Müll?",
             T0003: "Hm stimmt, daran hab ich gar nicht gedacht. Ich meine, da gibt es auch einen unglaublich großen Schwarzmarkt für solche Tiere.",
-            T0004: "Ja, macht Sinn. So ein Netz lässt sich ja auch nicht wirklich Steuern, da ist es ja unmöglich sowas zu verhindern."
+            T0004: "Ja, macht Sinn. So ein Netz lässt sich ja auch nicht wirklich Steuern, da ist es ja unmöglich sowas zu verhindern.",
+            T0005: "Aber du kannst doch nicht laufen, das ist doch dann gar nicht so einfach.",
+            T0006: "Und wenn ich jetzt nicht da wäre, was würdet du dann machen?",
+            T0007: "Aber was ist denn so gefährlich daran, Baby-Schildkröten vor Seevögeln zu schützen?"
           }
         };
 
@@ -160,7 +171,7 @@ namespace Abschluss {
 
                                 let questionChoices04 = {
                                     C0001: "Was meinst du mit Beifang?",
-                                    C0002: "" // TO DO
+                                    C0002: "Könnte die Fischerei nicht besser kontrolliert werden?"
                                 };
             
                                 let userInput04 = await ƒS.Menu.getInput(questionChoices04, "class");
@@ -194,6 +205,8 @@ namespace Abschluss {
 
                                         break;
                                     case questionChoices04.C0002:
+                                        // Könnte die Fischerei nicht besser kontrolliert werden?
+                                     
                                         // TO DO
                                         break;
                                 }
@@ -201,15 +214,22 @@ namespace Abschluss {
                                 break;
                             case questionChoices03.C0002:
                                 // Und wieso schaust du jetzt nach den Schildkrötenjungen?
-
-                                // TO DO
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0021);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0022);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0023);
+                                await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0005);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0024);
+                                await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0006);
                                 break;
                         }
                         break;
                     case questionChoices02.C0003:
                         // Und wieso schaust du jetzt nach den Schildkrötenjungen?
-
-                        // TO DO
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0021);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0026);
+                        await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0007);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0027);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0028);
                         break;
                         }
 

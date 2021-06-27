@@ -187,8 +187,6 @@ dialog[type="inventory"] description {
 } */
 
 
-
-
 meter::-webkit-meter-optimum-value {
   background-color: aquamarine;
 }
