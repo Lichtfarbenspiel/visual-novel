@@ -195,11 +195,11 @@ namespace Abschluss {
     // gameMenu.close();
 
     let scenes: ƒS.Scenes = [
-      // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-      // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
+      { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+      { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
       { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
       { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
-      // { scene: endScene, name: "EndScene", id: "end", next: "null"}
+      { scene: endScene, name: "EndScene", id: "end", next: "null"}
     ];
 
     document.addEventListener("keydown", hndKeypress);
