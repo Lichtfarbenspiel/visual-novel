@@ -88,12 +88,15 @@ namespace Abschluss {
       name: "Recycle Badge",
       description: "Du hast am Strand Müll eingesammelt.",
       image: "Img/Items/recycle-badge.png",
-      static: true
+      static: true,
+      handler: hndItem
     },
     plasticBottles: {
       name: "Plastik Flaschen",
-      description: "Wenn du die Plastik Flaschen wieder weg wirfst, verlierst du xy Punkte.",
-      image: "Img/Items/plastic-bottles.png"
+      description: "Wenn du die Plastik Flaschen wieder weg wirfst, verlierst du 10 Wissens-Punkte.",
+      image: "Img/Items/plastic-bottles.png",
+      static: false,
+      handler: throwAway
     }
   };
   
@@ -192,11 +195,11 @@ namespace Abschluss {
     // gameMenu.close();
 
     let scenes: ƒS.Scenes = [
-      { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-      { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
+      // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+      // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
       { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
       { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
-      { scene: endScene, name: "EndScene", id: "end", next: "null"}
+      // { scene: endScene, name: "EndScene", id: "end", next: "null"}
     ];
 
     document.addEventListener("keydown", hndKeypress);
@@ -255,5 +258,14 @@ namespace Abschluss {
       }
     } while (choice != buttons.done);
     ƒS.Text.close();
+  }
+
+  export function throwAway(_event: CustomEvent): void {
+    console.log("Threw plastic bottles away");
+    data.score.a -= 10;
+  }
+
+  export function hndItem(_event: CustomEvent): void {
+    console.log("Badge");
   }
 }

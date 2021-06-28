@@ -89,11 +89,14 @@ declare namespace Abschluss {
             description: string;
             image: string;
             static: boolean;
+            handler: typeof hndItem;
         };
         plasticBottles: {
             name: string;
             description: string;
             image: string;
+            static: boolean;
+            handler: typeof throwAway;
         };
     };
     function increaseSound(): void;
@@ -102,6 +105,8 @@ declare namespace Abschluss {
     function addScore(amount: number): void;
     function subtractScore(amount: number): void;
     function nvlMode(content: string[]): Promise<void>;
+    function throwAway(_event: CustomEvent): void;
+    function hndItem(_event: CustomEvent): void;
 }
 declare namespace Abschluss {
     function SceneTemplate(): ƒS.SceneReturn;

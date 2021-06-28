@@ -1,11 +1,23 @@
 namespace FudgeStory {
   // import ƒ = FudgeCore;
 
+  /**
+   * Define an item to use with the inventory using this pattern:
+   * ```text
+   * {
+   *    name: "Name of the item", // also used to identify it,
+   *    description: "Short description to show in the inventory",
+   *    image: "path to the image to be used as icon",
+   *    static: true // if the item can't be consumed
+   * }
+   * ```
+   */
   export interface ItemDefinition {
     name: string;
     description: string;
     image: RequestInfo;
     static?: boolean;
+    handler: (_event: CustomEvent) => void;
   }
 
   /**
@@ -38,11 +50,18 @@ namespace FudgeStory {
       item.innerHTML = `<name>${_item.name}</name><amount>1</amount><description>${_item.description}</description><img src="${_item.image}"/>`;
       if (!_item.static)
         item.addEventListener("pointerdown", Inventory.hndUseItem);
+      if (_item.handler) {
+        function custom(_event: PointerEvent): void {
+          _item.handler(new CustomEvent(_event.type, {detail: _item.name}));
+        }
+        item.addEventListener("pointerup", custom);
+        item.addEventListener("pointerdown", custom);
+      }
       Inventory.dialog.querySelector("ul").appendChild(item);
     }
 
     /**
-     * Opens the inventory
+     * Opens the inventory and return a list of the names of consumed items when the inventory closes again
      */
     public static async open(): Promise<string[]> {
       let dialog: HTMLDialogElement = Inventory.dialog;

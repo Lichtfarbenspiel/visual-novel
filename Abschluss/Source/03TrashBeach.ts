@@ -93,13 +93,21 @@ namespace Abschluss {
                         // Wieviel wiegt denn so ein Blauwal?
                         addScore(3);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0004);
-                        break;
+                        await ƒS.Character.hide(characters.Mermaid);
+                        await ƒS.update(0.5);
+                        ƒS.Speech.clear();
+                        ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        return "end";
                     case questionChoices01.C0002:
                         // Liegt das dann alles immer an den Stränden?
                         addScore(5);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0005);
                         // weiter zu GPGP
-                        break;
+                        await ƒS.Character.hide(characters.Mermaid);
+                        await ƒS.update(0.5);
+                        ƒS.Speech.clear();
+                        ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        return "end";
                 }
                 break;
             case questionChoices.C0002:
@@ -296,15 +304,15 @@ namespace Abschluss {
                 addScore(8);
                 await ƒS.Location.show(locations.trashBeachClean);
                 await ƒS.update(transition.swirl.duration, transition.swirl.alpha, transition.swirl.edge);
-                await ƒS.update(0.5);
+                await ƒS.update(1);
                 ƒS.Inventory.add(items.recycleBadge);
                 ƒS.Inventory.add(items.plasticBottles);
-                ƒS.Inventory.open();  
+                await ƒS.Inventory.open();  
                 await ƒS.Character.hide(characters.Mermaid);
                 await ƒS.update(0.5);
                 ƒS.Speech.clear();
                 ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                return "end";  
+                return "04";  
         }
     }
 

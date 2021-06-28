@@ -191,13 +191,21 @@ var Abschluss;
                         // Wieviel wiegt denn so ein Blauwal?
                         Abschluss.addScore(3);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
-                        break;
+                        await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                        await Abschluss.ƒS.update(0.5);
+                        Abschluss.ƒS.Speech.clear();
+                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        return "end";
                     case questionChoices01.C0002:
                         // Liegt das dann alles immer an den Stränden?
                         Abschluss.addScore(5);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0005);
                         // weiter zu GPGP
-                        break;
+                        await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                        await Abschluss.ƒS.update(0.5);
+                        Abschluss.ƒS.Speech.clear();
+                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        return "end";
                 }
                 break;
             case questionChoices.C0002:
@@ -374,15 +382,15 @@ var Abschluss;
                 Abschluss.addScore(8);
                 await Abschluss.ƒS.Location.show(Abschluss.locations.trashBeachClean);
                 await Abschluss.ƒS.update(Abschluss.transition.swirl.duration, Abschluss.transition.swirl.alpha, Abschluss.transition.swirl.edge);
-                await Abschluss.ƒS.update(0.5);
+                await Abschluss.ƒS.update(1);
                 Abschluss.ƒS.Inventory.add(Abschluss.items.recycleBadge);
                 Abschluss.ƒS.Inventory.add(Abschluss.items.plasticBottles);
-                Abschluss.ƒS.Inventory.open();
+                await Abschluss.ƒS.Inventory.open();
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
                 Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                return "end";
+                return "04";
         }
     }
     Abschluss.TrashBeach = TrashBeach;
@@ -677,12 +685,15 @@ var Abschluss;
             name: "Recycle Badge",
             description: "Du hast am Strand Müll eingesammelt.",
             image: "Img/Items/recycle-badge.png",
-            static: true
+            static: true,
+            handler: hndItem
         },
         plasticBottles: {
             name: "Plastik Flaschen",
-            description: "Wenn du die Plastik Flaschen wieder weg wirfst, verlierst du xy Punkte.",
-            image: "Img/Items/plastic-bottles.png"
+            description: "Wenn du die Plastik Flaschen wieder weg wirfst, verlierst du 10 Wissens-Punkte.",
+            image: "Img/Items/plastic-bottles.png",
+            static: false,
+            handler: throwAway
         }
     };
     // MENU AUDIO FUNCTIONS
@@ -778,11 +789,10 @@ var Abschluss;
         gameMenu = Abschluss.ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
         // gameMenu.close();
         let scenes = [
-            { scene: Abschluss.RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-            { scene: Abschluss.TurtleBeach, name: "02TurtleBeach", id: "02", next: "null" },
+            // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+            // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
             { scene: Abschluss.TrashBeach, name: "03TrashBeach", id: "03", next: "null" },
             { scene: Abschluss.WaterBeach, name: "04WaterBeach", id: "04", next: "null" },
-            { scene: Abschluss.endScene, name: "EndScene", id: "end", next: "null" }
         ];
         document.addEventListener("keydown", hndKeypress);
         let uiElement = document.querySelector("[type=interface]");
@@ -841,6 +851,15 @@ var Abschluss;
         Abschluss.ƒS.Text.close();
     }
     Abschluss.nvlMode = nvlMode;
+    function throwAway(_event) {
+        console.log("Threw plastic bottles away");
+        Abschluss.data.score.a -= 10;
+    }
+    Abschluss.throwAway = throwAway;
+    function hndItem(_event) {
+        console.log("Badge");
+    }
+    Abschluss.hndItem = hndItem;
 })(Abschluss || (Abschluss = {}));
 var Abschluss;
 (function (Abschluss) {
