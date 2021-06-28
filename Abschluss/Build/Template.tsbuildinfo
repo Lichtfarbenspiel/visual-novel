@@ -6,6 +6,7 @@
       "../Source/02TurtleBeach.ts",
       "../Source/03TrashBeach.ts",
       "../Source/04WaterBeach.ts",
+      "../Source/EndScene.ts",
       "../Source/Main.ts",
       "../Source/SceneTemplate.ts"
     ],
@@ -19,7 +20,7 @@
         },
         {
           "pos": 15,
-          "end": 48711,
+          "end": 57499,
           "kind": "text"
         }
       ],
@@ -47,7 +48,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 2536,
+          "end": 2700,
           "kind": "text"
         }
       ]

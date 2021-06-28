@@ -64,13 +64,17 @@ namespace Abschluss {
     waterBeach: {
       name: "Water Beach",
       background: "Img/Backgrounds/WaterBeach.jpg"
+    },
+    end: {
+      name: "The End",
+      background: "Img/Backgrounds/WDMU-Titel.png"
     }
   };
 
   // CHARACTERS
   export let characters = {
     Mermaid: {
-      name: "Meerjungfrau",
+      name: "Muriel",
       origin: ƒS.ORIGIN.BOTTOMLEFT,
       pose: {
         idle: "Img/Characters/Mermaid/mermaid-idle.png",
@@ -125,7 +129,8 @@ namespace Abschluss {
   }
 
   async function credits(): Promise<void> {
-    let credits: string[] = ["<h3>Credits</h3> <br> XYZ", "<h3>Quellen<h3><br> XYZ"];
+    // tslint:disable-next-line: quotemark
+    let credits: string[] = ['<h3>Credits - Seite 1</h3> <br> <ol style="list-style-type: decimal;"><li>Laurent C. M. Lebreton, et al., &ldquo;River plastic emissions to the world&rsquo;s oceans,&rdquo; <em>Nature Communications&nbsp;</em>8, no. 15611 (June 2017), <a href="http://doi.org/10.1038/ncomms15611">http://doi.org/10.1038/ncomms15611</a></li><li><a href="https://de.whales.org/wale-delfine/wal-delfin-fakten/blauwale/">https://de.whales.org/wale-delfine/wal-delfin-fakten/blauwale/</a> Aufgerufen: 06/2021</li><li>Pham CK, Ramirez-Llodra E, Alt CHS, Amaro T, Bergmann M, Canals M, et al. (2014) Marine Litter Distribution and Density in European Seas, from the Shelves to Deep Basins. PLoS ONE 9(4): e95839. <a href="https://doi.org/10.1371/journal.pone.0095839">https://doi.org/10.1371/journal.pone.0095839</a></li><li><a href="https://www.nabu.de/natur-und-landschaft/meere/muellkippe-meer/16805.html">https://www.nabu.de/natur-und-landschaft/meere/muellkippe-meer/16805.html</a> Abgerufen: 06/2021</li></ol>', '<h3>Credits - Seite 2</h3> <br> <ol style="list-style-type: decimal;"><li><a href="https://www.tierschutzbund.de/information/hintergrund/artenschutz/meeresschildkroeten/">https://www.tierschutzbund.de/information/hintergrund/artenschutz/meeresschildkroeten/</a> Abgerufen: 06/2021</li><li><a href="https://sea-shepherd.de/kampagnen/operation-nyamba/">https://sea-shepherd.de/kampagnen/operation-nyamba/</a> Abgerufen: 06/2021</li><li><a href="https://www.wwf.de/themen-projekte/meere-kuesten/fischerei/ungewollter-beifang">https://www.wwf.de/themen-projekte/meere-kuesten/fischerei/ungewollter-beifang</a> Abgerufen: 06/2021</li><li><a href="https://www.bund.net/meere/belastungen/fischerei/">https://www.bund.net/meere/belastungen/fischerei/</a><span style="color:#0563C1;text-decoration:underline;">&nbsp;</span>Abgerufen: 06/2021</li></ol>', '<h3>Credits - Seite 3</h3> <br> <ol style="list-style-type: decimal;"><li><a href="https://sea-shepherd.de/kampagnen/operation-vanguard/">https://sea-shepherd.de/kampagnen/operation-vanguard/</a> Abgerufen: 06/2021</li><li><a href="https://reset.org/blog/anamurs-schildkroetenbabies-ohne-schutz">https://reset.org/blog/anamurs-schildkroetenbabies-ohne-schutz</a> Abgerufen: 06/2021</li><li><a href="http://www.unesco.org/new/en/oceans-day">http://www.unesco.org/new/en/oceans-day</a> Abgerufen: 06/2021</li><li><a href="https://www.wwf.de/themen-projekte/meere-kuesten/klima-und-meer/">https://www.wwf.de/themen-projekte/meere-kuesten/klima-und-meer/</a> Abgerufen: 06/2021</li></ol>'];
     
     let current: number = 0; 
     let buttons = {back: "zurück", next: "weiter", done: "schließen x"};
@@ -190,7 +195,8 @@ namespace Abschluss {
       { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
       { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
       { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
-      { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"}
+      { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
+      { scene: endScene, name: "EndScene", id: "end", next: "null"}
     ];
 
     document.addEventListener("keydown", hndKeypress);

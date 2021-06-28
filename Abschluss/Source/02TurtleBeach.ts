@@ -12,7 +12,7 @@ namespace Abschluss {
         T0003: ""
       },
       Protagonist: {
-        T0000: "Mermaid! Du wirst es nicht glauben, aber hier hinten sind wirklich kleine Schildkröten. Sie müssen gerade erst geschlüpft sein!",
+        T0000: "Muriel! Du wirst es nicht glauben, aber hier hinten sind wirklich kleine Schildkröten. Sie müssen gerade erst geschlüpft sein!",
         T0001: "Ja natürlich, ich kann sie auch kurz rüber tragen.",
         T0002: "",
         T0003: ""

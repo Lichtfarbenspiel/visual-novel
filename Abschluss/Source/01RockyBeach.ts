@@ -17,14 +17,14 @@ namespace Abschluss {
 
     let text = {
       Mermaid: {
-        T0000: "Oh hallo, wer bist du denn?",
-        T0001: "Das tut mir Leid, das wollte ich nicht. Ich bin Mermaid und ich verkleide mich doch gar nicht! ",
+        T0000: "Hallo, wer bist du denn?",
+        T0001: "Das tut mir leid, das wollte ich nicht. Ich bin Muriel und ich verkleide mich doch gar nicht! ",
         T0002: "Wieso denn Seefahrer? Ich wollte nachsehen, ob die kleinen Schildkröten schon geschlüpft sind. Es wird nämlich immer schwerer für sie, sicher ins Meer zu kommen. Da können sie meine Hilfe gut gebrauchen.",
         T0003: "Ähm… Ich kann nicht über Land gehen. Aber du könntest doch für mich nachsehen gehen und wir treffen uns dann dort drüben."
       },
       Protagonist: {
-        T0000: "Oha, du hast mich erschreckt. Ich bin " + data.Protagonist.name.toString() + " wer bist du? Und wieso verkleidest du dich als Meerjungfrau?!",
-        T0001: "Als ob, das glaube ich dir nicht! Naja, was machst du denn dann hier? Seefahrer gibt es hier doch keine mehr.",
+        T0000: "Oha, du hast mich erschreckt. Ich bin " + data.Protagonist.name.toString() + ", wer bist du? Und wieso verkleidest du dich als Meerjungfrau?!",
+        T0001: "Als ob, das glaube ich dir nicht! Naja, was machst du denn dann hier? Seefahrer gibt es hier doch keine mehr...",
         T0002: "Hm, ich habe hier noch keine gesehen. Aber komm, wir können ja mal nachsehen.",
         T0003: "Na wenn du meinst. Dann bis gleich!"
       }

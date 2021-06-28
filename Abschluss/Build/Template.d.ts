@@ -11,6 +11,9 @@ declare namespace Abschluss {
     function WaterBeach(): ƒS.SceneReturn;
 }
 declare namespace Abschluss {
+    function endScene(): ƒS.SceneReturn;
+}
+declare namespace Abschluss {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let data: {
@@ -62,6 +65,10 @@ declare namespace Abschluss {
             background: string;
         };
         waterBeach: {
+            name: string;
+            background: string;
+        };
+        end: {
             name: string;
             background: string;
         };

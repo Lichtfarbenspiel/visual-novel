@@ -5,45 +5,45 @@ namespace Abschluss {
         tickerDelay(30);
 
         let text = {
-        Mermaid: {
-            T0000: "Oh ja, da hast du recht.",
-            T0001: "Tatsächlich ist mehr als zwei Drittel (71%) der Erdoberfläche von Meeren bedeckt. Das ist echt unglaublich viel.",
-            T0002: "Nein. Ich weiß auch gar nicht, ob ich es überall hinschaffen würde, besonders in die Tiefen.",
-            T0003: "Da steigt der Druck irgendwann enorm an.",
-            T0004: "Aber man munkelt, dass einmal eine Meerjungfrau im Mariannengraben bis auf den Grund geschwommen sei.",
-            T0005: "Ich denke das ist nur ein Gerücht!",
-            T0006: "Oh ja, das ist ganz interessant und ich wünschte, ich würde mehr davon verstehen.",
-            T0007: "Tatsächlich haben auch die Menschen bisher trotzdem noch weniger als 10% der Unterwasserwelten erforscht.",
-            T0008: "Ja, könnte man so sagen.",
-            T0009: "Hm genau weiß ich das nicht. Aber ich habe mal gehört, dass sich 96% des Wassers auf der Erdoberfläche in den Meeren befindet.",
-            T0010: "Also würde ich sagen: sehr, sehr viel.",
-            T0011: "Ja genau, das übrige Frischwasser ist in Seen, Flüssen und in Form von Eis zu finden. Also wie Gletscher zum Beispiel.",
-            T0012: "Oh ja, leider. Die Meere werden immer wärmer.",
-            T0013: "Das führt dann dazu, dass sich die Wasserschichten nicht mehr so gut vermischen,",
-            T0014: "wodurch in manchen dieser Schichten die Lebewesen nicht mehr ausreichend mit Sauerstoff und lebenswichtigen Nährstoffen versorgt werden.",
-            T0015: "Außerdem versauern die Meere durch die vermehrte Aufnahme von menschengemachtem CO2.",
-            T0016: "Also der PH-Wert sinkt, was wiederum sehr schlecht für uns marine Lebewesen ist.",
-            T0017: "Ja, das ist ganz richtig. Letztendlich sind aber nicht nur die wundervollen Korallen betroffen,",
-            T0018: "sondern alle anderen Tiere und Pflanzen, die zusammen mit den Korallen leben, ebenfalls.",
-            T0019: "Und nicht nur die.",
-            T0020: "Die Frage ist wohl eher, welche nicht?",
-            T0021: "Andere marine Arten haben genauso mit den ansteigenden Temperaturen zu kämpfen.",
-            T0022: "Beispielsweise wandern dann ganze Fischbestände mit dem kalten Wasser Richtung Norden",
-            T0023: "und nur wenn sie dort dann ein geeignetes Nahrungsangebot haben, können sie auch überleben.",
-            T0024: "Ja das ist richtig. Wobei es nicht das Meer an sich ist, sondern beispielsweise Phytoplankton oder Seegraswiesen.",
-            T0025: "So wird beinahe die Hälfte des CO2 in der Atmosphäre im Meer produziert.",
-            T0026: "Ah das kann ich dir sagen! Okay, vielleicht nicht ganz genau, aber…",
-            T0027: "Die Meere beherbergen etwa die Hälfte bis 80% allen Lebens der Erde.",
-            T0028: "Außerdem machen sie auch 99% des Lebensraums aus."
-        },
-        Protagonist: {
-            T0000: "Es ist echt unglaublich, wie groß das Meer doch ist. Und so tief… Ich kann es mir gar nicht richtig vorstellen.",
-            T0001: "Zum Glück haben wir auch Technik für Unterwasser, die schafft alles!",
-            T0002: "Also wissen wir eigentlich noch gar nichts…",
-            T0003: "Und wo genau ist dann das restliche Wasser? In Seen?",
-            T0004: "Stimmt, ich habe schon gehört, dass besonders die Korallen unter der Wassererwärmung leiden.",
-            T0005: "Nicht schlecht! Das war mir bisher gar nicht so bewusst."
-        }
+            Mermaid: {
+                T0000: "Oh ja, da hast du recht.",
+                T0001: "Tatsächlich ist mehr als zwei Drittel (71%) der Erdoberfläche von Meeren bedeckt.(11) Das ist echt unglaublich viel.",
+                T0002: "Nein. Ich weiß auch gar nicht, ob ich es überall hinschaffen würde, besonders in die Tiefen.",
+                T0003: "Da steigt der Druck irgendwann enorm an.",
+                T0004: "Aber man munkelt, dass einmal eine Meerjungfrau im Mariannengraben bis auf den Grund geschwommen sei.",
+                T0005: "Ich halte das für ein Gerücht.",
+                T0006: "Oh ja, das ist ganz interessant und ich wünschte, ich würde mehr davon verstehen.",
+                T0007: "Tatsächlich haben auch die Menschen bisher, trotz der Technik, noch immer weniger als 10% der Unterwasserwelten erforscht(11)",
+                T0008: "Ja, könnte man so sagen.",
+                T0009: "Hm genau weiß ich das jetzt nicht. Aber ich habe mal gehört, dass sich 96% des Wassers auf der Erdoberfläche in den Meeren befindet.(11)",
+                T0010: "Also würde ich sagen: sehr, sehr viel.",
+                T0011: "Ja genau, das übrige Frischwasser ist in Seen, Flüssen und in Form von Eis zu finden. Also wie Gletscher zum Beispiel.(11)",
+                T0012: "Oh ja, leider. Die Meere werden immer wärmer.",
+                T0013: "Das führt dann dazu, dass sich die Wasserschichten nicht mehr so gut vermischen, (12)",
+                T0014: "wodurch in manchen dieser Schichten die Lebewesen nicht mehr ausreichend mit Sauerstoff und lebenswichtigen Nährstoffen versorgt werden.(12)",
+                T0015: "Außerdem versauern die Meere durch die vermehrte Aufnahme von menschengemachtem CO2.(12)",
+                T0016: "Also der PH-Wert sinkt, was wiederum sehr schlecht für uns marine Lebewesen ist.(12)",
+                T0017: "Ja, das ist ganz richtig. Letztendlich sind aber nicht nur die wundervollen Korallen betroffen, (12)",
+                T0018: "sondern alle anderen Tiere und Pflanzen, die zusammen mit den Korallen leben, ebenfalls.",
+                T0019: "Und nicht nur die. Aber besonders auch andere kalkbildende Lebewesen leiden darunter.(12)",
+                T0020: "Die Frage ist wohl eher, welche nicht?",
+                T0021: "Andere marine Arten haben genauso mit den ansteigenden Temperaturen zu kämpfen.",
+                T0022: "Beispielsweise wandern dann ganze Fischbestände mit dem kalten Wasser Richtung Norden (12)",
+                T0023: "und nur wenn sie dort dann ein geeignetes Nahrungsangebot haben, können sie auch überleben.(12)",
+                T0024: "Ja das ist richtig. Wobei es nicht das Meer an sich ist, sondern beispielsweise Phytoplankton oder Seegraswiesen.(11)",
+                T0025: "So wird beinahe die Hälfte des CO2 in der Atmosphäre im Meer produziert.(11)",
+                T0026: "Ah das kann ich dir sagen! Okay, vielleicht nicht ganz genau, aber…",
+                T0027: "Die Meere beherbergen etwa die Hälfte bis 80% allen Lebens der Erde.(11)",
+                T0028: "Außerdem machen sie auch 99% des gesamten Lebensraums aus.(11)"
+            },
+            Protagonist: {
+                T0000: "Es ist echt unglaublich, wie groß das Meer doch ist. Und so tief… Ich kann es mir gar nicht richtig vorstellen.",
+                T0001: "Zum Glück haben wir auch Technik für Unterwasser, die schafft alles!",
+                T0002: "Also wissen wir eigentlich noch gar nichts…",
+                T0003: "Und wo genau ist dann das restliche Wasser? In Seen?",
+                T0004: "Stimmt, ich habe schon gehört, dass besonders die Korallen unter der Wassererwärmung leiden.",
+                T0005: "Nicht schlecht! Das war mir bisher gar nicht so bewusst."
+            }
         };
 
         await ƒS.Location.show(locations.waterBeach);
@@ -97,7 +97,11 @@ namespace Abschluss {
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0011);
-                        break;
+                        await ƒS.Character.hide(characters.Mermaid);
+                        await ƒS.update(0.5);
+                        ƒS.Speech.clear();
+                        ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
+                        return "end";
                     case questionChoices01.C0002:
                         // Stimmt es denn, dass es den Meeren immer schlechter geht?
                         addScore(6);
@@ -125,17 +129,28 @@ namespace Abschluss {
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0021);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0022);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0023);
-                                break;
+                                await ƒS.Character.hide(characters.Mermaid);
+                                await ƒS.update(0.5);
+                                ƒS.Speech.clear();
+                                ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
+                                return "end";
                             case questionChoices02.C0002:
                                 // Stimmt es, dass das Meer auch Sauerstoff selbst produziert?
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0024);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0025);
-                                break;
+                                await ƒS.Character.hide(characters.Mermaid);
+                                await ƒS.update(0.5);
+                                ƒS.Speech.clear();
+                                ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
+                                return "end";
                         }
                         break;
                 }
-
-                break;
+                await ƒS.Character.hide(characters.Mermaid);
+                await ƒS.update(0.5);
+                ƒS.Speech.clear();
+                ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
+                return "end";
             case questionChoices.C0002:
                 // Wow, wieviel unterschiedliches Leben es da unten wohl geben muss?
                 addScore(5);
@@ -143,8 +158,11 @@ namespace Abschluss {
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0027);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0028);
                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0005);
-                break;
+                await ƒS.Character.hide(characters.Mermaid);
+                await ƒS.update(0.5);
+                ƒS.Speech.clear();
+                ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
+                return "end";
         }
-
     }
 }
