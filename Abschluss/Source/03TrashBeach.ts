@@ -36,8 +36,10 @@ namespace Abschluss {
             T0025: "Ja, also ich kann ja schon auch über den Strand robben, das ist dann halt super anstrengend für mich und zu lange sollte ich auch nicht unbedingt an Land bleiben.",
             T0026: "Für die ist es nämlich leider auch nicht ganz ungefährlich. Darum mache ich es einfach.",
             T0027: "Grundsätzlich eigentlich nichts, allerdings sind einige Strände sehr beliebt bei Wilderern.(6) Denen möchte ich tatsächlich auch nicht begegnen!",
-            T0028: "Aber keine Sorge, hier habe ich noch nie welche gesehen."
-
+            T0028: "Aber keine Sorge, hier habe ich noch nie welche gesehen.",
+            T0029: "Ich würde sagen: ja das wäre Möglich und sollte auf jeden Fall passieren. Wer in diesem Fall dafür zuständig ist, weiß ich leider nicht. Die Politik wahrscheinlich in erster Linie",
+            T0030: "Aktuell werden, Kontrollen auf See und in den Häfen einfach zu selten durchgeführt – da fängt das Problem schon an. Außerdem sind auch die Strafen für ein Vergehen, viel zu niedrig.(14)",
+            T0031: "Die Organisation Sea Shepherd setzt sich sehr dafür ein, unsere Meere zu schützen und solche illegalen Machenschaften zu verhindern.(13)"
           },
           Protagonist: {
             T0000: "Wieso liegt hier denn so viel Müll? ",
@@ -107,7 +109,7 @@ namespace Abschluss {
                         await ƒS.update(0.5);
                         ƒS.Speech.clear();
                         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                        return "end";
+                        return "05";
                 }
                 break;
             case questionChoices.C0002:
@@ -243,7 +245,9 @@ namespace Abschluss {
                                         // Könnte die Fischerei nicht besser kontrolliert werden?
                                         addScore(5);
                                         
-                                        // TO DO
+                                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid. T0029);
+                                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid. T0030);
+                                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid. T0031);
                                         
                                         let questionChoices06 = {
                                             C0001: "Mehr erfahren!",
@@ -256,7 +260,7 @@ namespace Abschluss {
                                             case questionChoices06.C0001:
                                                 addScore(8);
                                                 let learnMore: string[] = ["„Große ausländische industrielle Fabrikschiffe (Schleppnetzschiffe, die in der früheren Sowjetunion gefertigt wurden) hielten sich an der Grenze zu Namibias AWZ auf, überquerten diese heimlich nachts und plünderten Fischbestände. <br><br>Der illegale Fang wurde dann auf große Kühlschiffe verladen, die gleich hinter der Grenze zur AWZ darauf warteten, die Ladung entgegenzunehmen. Kühlschiffe tragen viel zur Verschleierung der IUU-Fischerei bei, da legal gefangene Fische mit illegalen Fängen vermischt werden. <br><br>Das macht es unmöglich, die Herkunft der Fische nachzuvollziehen. Aus diesem Grund verbietet die namibische Verordnung für Meeresressourcen das Umladen auf See und gestattet es nur im Hafen oder unter Aufsicht von Polizeibeamten.“ <br><br> <a href='https://sea-shepherd.de/kampagnen/operation-vanguard/' target='_blank'>Quelle</a> | Stand 06/2021"];
-                                                nvlMode(learnMore);
+                                                nvlMode(learnMore, "aboutBtn");
                                                 break;
                                             case questionChoices06.C0002:
                                                 break;

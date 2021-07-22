@@ -128,6 +128,21 @@ dialog[type="text"] {
   overflow-x: hidden;
 }
 
+.visual-content {
+  background: none;
+  overflow-y: hidden !important;
+  width: fit-content !important;
+  position: relative;
+  margin-right: 50vw;
+}
+
+.visual-contentBtn {
+  position: relative;
+  margin-right: 60.5vw;
+  bottom: -50vh;
+  background: none;
+}
+
 .aboutBtn {
   position: relative;
   bottom: -50vh;
@@ -250,6 +265,9 @@ meter::-webkit-meter-optimum-value {
 meter::-webkit-meter-bar {
   background-color: rgba(11, 14, 19, 0.9);
 }
+
+/* dialog[class="play-again"] {
+} */
 
 .play-again {
   position: relative;

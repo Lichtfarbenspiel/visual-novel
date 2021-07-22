@@ -144,7 +144,10 @@ var Abschluss;
                 T0025: "Ja, also ich kann ja schon auch über den Strand robben, das ist dann halt super anstrengend für mich und zu lange sollte ich auch nicht unbedingt an Land bleiben.",
                 T0026: "Für die ist es nämlich leider auch nicht ganz ungefährlich. Darum mache ich es einfach.",
                 T0027: "Grundsätzlich eigentlich nichts, allerdings sind einige Strände sehr beliebt bei Wilderern.(6) Denen möchte ich tatsächlich auch nicht begegnen!",
-                T0028: "Aber keine Sorge, hier habe ich noch nie welche gesehen."
+                T0028: "Aber keine Sorge, hier habe ich noch nie welche gesehen.",
+                T0029: "Ich würde sagen: ja das wäre Möglich und sollte auf jeden Fall passieren. Wer in diesem Fall dafür zuständig ist, weiß ich leider nicht. Die Politik wahrscheinlich in erster Linie",
+                T0030: "Aktuell werden, Kontrollen auf See und in den Häfen einfach zu selten durchgeführt – da fängt das Problem schon an. Außerdem sind auch die Strafen für ein Vergehen, viel zu niedrig.(14)",
+                T0031: "Die Organisation Sea Shepherd setzt sich sehr dafür ein, unsere Meere zu schützen und solche illegalen Machenschaften zu verhindern.(13)"
             },
             Protagonist: {
                 T0000: "Wieso liegt hier denn so viel Müll? ",
@@ -205,7 +208,7 @@ var Abschluss;
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                        return "end";
+                        return "05";
                 }
                 break;
             case questionChoices.C0002:
@@ -324,7 +327,9 @@ var Abschluss;
                                     case questionChoices04.C0002:
                                         // Könnte die Fischerei nicht besser kontrolliert werden?
                                         Abschluss.addScore(5);
-                                        // TO DO
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0029);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0030);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0031);
                                         let questionChoices06 = {
                                             C0001: "Mehr erfahren!",
                                             C0002: "Nein danke."
@@ -334,7 +339,7 @@ var Abschluss;
                                             case questionChoices06.C0001:
                                                 Abschluss.addScore(8);
                                                 let learnMore = ["„Große ausländische industrielle Fabrikschiffe (Schleppnetzschiffe, die in der früheren Sowjetunion gefertigt wurden) hielten sich an der Grenze zu Namibias AWZ auf, überquerten diese heimlich nachts und plünderten Fischbestände. <br><br>Der illegale Fang wurde dann auf große Kühlschiffe verladen, die gleich hinter der Grenze zur AWZ darauf warteten, die Ladung entgegenzunehmen. Kühlschiffe tragen viel zur Verschleierung der IUU-Fischerei bei, da legal gefangene Fische mit illegalen Fängen vermischt werden. <br><br>Das macht es unmöglich, die Herkunft der Fische nachzuvollziehen. Aus diesem Grund verbietet die namibische Verordnung für Meeresressourcen das Umladen auf See und gestattet es nur im Hafen oder unter Aufsicht von Polizeibeamten.“ <br><br> <a href='https://sea-shepherd.de/kampagnen/operation-vanguard/' target='_blank'>Quelle</a> | Stand 06/2021"];
-                                                Abschluss.nvlMode(learnMore);
+                                                Abschluss.nvlMode(learnMore, "aboutBtn");
                                                 break;
                                             case questionChoices06.C0002:
                                                 break;
@@ -574,6 +579,89 @@ var Abschluss;
 })(Abschluss || (Abschluss = {}));
 var Abschluss;
 (function (Abschluss) {
+    async function GPGP() {
+        console.log("GPGP scene starting");
+        Abschluss.tickerDelay(30);
+        let text = {
+            Mermaid: {
+                T0000: "Schau, so sieht das dann aus. Das hier sind Bilder vom Great Pacific Garbage Patch, einer der Fünf Müllstrudel in den Ozeanen. (15, 16)",
+                T0001: "Der pazifische Müllstrudel ist eine etwa drei Millionen Tonnen schwere treibende Insel.(15)",
+                T0002: "Es wird geschätzt, dass sich darin etwa 1.8 Billionen Plastikteile befinden.(16, 17)",
+                T0003: "Der Müllstrudel erstreckt sich oberflächlich über einen Bereich von 1,6 Millionen Quadratkilometer und ist damit Dreimal so groß wie Frankreich. (17, 18)",
+                T0004: "In den letzten 40 Jahren hat sich die Größe des Müllstrudels übrigens um das Hundertfache vergrößert. (15)",
+                T0005: "",
+                T0006: "",
+                T0007: "",
+                T0008: "",
+                T0009: "",
+                T0010: "",
+                T0011: "",
+                T0012: "",
+                T0013: "",
+                T0014: "",
+                T0015: "",
+                T0016: "",
+                T0017: "",
+                T0018: "",
+                T0019: "",
+                T0020: "",
+                T0021: "",
+                T0022: "",
+                T0023: "",
+                T0024: "",
+                T0025: "",
+                T0026: "",
+                T0027: "",
+                T0028: ""
+            },
+            Protagonist: {
+                T0000: "",
+                T0001: "",
+                T0002: "",
+                T0003: "",
+                T0004: "",
+                T0005: ""
+            }
+        };
+        await Abschluss.ƒS.Location.show(Abschluss.locations.waterBeach);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
+        await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
+        await Abschluss.ƒS.update(0.5);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.bigWavesOnSandyBeach, 0.001, true);
+        Abschluss.ƒS.Sound.fade(Abschluss.sounds.bigWavesOnSandyBeach, 1, 0.1, true);
+        await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(40, 115));
+        await Abschluss.ƒS.update(1);
+        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
+        // Fotos von GPGP in NVL style
+        let imgGPGP = ["<img src='img/Visualisations/garbage_patches.png' alt='garbage_patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP-pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP-pollution2' height='100%'>"];
+        await Abschluss.nvlMode(imgGPGP, "visual-contentBtn", "visual-content");
+        let questionChoices = {
+            C0001: "Wieviel Müll hat sich da bis jetzt angesammelt?",
+            C0002: "Wie groß ist das denn?"
+        };
+        let userInput = await Abschluss.ƒS.Menu.getInput(questionChoices, "class");
+        switch (userInput) {
+            case questionChoices.C0001:
+                //Wieviel Müll hat sich da bis jetzt angesammelt?
+                Abschluss.addScore(5);
+                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0001);
+                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0002);
+                break;
+            case questionChoices.C0002:
+                // Wie groß ist das denn?
+                Abschluss.addScore(5);
+                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0003);
+                // Frankreich animation einbetten
+                let gifGPGP = ["<img src='img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
+                await Abschluss.nvlMode(gifGPGP);
+                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
+                break;
+        }
+    }
+    Abschluss.GPGP = GPGP;
+})(Abschluss || (Abschluss = {}));
+var Abschluss;
+(function (Abschluss) {
     async function endScene() {
         console.log("End scene starting");
         Abschluss.tickerDelay(30);
@@ -685,8 +773,7 @@ var Abschluss;
             name: "Recycle Badge",
             description: "Du hast am Strand Müll eingesammelt.",
             image: "Img/Items/recycle-badge.png",
-            static: true,
-            handler: hndItem
+            static: true
         },
         plasticBottles: {
             name: "Plastik Flaschen",
@@ -701,14 +788,14 @@ var Abschluss;
     function increaseSound() {
         if (volume >= 100)
             return;
-        volume += 0.1;
+        volume += 0.5;
         Abschluss.ƒS.Sound.setMasterVolume(volume);
     }
     Abschluss.increaseSound = increaseSound;
     function decreaseSound() {
         if (volume > 0)
             return;
-        volume -= 0.1;
+        volume -= 0.5;
         Abschluss.ƒS.Sound.setMasterVolume(volume);
     }
     Abschluss.decreaseSound = decreaseSound;
@@ -748,8 +835,8 @@ var Abschluss;
         close: "schließen x",
         save: "Spielstand speichern",
         load: "Spielstand laden",
-        turnUpVolume: "Musik lauter",
         turnDownVolume: "Musik leiser",
+        turnUpVolume: "Musik lauter",
         about: "Über das Spiel",
         credits: "Credits"
     };
@@ -766,11 +853,11 @@ var Abschluss;
         else if (_option == inGameMenu.load) {
             await Abschluss.ƒS.Progress.load();
         }
-        else if (_option == inGameMenu.turnUpVolume) {
-            increaseSound();
-        }
         else if (_option == inGameMenu.turnDownVolume) {
             decreaseSound();
+        }
+        else if (_option == inGameMenu.turnUpVolume) {
+            increaseSound();
         }
         else if (_option == inGameMenu.about) {
             about();
@@ -789,11 +876,12 @@ var Abschluss;
         gameMenu = Abschluss.ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
         // gameMenu.close();
         let scenes = [
-            { scene: Abschluss.RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-            { scene: Abschluss.TurtleBeach, name: "02TurtleBeach", id: "02", next: "null" },
-            { scene: Abschluss.TrashBeach, name: "03TrashBeach", id: "03", next: "null" },
-            { scene: Abschluss.WaterBeach, name: "04WaterBeach", id: "04", next: "null" },
-            { scene: Abschluss.endScene, name: "EndScene", id: "end", next: "null" }
+            // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+            // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
+            // { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
+            // { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
+            { scene: Abschluss.GPGP, name: "05GPGP", id: "05", next: "null" }
+            // { scene: endScene, name: "EndScene", id: "end", next: "null"}
         ];
         document.addEventListener("keydown", hndKeypress);
         let uiElement = document.querySelector("[type=interface]");
@@ -832,14 +920,16 @@ var Abschluss;
         Abschluss.data.score.a -= amount;
     }
     Abschluss.subtractScore = subtractScore;
-    async function nvlMode(content) {
+    async function nvlMode(content, buttonClass, textClass) {
         Abschluss.ƒS.Speech.hide();
         let current = 0;
         let buttons = { back: "zurück", next: "weiter", done: "schließen x" };
         let choice;
         do {
+            if (textClass)
+                Abschluss.ƒS.Text.addClass(textClass);
             Abschluss.ƒS.Text.print(content[current]);
-            choice = await Abschluss.ƒS.Menu.getInput(buttons, "aboutBtn");
+            choice = await Abschluss.ƒS.Menu.getInput(buttons, buttonClass);
             switch (choice) {
                 case buttons.back:
                     current = Math.max(0, current - 1);
@@ -857,10 +947,6 @@ var Abschluss;
         Abschluss.data.score.a -= 10;
     }
     Abschluss.throwAway = throwAway;
-    function hndItem(_event) {
-        console.log("Badge");
-    }
-    Abschluss.hndItem = hndItem;
 })(Abschluss || (Abschluss = {}));
 var Abschluss;
 (function (Abschluss) {

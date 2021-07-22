@@ -11,6 +11,9 @@ declare namespace Abschluss {
     function WaterBeach(): ƒS.SceneReturn;
 }
 declare namespace Abschluss {
+    function GPGP(): ƒS.SceneReturn;
+}
+declare namespace Abschluss {
     function endScene(): ƒS.SceneReturn;
 }
 declare namespace Abschluss {
@@ -89,7 +92,6 @@ declare namespace Abschluss {
             description: string;
             image: string;
             static: boolean;
-            handler: typeof hndItem;
         };
         plasticBottles: {
             name: string;
@@ -104,9 +106,8 @@ declare namespace Abschluss {
     function tickerDelay(_delay: number): void;
     function addScore(amount: number): void;
     function subtractScore(amount: number): void;
-    function nvlMode(content: string[]): Promise<void>;
+    function nvlMode(content: string[], buttonClass?: string, textClass?: string): Promise<void>;
     function throwAway(_event: CustomEvent): void;
-    function hndItem(_event: CustomEvent): void;
 }
 declare namespace Abschluss {
     function SceneTemplate(): ƒS.SceneReturn;

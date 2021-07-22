@@ -88,8 +88,7 @@ namespace Abschluss {
       name: "Recycle Badge",
       description: "Du hast am Strand Müll eingesammelt.",
       image: "Img/Items/recycle-badge.png",
-      static: true,
-      handler: hndItem
+      static: true
     },
     plasticBottles: {
       name: "Plastik Flaschen",
@@ -107,16 +106,17 @@ namespace Abschluss {
   export function increaseSound(): void {
     if (volume >= 100)
       return;
-    volume += 0.1;
+    volume += 0.5;
     ƒS.Sound.setMasterVolume(volume);
   }
 
   export function decreaseSound(): void {
     if (volume > 0)
       return;
-    volume -= 0.1;
-    ƒS.Sound.setMasterVolume(volume);
+    volume -= 0.5;
+    ƒS.Sound.setMasterVolume(volume); 
   }
+
 
   // MENU PAGES FUNCTIONS
   async function about(): Promise<void> {
@@ -148,13 +148,14 @@ namespace Abschluss {
     } while (choice != buttons.done);
     ƒS.Text.close();
   } 
+
   // MENU
   let inGameMenu = {
     close: "schließen x",
     save: "Spielstand speichern",
     load: "Spielstand laden",
-    turnUpVolume: "Musik lauter",
     turnDownVolume: "Musik leiser",
+    turnUpVolume: "Musik lauter",
     about: "Über das Spiel",
     credits: "Credits"
     
@@ -172,10 +173,10 @@ namespace Abschluss {
       await ƒS.Progress.save();
     } else if (_option == inGameMenu.load) {
       await ƒS.Progress.load();
-    } else if (_option == inGameMenu.turnUpVolume) {
-      increaseSound();
     } else if (_option == inGameMenu.turnDownVolume) {
       decreaseSound();
+    } else if (_option == inGameMenu.turnUpVolume) {
+      increaseSound();
     } else if (_option == inGameMenu.about) {
       about();
       return;
@@ -195,11 +196,12 @@ namespace Abschluss {
     // gameMenu.close();
 
     let scenes: ƒS.Scenes = [
-      { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-      { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
-      { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
-      { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
-      { scene: endScene, name: "EndScene", id: "end", next: "null"}
+      // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+      // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
+      // { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
+      // { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
+      { scene: GPGP, name: "05GPGP", id: "05", next: "null"}
+      // { scene: endScene, name: "EndScene", id: "end", next: "null"}
     ];
 
     document.addEventListener("keydown", hndKeypress);
@@ -244,14 +246,15 @@ namespace Abschluss {
     data.score.a -= amount;
   }
 
-  export async function nvlMode(content: string[]): Promise<void> {
+  export async function nvlMode(content: string[], buttonClass?: string, textClass?: string): Promise<void> {
     ƒS.Speech.hide();
     let current: number = 0; 
     let buttons = {back: "zurück", next: "weiter", done: "schließen x"};
     let choice: string;
     do {
+      if (textClass) ƒS.Text.addClass(textClass);
       ƒS.Text.print(content[current]);
-      choice = await ƒS.Menu.getInput(buttons, "aboutBtn");
+      choice = await ƒS.Menu.getInput(buttons, buttonClass);
       switch (choice) {
         case buttons.back: current = Math.max(0, current - 1); break;
         case buttons.next: current = Math.min(content.length - 1, current + 1); break;
@@ -263,9 +266,5 @@ namespace Abschluss {
   export function throwAway(_event: CustomEvent): void {
     console.log("Threw plastic bottles away");
     data.score.a -= 10;
-  }
-
-  export function hndItem(_event: CustomEvent): void {
-    console.log("Badge");
   }
 }
