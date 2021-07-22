@@ -130,22 +130,32 @@ dialog[type="text"] {
 
 .visual-content {
   background: none;
-  overflow-y: hidden !important;
-  width: fit-content !important;
+  overflow-y: hidden;
+  width: fit-content;
   position: relative;
-  margin-right: 50vw;
+  margin-left: 10vw;
+}
+
+.learnMore {
+  width: 40vw;
+  height: 30vh;
+  padding: 1.5em 2.5em;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  margin-left: 10vw;
+  background-color: rgba(11, 14, 19, 0.5);
 }
 
 .visual-contentBtn {
   position: relative;
-  margin-right: 60.5vw;
-  bottom: -50vh;
+  bottom: -60vh;
   background: none;
 }
 
 .aboutBtn {
   position: relative;
-  bottom: -50vh;
+  bottom: -55vh;
   background: none;
 }
 
@@ -266,8 +276,6 @@ meter::-webkit-meter-bar {
   background-color: rgba(11, 14, 19, 0.9);
 }
 
-/* dialog[class="play-again"] {
-} */
 
 .play-again {
   position: relative;

@@ -200,8 +200,8 @@ namespace Abschluss {
       // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
       // { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
       // { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
-      { scene: GPGP, name: "05GPGP", id: "05", next: "null"}
-      // { scene: endScene, name: "EndScene", id: "end", next: "null"}
+      // { scene: GPGP, name: "05GPGP", id: "05", next: "null"},
+      { scene: endScene, name: "EndScene", id: "end", next: "null"}
     ];
 
     document.addEventListener("keydown", hndKeypress);
@@ -252,7 +252,7 @@ namespace Abschluss {
     let buttons = {back: "zurück", next: "weiter", done: "schließen x"};
     let choice: string;
     do {
-      if (textClass) ƒS.Text.addClass(textClass);
+      if (textClass) ƒS.Text.addClass(textClass); ƒS.Text.setClass(textClass);
       ƒS.Text.print(content[current]);
       choice = await ƒS.Menu.getInput(buttons, buttonClass);
       switch (choice) {
@@ -266,5 +266,13 @@ namespace Abschluss {
   export function throwAway(_event: CustomEvent): void {
     console.log("Threw plastic bottles away");
     data.score.a -= 10;
+  }
+
+  export function endSore(): string {
+    if (data.score.a < 50 && data.score.a > 0) return "Guter Anfang!";
+    else if (data.score.a >= 50 && data.score.a < 85) return "Klasse, das ist nicht schlecht!";
+    else if (data.score.a >= 85) return "Super! Du bist jetzt ja schon Profi.";
+    else if (data.score.a <= 0) return "Hm, da geht doch noch mehr.";
+    return null;
   }
 }

@@ -622,7 +622,7 @@ var Abschluss;
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
         // Fotos von GPGP in NVL style
         let imgGPGP = ["<img src='img/Visualisations/garbage_patches.png' alt='garbage_patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP-pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP-pollution2' height='100%'>"];
-        await Abschluss.nvlMode(imgGPGP, false, "visual-contentBtn", "visual-content");
+        await Abschluss.nvlMode(imgGPGP, false, "aboutBtn", "visual-content");
         let questionChoices = {
             C0001: "Wieviel Müll hat sich da bis jetzt angesammelt?",
             C0002: "Wie groß ist das denn?"
@@ -641,7 +641,7 @@ var Abschluss;
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0003);
                 // Frankreich animation einbetten
                 let gifGPGP = ["<img src='img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
-                await Abschluss.nvlMode(gifGPGP, false, "visual-contentBtn", "visual-content");
+                await Abschluss.nvlMode(gifGPGP, false, "aboutBtn", "visual-content");
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
                 break;
         }
@@ -653,12 +653,14 @@ var Abschluss;
         switch (userInput2) {
             case questionChoices2.C0001:
                 // Wieso sammelt sich der Müll in so einem Strudel?
+                Abschluss.addScore(5);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0005);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0006);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0007);
                 break;
             case questionChoices2.C0002:
                 // Welche Art von Plastikmüll befindet sich in dem Strudel?
+                Abschluss.addScore(5);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0008);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0009);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
@@ -672,6 +674,7 @@ var Abschluss;
         switch (userInput3) {
             case questionChoices3.C0001:
                 // Könnte ich denn auch etwas gegen die Verschmutzung tun?
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0011);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0012);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0013);
@@ -681,26 +684,24 @@ var Abschluss;
                 };
                 let userInput4 = await Abschluss.ƒS.Menu.getInput(questionChoices4, "class");
                 switch (userInput4) {
-                    case questionChoices3.C0001:
+                    case questionChoices4.C0001:
                         // Mehr erfahren!
-                        let learnMore = [];
-                        Abschluss.nvlMode(learnMore, true, "aboutBtn");
+                        let learnMore = ["Allgemein weniger Müll verursachen - wiederverwendbare Produkte nutzen, wie beispielsweise Mehrwegflaschen.<br><br>Sammle Müll ein – auch auf dem Land, fern ab vom Meer, ist es wichtig, keinen Müll in der Natur zu hinterlassen. Zudem könnte auch dieser über Flüsse in die Meere gelangen.<br><br>Mülltrennung nicht vergessen! <br><br>Sprich darüber! Rede mit deinen Freunden, Familie, Kollegen usw. darüber. Dadurch entsteht ein größeres Bewusstsein."];
+                        Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0014);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
-                        // End Scene
-                        break;
-                    case questionChoices3.C0002:
+                        return "end";
+                    case questionChoices4.C0002:
                         // Nein, danke!
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
-                        // End Scene
-                        break;
+                        return "end";
                 }
                 break;
             case questionChoices3.C0002:
                 // Danke dir, das war wirklich sehr interessant!
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0016);
-                break;
+                return "end";
         }
     }
     Abschluss.GPGP = GPGP;
@@ -712,7 +713,7 @@ var Abschluss;
         Abschluss.tickerDelay(30);
         let text = {
             Mermaid: {
-                T0000: "Vielen Dank für deine Hilfe, " + Abschluss.data.Protagonist.name.toString() + "! Bald kann ich dir hier noch mehr zeigen und erzählen - schau unbedingt nochmal bei mir vorbei."
+                T0000: "Vielen Dank für deine Hilfe, " + Abschluss.data.Protagonist.name.toString() + "! Dein erreichter Wissenscore: <b>" + Abschluss.data.score.a + "</b> " + Abschluss.endSore()
             }
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.end);
@@ -925,8 +926,8 @@ var Abschluss;
             // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
             // { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
             // { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
-            { scene: Abschluss.GPGP, name: "05GPGP", id: "05", next: "null" }
-            // { scene: endScene, name: "EndScene", id: "end", next: "null"}
+            // { scene: GPGP, name: "05GPGP", id: "05", next: "null"},
+            { scene: Abschluss.endScene, name: "EndScene", id: "end", next: "null" }
         ];
         document.addEventListener("keydown", hndKeypress);
         let uiElement = document.querySelector("[type=interface]");
@@ -974,6 +975,7 @@ var Abschluss;
         do {
             if (textClass)
                 Abschluss.ƒS.Text.addClass(textClass);
+            Abschluss.ƒS.Text.setClass(textClass);
             Abschluss.ƒS.Text.print(content[current]);
             choice = await Abschluss.ƒS.Menu.getInput(buttons, buttonClass);
             switch (choice) {
@@ -993,6 +995,18 @@ var Abschluss;
         Abschluss.data.score.a -= 10;
     }
     Abschluss.throwAway = throwAway;
+    function endSore() {
+        if (Abschluss.data.score.a < 50 && Abschluss.data.score.a > 0)
+            return "Guter Anfang!";
+        else if (Abschluss.data.score.a >= 50 && Abschluss.data.score.a < 85)
+            return "Klasse, das ist nicht schlecht!";
+        else if (Abschluss.data.score.a >= 85)
+            return "Super! Du bist jetzt ja schon Profi.";
+        else if (Abschluss.data.score.a <= 0)
+            return "Hm, da geht doch noch mehr.";
+        return null;
+    }
+    Abschluss.endSore = endSore;
 })(Abschluss || (Abschluss = {}));
 var Abschluss;
 (function (Abschluss) {

@@ -50,7 +50,7 @@ namespace Abschluss {
 
         let imgGPGP: string[] = ["<img src='img/Visualisations/garbage_patches.png' alt='garbage_patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP-pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP-pollution2' height='100%'>"];
 
-        await nvlMode(imgGPGP, false, "visual-contentBtn", "visual-content");
+        await nvlMode(imgGPGP, false, "aboutBtn", "visual-content");
 
         let questionChoices = {
             C0001: "Wieviel Müll hat sich da bis jetzt angesammelt?",
@@ -72,7 +72,7 @@ namespace Abschluss {
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0003);
                 // Frankreich animation einbetten
                 let gifGPGP: string[] = ["<img src='img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
-                await nvlMode(gifGPGP, false, "visual-contentBtn", "visual-content");
+                await nvlMode(gifGPGP, false, "aboutBtn", "visual-content");
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0004);
                 break;
         }
@@ -87,12 +87,14 @@ namespace Abschluss {
         switch (userInput2) {
             case questionChoices2.C0001:
                 // Wieso sammelt sich der Müll in so einem Strudel?
+                addScore(5);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0005);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0006);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0007);
                 break;
             case questionChoices2.C0002:
                 // Welche Art von Plastikmüll befindet sich in dem Strudel?
+                addScore(5);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0008);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
@@ -109,6 +111,7 @@ namespace Abschluss {
         switch (userInput3) {
             case questionChoices3.C0001:
                 // Könnte ich denn auch etwas gegen die Verschmutzung tun?
+                addScore(10);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0011);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0012);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0013);
@@ -121,26 +124,24 @@ namespace Abschluss {
                 let userInput4 = await ƒS.Menu.getInput(questionChoices4, "class");
         
                 switch (userInput4) {
-                    case questionChoices3.C0001:
+                    case questionChoices4.C0001:
                         // Mehr erfahren!
-                        let learnMore: string[] = [];
-                        nvlMode(learnMore, true, "aboutBtn");
+                        let learnMore: string[] = ["Allgemein weniger Müll verursachen - wiederverwendbare Produkte nutzen, wie beispielsweise Mehrwegflaschen.<br><br>Sammle Müll ein – auch auf dem Land, fern ab vom Meer, ist es wichtig, keinen Müll in der Natur zu hinterlassen. Zudem könnte auch dieser über Flüsse in die Meere gelangen.<br><br>Mülltrennung nicht vergessen! <br><br>Sprich darüber! Rede mit deinen Freunden, Familie, Kollegen usw. darüber. Dadurch entsteht ein größeres Bewusstsein."];
+                        nvlMode(learnMore, true, "aboutBtn", "learnMore");
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
-                        // End Scene
-                        break;
-                    case questionChoices3.C0002:
+                        return "end";
+                    case questionChoices4.C0002:
                         // Nein, danke!
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
-                        // End Scene
-                        break;
+                        return "end";
                 }
                 break;
             case questionChoices3.C0002:
                 // Danke dir, das war wirklich sehr interessant!
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0016);
-                break;
+                return "end";
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Abschluss {
 
         let text = {
             Mermaid: {
-                T0000: "Vielen Dank für deine Hilfe, " + data.Protagonist.name.toString() + "! Bald kann ich dir hier noch mehr zeigen und erzählen - schau unbedingt nochmal bei mir vorbei."
+                T0000: "Vielen Dank für deine Hilfe, " + data.Protagonist.name.toString() + "! Dein erreichter Wissenscore: <b>" + data.score.a + "</b> " + endSore()
             }
         };
 
