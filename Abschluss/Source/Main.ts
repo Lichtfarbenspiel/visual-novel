@@ -246,8 +246,8 @@ namespace Abschluss {
     data.score.a -= amount;
   }
 
-  export async function nvlMode(content: string[], buttonClass?: string, textClass?: string): Promise<void> {
-    ƒS.Speech.hide();
+  export async function nvlMode(content: string[], hideSpeech: boolean, buttonClass?: string, textClass?: string): Promise<void> {
+    if (hideSpeech) ƒS.Speech.hide();
     let current: number = 0; 
     let buttons = {back: "zurück", next: "weiter", done: "schließen x"};
     let choice: string;

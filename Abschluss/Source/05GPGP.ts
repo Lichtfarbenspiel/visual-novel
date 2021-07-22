@@ -11,30 +11,18 @@ namespace Abschluss {
                 T0002: "Es wird geschätzt, dass sich darin etwa 1.8 Billionen Plastikteile befinden.(16, 17)",
                 T0003: "Der Müllstrudel erstreckt sich oberflächlich über einen Bereich von 1,6 Millionen Quadratkilometer und ist damit Dreimal so groß wie Frankreich. (17, 18)",
                 T0004: "In den letzten 40 Jahren hat sich die Größe des Müllstrudels übrigens um das Hundertfache vergrößert. (15)",
-                T0005: "",
-                T0006: "",
-                T0007: "",
-                T0008: "",
-                T0009: "",
-                T0010: "",
-                T0011: "",
-                T0012: "",
-                T0013: "",
-                T0014: "",
-                T0015: "",
-                T0016: "",
-                T0017: "",
-                T0018: "",
-                T0019: "",
-                T0020: "",
-                T0021: "",
-                T0022: "",
-                T0023: "",
-                T0024: "",
-                T0025: "",
-                T0026: "",
-                T0027: "",
-                T0028: ""
+                T0005: "Alle Fünf Müllstrudel befinden sich in der Nähe des Äquators, an Stellen, an denen unterschiedliche Meeresströmungen aufeinander treffen.(15)",
+                T0006: "Wenn die verschiedenen Strömungen aus dem Norden und Süden dann aufeinander treffen, entstehen diese großen Strudel.(15)",
+                T0007: "Dadurch wird der Plastikmüll zu einer Insel zusammen getrieben. (15)",
+                T0008: "Mit 46% besteht fast die Hälfte des Mülls aus Ausrüstung der Fischerei, wie Fischernetze und Seile.(16)",
+                T0009: "Teilweise werden sie vorsätzlich im Meer versorgt, teilweise schlicht und einfach verloren.(16)",
+                T0010: "Ansonsten macht auch das Mikroplastik einen sehr Großen Anteil aus. Weniger aber Plastik wie Flaschen oder anderen Einwegprodukten.(16)",
+                T0011: "Ja, tatsächlich einiges!",
+                T0012: "Du könntest beispielsweise versuchen, wenn du das nicht sowieso schon tust, auf den Verzehr von Fisch und anderen Meerestieren zu verzichten.",
+                T0013: "So trägst du nicht indirekt zur Verschmutzung durch Fischereigut bei und verursachst zusätzlich kein Tierleid.",
+                T0014: "Und denke daran: es kommt nicht darauf an, alles perfekt zu machen. Jeder kleine Schritt ist ein Schritt in die richtige Richtung! Geh dein Tempo, das wichtigste ist, du bleibst in Bewegung.",
+                T0015: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!",
+                T0016: "Oh nein, ich danke Dir! Danke, dass du mir geholfen hast. Auch die Schildkröten Danken dir dafür!"
             },
             Protagonist: {
                 T0000: "",
@@ -62,7 +50,7 @@ namespace Abschluss {
 
         let imgGPGP: string[] = ["<img src='img/Visualisations/garbage_patches.png' alt='garbage_patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP-pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP-pollution2' height='100%'>"];
 
-        await nvlMode(imgGPGP, "visual-contentBtn", "visual-content");
+        await nvlMode(imgGPGP, false, "visual-contentBtn", "visual-content");
 
         let questionChoices = {
             C0001: "Wieviel Müll hat sich da bis jetzt angesammelt?",
@@ -84,8 +72,74 @@ namespace Abschluss {
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0003);
                 // Frankreich animation einbetten
                 let gifGPGP: string[] = ["<img src='img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
-                await nvlMode(gifGPGP);
+                await nvlMode(gifGPGP, false, "visual-contentBtn", "visual-content");
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0004);
+                break;
+        }
+
+        let questionChoices2 = {
+            C0001: "Wieso sammelt sich der Müll in so einem Strudel?",
+            C0002: "Welche Art von Plastikmüll befindet sich in dem Strudel?"
+        };
+
+        let userInput2 = await ƒS.Menu.getInput(questionChoices2, "class");
+
+        switch (userInput2) {
+            case questionChoices2.C0001:
+                // Wieso sammelt sich der Müll in so einem Strudel?
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0005);
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0006);
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0007);
+                break;
+            case questionChoices2.C0002:
+                // Welche Art von Plastikmüll befindet sich in dem Strudel?
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0008);
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
+                break;
+        }
+
+        let questionChoices3 = {
+            C0001: "Könnte ich denn auch etwas gegen die Verschmutzung tun?",
+            C0002: "Danke dir, das war wirklich sehr interessant!"
+        };
+
+        let userInput3 = await ƒS.Menu.getInput(questionChoices3, "class");
+
+        switch (userInput3) {
+            case questionChoices3.C0001:
+                // Könnte ich denn auch etwas gegen die Verschmutzung tun?
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0011);
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0012);
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0013);
+
+                let questionChoices4 = {
+                    C0001: "Mehr erfahren!",
+                    C0002: "Nein, danke!"
+                };
+        
+                let userInput4 = await ƒS.Menu.getInput(questionChoices4, "class");
+        
+                switch (userInput4) {
+                    case questionChoices3.C0001:
+                        // Mehr erfahren!
+                        let learnMore: string[] = [];
+                        nvlMode(learnMore, true, "aboutBtn");
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
+                        // End Scene
+                        break;
+                    case questionChoices3.C0002:
+                        // Nein, danke!
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
+                        // End Scene
+                        break;
+                }
+                break;
+            case questionChoices3.C0002:
+                // Danke dir, das war wirklich sehr interessant!
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0016);
                 break;
         }
     }

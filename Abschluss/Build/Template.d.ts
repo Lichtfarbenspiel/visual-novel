@@ -106,7 +106,7 @@ declare namespace Abschluss {
     function tickerDelay(_delay: number): void;
     function addScore(amount: number): void;
     function subtractScore(amount: number): void;
-    function nvlMode(content: string[], buttonClass?: string, textClass?: string): Promise<void>;
+    function nvlMode(content: string[], hideSpeech: boolean, buttonClass?: string, textClass?: string): Promise<void>;
     function throwAway(_event: CustomEvent): void;
 }
 declare namespace Abschluss {

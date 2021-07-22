@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="oxPeWYvmzQ2fhBfpnkjk" name="Page-1">
-        <mxGraphModel dx="3510" dy="585" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#8A8A8A" math="0" shadow="0">
+        <mxGraphModel dx="3921" dy="726" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#8A8A8A" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -439,8 +439,10 @@
                 <mxCell id="167" value="Weil es sonst niemand macht" style="ellipse;whiteSpace=wrap;html=1;rounded=1;sketch=1;" parent="1" vertex="1">
                     <mxGeometry x="-830" y="900" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="176" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="168" target="175" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="176" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="175" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-1130" y="1945" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="168" value="" style="rhombus;strokeColor=#F0F0F0;rounded=1;sketch=1;arcSize=0;" parent="1" vertex="1">
                     <mxGeometry x="-1145" y="1930" width="30" height="30" as="geometry"/>
@@ -451,7 +453,7 @@
                 <mxCell id="178" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="175" target="177" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="175" value="End Scene" style="html=1;align=center;verticalAlign=top;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#FFB366;rounded=1;sketch=1;" parent="1" vertex="1">
+                <mxCell id="175" value="End Scene 1&lt;br&gt;" style="html=1;align=center;verticalAlign=top;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#FFB366;rounded=1;sketch=1;" parent="1" vertex="1">
                     <mxGeometry x="-1200" y="2050" width="140" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="177" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;sketch=1;strokeColor=#FFFFFF;" parent="1" vertex="1">
@@ -481,11 +483,133 @@
                 <mxCell id="186" value="Wieviel Müll ist da?" style="html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#00994D;rounded=1;sketch=1;" vertex="1" parent="1">
                     <mxGeometry x="-670" y="1320" width="140" height="60" as="geometry"/>
                 </mxCell>
+                <mxCell id="204" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="189" target="195">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="189" value="sehr viel" style="ellipse;whiteSpace=wrap;html=1;rounded=1;sketch=1;" vertex="1" parent="1">
                     <mxGeometry x="-670" y="1420" width="140" height="70" as="geometry"/>
                 </mxCell>
+                <mxCell id="205" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="191" target="195">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="191" value="3x Frankreich" style="ellipse;whiteSpace=wrap;html=1;rounded=1;sketch=1;" vertex="1" parent="1">
                     <mxGeometry x="-300" y="1420" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="193" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="195" target="199">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="194" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="195" target="197">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="195" value="" style="rhombus;strokeColor=#F0F0F0;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-435" y="1590" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="196" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="197" target="201">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="197" value="Welche Art von Müll?" style="html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#00994D;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-300" y="1575" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="198" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="199" target="200">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="199" value="Wieso ein Strudel?" style="html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#00994D;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-670" y="1575" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="216" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="200" target="209">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="200" value="Wegen Strömungen" style="ellipse;whiteSpace=wrap;html=1;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-670" y="1675" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="217" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="201" target="209">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="201" value="Fischernetze usw." style="ellipse;whiteSpace=wrap;html=1;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-300" y="1675" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="207" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="209" target="213">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="208" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="209" target="211">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="209" value="" style="rhombus;strokeColor=#F0F0F0;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-435" y="1805" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="210" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="211" target="215">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="211" value="&lt;span lang=&quot;DE&quot; style=&quot;font-size: 11.0pt ; line-height: 107% ; font-family: &amp;#34;calibri&amp;#34; , sans-serif&quot;&gt;Danke, ich muss los.&lt;/span&gt;" style="html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#00994D;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-300" y="1790" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="212" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="213" target="214">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="213" value="Kann ich was tun?" style="html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#00994D;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-670" y="1790" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="228" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="214" target="221">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="214" value="Klar!" style="ellipse;whiteSpace=wrap;html=1;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-670" y="1890" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="236" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="215" target="230">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="215" value="Danke auch!" style="ellipse;whiteSpace=wrap;html=1;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-300" y="1890" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="219" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="221" target="225">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="220" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="221" target="223">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="221" value="" style="rhombus;strokeColor=#F0F0F0;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-615" y="2015" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="222" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="223" target="227">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="223" value="&lt;span lang=&quot;DE&quot; style=&quot;font-size: 11.0pt ; line-height: 107% ; font-family: &amp;#34;calibri&amp;#34; , sans-serif&quot;&gt;Nein, danke!&lt;/span&gt;" style="html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#00994D;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-480" y="2000" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="224" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="225" target="226">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="225" value="Mehr erfahren!" style="html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#00994D;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-850" y="2000" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="234" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="226" target="230">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="226" value="Wegen Strömungen" style="ellipse;whiteSpace=wrap;html=1;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-850" y="2110" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="235" style="edgeStyle=orthogonalEdgeStyle;rounded=1;sketch=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="227" target="230">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="227" value="Danke auch!" style="ellipse;whiteSpace=wrap;html=1;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-480" y="2100" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="229" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="232">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-410" y="2295" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="230" value="" style="rhombus;strokeColor=#F0F0F0;rounded=1;sketch=1;arcSize=0;" vertex="1" parent="1">
+                    <mxGeometry x="-425" y="2280" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="231" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="232" target="233">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="232" value="End Scene 2" style="html=1;align=center;verticalAlign=top;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#FFB366;rounded=1;sketch=1;" vertex="1" parent="1">
+                    <mxGeometry x="-480" y="2400" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="233" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;sketch=1;strokeColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="-425" y="2490" width="30" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
