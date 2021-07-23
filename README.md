@@ -4,7 +4,7 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 # Links
 - [Zur Visual Novel](https://lichtfarbenspiel.github.io/visual-novel/Abschluss/)
 - [Code](Abschluss/Source)
-- [Code](Abschluss/Docs)
+- [Konzept](Abschluss/Docs)
 
 # Reference
 - [APIs](https://jirkadelloro.github.io/FUDGE_Story/Documentation/Reference/#fudge-story-reference)
