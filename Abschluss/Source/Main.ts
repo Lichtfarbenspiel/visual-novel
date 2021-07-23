@@ -23,6 +23,11 @@ namespace Abschluss {
       alpha: "Transitions/waves06.png",
       edge: 1
     },
+    wave2: {
+      duration: 1.5,
+      alpha: "Transitions/waves07.png",
+      edge: 1
+    },
     swirl: {
       duration: 1.5,
       alpha: "Transitions/swirl.png",
@@ -209,10 +214,10 @@ namespace Abschluss {
     // gameMenu.close();
 
     let scenes: ƒS.Scenes = [
-      { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-      { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
-      { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
-      { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
+      // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+      // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
+      // { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
+      // { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
       { scene: GPGP, name: "05GPGP", id: "05", next: "null"},
       { scene: endScene, name: "EndScene", id: "end", next: "null"}
     ];

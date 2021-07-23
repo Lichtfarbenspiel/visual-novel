@@ -798,7 +798,7 @@ var Abschluss;
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.waterBeach);
         Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
-        await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
+        await Abschluss.ƒS.update(Abschluss.transition.wave2.duration, Abschluss.transition.wave2.alpha, Abschluss.transition.wave2.edge);
         await Abschluss.ƒS.update(0.5);
         Abschluss.ƒS.Sound.play(Abschluss.sounds.bigWavesOnSandyBeach, 0.001, true);
         Abschluss.ƒS.Sound.fade(Abschluss.sounds.bigWavesOnSandyBeach, 1, 0.1, true);
@@ -955,6 +955,11 @@ var Abschluss;
         wave: {
             duration: 1.5,
             alpha: "Transitions/waves06.png",
+            edge: 1
+        },
+        wave2: {
+            duration: 1.5,
+            alpha: "Transitions/waves07.png",
             edge: 1
         },
         swirl: {
@@ -1134,10 +1139,10 @@ var Abschluss;
         gameMenu = Abschluss.ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
         // gameMenu.close();
         let scenes = [
-            { scene: Abschluss.RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-            { scene: Abschluss.TurtleBeach, name: "02TurtleBeach", id: "02", next: "null" },
-            { scene: Abschluss.TrashBeach, name: "03TrashBeach", id: "03", next: "null" },
-            { scene: Abschluss.WaterBeach, name: "04WaterBeach", id: "04", next: "null" },
+            // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+            // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
+            // { scene: TrashBeach, name: "03TrashBeach", id: "03", next: "null"},  
+            // { scene: WaterBeach, name: "04WaterBeach", id: "04", next: "null"},
             { scene: Abschluss.GPGP, name: "05GPGP", id: "05", next: "null" },
             { scene: Abschluss.endScene, name: "EndScene", id: "end", next: "null" }
         ];

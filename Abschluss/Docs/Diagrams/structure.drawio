@@ -473,7 +473,7 @@
                 <mxCell id="178" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="175" target="177" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="175" value="End Scene 1&lt;br&gt;" style="html=1;align=center;verticalAlign=top;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#FFB366;rounded=1;sketch=1;" parent="1" vertex="1">
+                <mxCell id="175" value="&amp;nbsp;" style="html=1;align=center;verticalAlign=top;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#FFB366;rounded=1;sketch=1;" parent="1" vertex="1">
                     <mxGeometry x="-1440" y="2110" width="140" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="177" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;sketch=1;strokeColor=#FFFFFF;" parent="1" vertex="1">
@@ -629,7 +629,7 @@
                 <mxCell id="231" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="232" target="233" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="232" value="End Scene 2" style="html=1;align=center;verticalAlign=top;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#FFB366;rounded=1;sketch=1;" parent="1" vertex="1">
+                <mxCell id="232" value="End Screen" style="html=1;align=center;verticalAlign=top;absoluteArcSize=1;arcSize=10;dashed=0;fillColor=#FFB366;rounded=1;sketch=1;" parent="1" vertex="1">
                     <mxGeometry x="160" y="2670" width="140" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="233" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;sketch=1;strokeColor=#FFFFFF;" parent="1" vertex="1">

@@ -80,13 +80,6 @@ speech name {
   font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
 } 
 
-/* speech.Mermaid name {
-  font-size: 14pt;
-  display: block;
-  color: rgb(98, 113, 161);
-  margin-bottom: 10px;
-}  */
-
 speech content {
   color: rgb(203, 253, 255);
 }
@@ -174,41 +167,8 @@ dialog[type="text"] {
   background: none;
 }
 
-/* .aboutBtn {
-  position: relative;
-  bottom: 0;
-} */
-
-/* dialog[class="gameMenu"] {
-  color: rgb(203, 253, 255);
-  width: 100vw;
-  height: 100vh;
-  border: none;
-  background-color: rgba(11, 14, 19, 0.9);
-  padding: 5%;
-  margin: 0 auto;
-  position: relative;
-}
-
-dialog[class="gameMenu"] Button {
-  background-color: aquamarine;
-  color: black;
-  border: none;
-  width: 30vw;
-  height: 3em;
-  margin-left: 28vw;
-  margin-top: 2em;
-}
-
-dialog[class="gameMenu"] Button:hover {
-  background-color: grey;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-} */
 
 dialog[type="inventory"] {
-  /* display: grid; */
   width: 55vw;
   height: 30vh;
 }
@@ -252,12 +212,6 @@ dialog[type="inventory"] description {
   margin-right: 1em;
   font-size: 0.75rem;
 }
-
-/* dialog[type="inventory"] img {
-  width: 100%;
-  margin: 10%;
-  position: relative;
-} */
 
 div[type="interface"] {
   position: absolute;

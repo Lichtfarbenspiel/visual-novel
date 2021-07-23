@@ -35,6 +35,11 @@ declare namespace Abschluss {
             alpha: string;
             edge: number;
         };
+        wave2: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
         swirl: {
             duration: number;
             alpha: string;
