@@ -18,6 +18,13 @@ a:hover {
   cursor: pointer;
 }
 
+img {
+  box-shadow: 5px 5px 5px rgba(11, 14, 19, 0.9);;
+  -moz-box-shadow: 5px 5px 5px rgba(11, 14, 19, 0.9);;
+  -webkit-box-shadow: 5px 5px 5px rgba(11, 14, 19, 0.9);;
+  -khtml-box-shadow: 5px 5px 5px rgba(11, 14, 19, 0.9);;
+}
+
 input {
   border: none;
 }
@@ -31,8 +38,6 @@ button {
 }
   
 scene {
-  /* width: 1920px;
-  height: 1080px; */
   width: 80em;
   height: 45em;
   display: inline-block;
@@ -86,10 +91,6 @@ speech content {
   color: rgb(203, 253, 255);
 }
 
-/* speech.Mermaid content {
-  color: rgb(203, 253, 255);
-} */
-
 dialog {
   background-color: rgba(11, 14, 19, 0.9);
   color: rgb(203, 253, 255);
@@ -128,13 +129,27 @@ dialog[type="text"] {
   overflow-x: hidden;
 }
 
+.selection {
+  margin-bottom: 18vh;
+  position: relative;
+}
+
 .visual-content {
   background: none;
-  overflow-y: hidden;
-  width: fit-content;
+  overflow-y: hidden !important;
+  width: fit-content !important;
   position: relative;
   margin-left: 10vw;
 }
+
+.visual-content-trawling {
+  background: none;
+  overflow-y: hidden !important;
+  width: fit-content !important;
+  position: relative;
+  margin-right: 5vw;
+}
+
 
 .learnMore {
   width: 40vw;

@@ -34,7 +34,20 @@ namespace Abschluss {
                 T0025: "So wird beinahe die Hälfte des CO2 in der Atmosphäre im Meer produziert.(11)",
                 T0026: "Ah das kann ich dir sagen! Okay, vielleicht nicht ganz genau, aber…",
                 T0027: "Die Meere beherbergen etwa die Hälfte bis 80% allen Lebens der Erde.(11)",
-                T0028: "Außerdem machen sie auch 99% des gesamten Lebensraums aus.(11)"
+                T0028: "Außerdem machen sie auch 99% des gesamten Lebensraums aus.(11)",
+                T0029: "Tatsächlich weiß aber niemand, wie viele Arten von Meerestieren es gibt. (20)",
+                T0030: "Ja, Wale werden auch heute noch gejagt.",
+                T0031: "Zum einen, aus finanziellem Interesse, zum anderen auch aus häufig Tradition, wobei auch hier eher der finanzielle Aspekt im Vordergrund steht.(21)",
+                T0032: "Wie fändest du es, dein Leben, in einem kleinen Zimmer zu verbringen?",
+                T0033: "Du könntest nicht ans Meer fahren, dich nur innerhalb ein paar Quadratmetern fortbewegen.",
+                T0034: "Ich halte nichts davon. Tieren wird die Freiheit genommen und teilweise werden sie dann noch zu Dingen gezwungen, die für sie nicht natürlich sind.",
+                T0035: "Ja genau.",
+                T0036: "Nein. In Gefangenschaft gezogene Tiere können meist nicht ausgewildert werden.(22)",
+                T0037: "Außerdem, was bringt es eine Art zu retten, deren Lebensraum bald oder bereits nicht mehr existiert?",
+                T0038: "Die Ursache muss bekämpft, nicht die Symptome unterdrückt werden.",
+                T0039: "Keiner Tierart ist mit einem Käfig geholfen.",
+                T0040: "Du könntest beispielsweise Aquarien nicht unterstützen. So trägst du nicht zu unnötigem Tierleid bei und unterstützt den Fang der Wildtiere nicht.(19)",
+                T0041: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!"
             },
             Protagonist: {
                 T0000: "Es ist echt unglaublich, wie groß das Meer doch ist. Und so tief… Ich kann es mir gar nicht richtig vorstellen.",
@@ -42,7 +55,10 @@ namespace Abschluss {
                 T0002: "Also wissen wir eigentlich noch gar nichts…",
                 T0003: "Und wo genau ist dann das restliche Wasser? In Seen?",
                 T0004: "Stimmt, ich habe schon gehört, dass besonders die Korallen unter der Wassererwärmung leiden.",
-                T0005: "Nicht schlecht! Das war mir bisher gar nicht so bewusst."
+                T0005: "Nicht schlecht! Das war mir bisher gar nicht so bewusst.",
+                T0006: "Wie Kunststücke?",
+                T0007: "Aber sind sie nicht gut, um bedrohte Arten vor dem Aussterben zu retten?",
+                T0008: "Gibt es denn etwas, das ich beispielsweise tun könnte?"
             }
         };
 
@@ -66,7 +82,7 @@ namespace Abschluss {
             C0002: "Wow, wieviel unterschiedliches Leben es da unten wohl geben muss?"
         };
 
-        let userInput = await ƒS.Menu.getInput(questionChoices, "class");
+        let userInput = await ƒS.Menu.getInput(questionChoices, "selection");
 
         switch (userInput) {
             case questionChoices.C0001:
@@ -87,7 +103,7 @@ namespace Abschluss {
                     C0002: "Stimmt es denn, dass es den Meeren immer schlechter geht?"
                 };
         
-                let userInput01 = await ƒS.Menu.getInput(questionChoices01, "class");
+                let userInput01 = await ƒS.Menu.getInput(questionChoices01, "selection");
 
                 switch (userInput01) {
                     case questionChoices01.C0001:
@@ -97,6 +113,58 @@ namespace Abschluss {
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0011);
+
+                        let questionChoices02 = {
+                            C0001: "Werden Wale noch immer gejagt?",
+                            C0002: "Was hältst du von Aquarien und Zoos?"
+                        };
+                
+                        let userInput02 = await ƒS.Menu.getInput(questionChoices02, "selection");
+        
+                        switch (userInput02) {
+                            case questionChoices02.C0001:
+                                // Werden Wale noch immer gejagt?
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0030);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0031);
+                                break;
+                            case questionChoices02.C0002:
+                                // Was hältst du von Aquarien und Zoos?
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0032);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0033);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0034);
+                                await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0006);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0035);
+                                await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0007);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0036);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0037);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0038);
+                                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0039);
+                                break;
+                        }
+        
+                        // TO Do was kann ich tun?
+                        await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0008);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0040);
+        
+                        let questionChoices03 = {
+                            C0001: "Mehr erfahren!",
+                            C0002: "Nein, danke!"
+                        };
+                
+                        let userInput03 = await ƒS.Menu.getInput(questionChoices03, "selection");
+                
+                        switch (userInput03) {
+                            case questionChoices03.C0001:
+                                // Mehr erfahren!
+                                let learnMore: string[] = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
+                                nvlMode(learnMore, true, "aboutBtn", "learnMore");
+                                break;
+                            case questionChoices03.C0002:
+                                // Nein, danke!
+                                break;
+                        }
+        
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0041);
                         await ƒS.Character.hide(characters.Mermaid);
                         await ƒS.update(0.5);
                         ƒS.Speech.clear();
@@ -115,42 +183,58 @@ namespace Abschluss {
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0018);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0019);
 
-                        let questionChoices02 = {
+                        let questionChoices04 = {
                             C0001: "Welche Tiere leiden denn noch unter der Wassererwärmung?",
                             C0002: "Stimmt es, dass das Meer auch Sauerstoff selbst produziert?"
                         };
                 
-                        let userInput02 = await ƒS.Menu.getInput(questionChoices02, "class");
+                        let userInput04 = await ƒS.Menu.getInput(questionChoices04, "selection");
 
-                        switch (userInput02) {
-                            case questionChoices02.C0001:
+                        switch (userInput04) {
+                            case questionChoices04.C0001:
                                 // Welche Tiere leiden denn noch unter der Wassererwärmung?
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0020);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0021);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0022);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0023);
-                                await ƒS.Character.hide(characters.Mermaid);
-                                await ƒS.update(0.5);
-                                ƒS.Speech.clear();
-                                ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
-                                return "end";
-                            case questionChoices02.C0002:
+                                break;
+                            case questionChoices04.C0002:
                                 // Stimmt es, dass das Meer auch Sauerstoff selbst produziert?
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0024);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0025);
-                                await ƒS.Character.hide(characters.Mermaid);
-                                await ƒS.update(0.5);
-                                ƒS.Speech.clear();
-                                ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
-                                return "end";
+                                break;
                         }
-                        break;
+
+                        await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0008);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0040);
+
+                        let questionChoices05 = {
+                            C0001: "Mehr erfahren!",
+                            C0002: "Nein, danke!"
+                        };
+                
+                        let userInput05 = await ƒS.Menu.getInput(questionChoices05, "selection");
+                
+                        switch (userInput05) {
+                            case questionChoices05.C0001:
+                                // Mehr erfahren!
+                                let learnMore: string[] = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
+                                nvlMode(learnMore, true, "aboutBtn", "learnMore");
+                                break;
+                            case questionChoices04.C0002:
+                                // Nein, danke!
+                                break;
+                        }
+        
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0041);
+
+                        await ƒS.Character.hide(characters.Mermaid);
+                        await ƒS.update(0.5);
+                        ƒS.Speech.clear();
+                        ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
+                        return "end";
                 }
-                await ƒS.Character.hide(characters.Mermaid);
-                await ƒS.update(0.5);
-                ƒS.Speech.clear();
-                ƒS.Sound.fade(sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
-                return "end";
+                break;
             case questionChoices.C0002:
                 // Wow, wieviel unterschiedliches Leben es da unten wohl geben muss?
                 addScore(5);
@@ -158,6 +242,60 @@ namespace Abschluss {
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0027);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0028);
                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0005);
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0029);
+
+                let questionChoices03 = {
+                    C0001: "Werden Wale noch immer gejagt?",
+                    C0002: "Was hältst du von Aquarien und Zoos?"
+                };
+        
+                let userInput03 = await ƒS.Menu.getInput(questionChoices03, "selection");
+
+                switch (userInput03) {
+                    case questionChoices03.C0001:
+                        // Werden Wale noch immer gejagt?
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0030);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0031);
+                        break;
+                    case questionChoices03.C0002:
+                        // Was hältst du von Aquarien und Zoos?
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0032);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0033);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0034);
+                        await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0006);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0035);
+                        await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0007);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0036);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0037);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0038);
+                        await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0039);
+                        break;
+                }
+
+                // TO Do was kann ich tun?
+                await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0008);
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0040);
+
+                let questionChoices05 = {
+                    C0001: "Mehr erfahren!",
+                    C0002: "Nein, danke!"
+                };
+        
+                let userInput05 = await ƒS.Menu.getInput(questionChoices05, "selection");
+        
+                switch (userInput05) {
+                    case questionChoices05.C0001:
+                        // Mehr erfahren!
+                        let learnMore: string[] = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
+                        nvlMode(learnMore, true, "aboutBtn", "learnMore");
+                        break;
+                    case questionChoices05.C0002:
+                        // Nein, danke!
+                        break;
+                }
+
+                await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0041);
+
                 await ƒS.Character.hide(characters.Mermaid);
                 await ƒS.update(0.5);
                 ƒS.Speech.clear();

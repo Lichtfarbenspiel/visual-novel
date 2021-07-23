@@ -48,7 +48,7 @@ namespace Abschluss {
 
         // Fotos von GPGP in NVL style
 
-        let imgGPGP: string[] = ["<img src='img/Visualisations/garbage_patches.png' alt='garbage_patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP-pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP-pollution2' height='100%'>"];
+        let imgGPGP: string[] = ["<img src='img/Visualisations/garbage_patches.png' alt='Garbage Patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP Pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP Pollution 2' height='100%'>"];
 
         await nvlMode(imgGPGP, false, "aboutBtn", "visual-content");
 
@@ -57,7 +57,7 @@ namespace Abschluss {
             C0002: "Wie groß ist das denn?"
         };
 
-        let userInput = await ƒS.Menu.getInput(questionChoices, "class");
+        let userInput = await ƒS.Menu.getInput(questionChoices, "selection");
 
         switch (userInput) {
             case questionChoices.C0001:
@@ -82,7 +82,7 @@ namespace Abschluss {
             C0002: "Welche Art von Plastikmüll befindet sich in dem Strudel?"
         };
 
-        let userInput2 = await ƒS.Menu.getInput(questionChoices2, "class");
+        let userInput2 = await ƒS.Menu.getInput(questionChoices2, "selection");
 
         switch (userInput2) {
             case questionChoices2.C0001:
@@ -106,7 +106,7 @@ namespace Abschluss {
             C0002: "Danke dir, das war wirklich sehr interessant!"
         };
 
-        let userInput3 = await ƒS.Menu.getInput(questionChoices3, "class");
+        let userInput3 = await ƒS.Menu.getInput(questionChoices3, "selection");
 
         switch (userInput3) {
             case questionChoices3.C0001:
@@ -121,7 +121,7 @@ namespace Abschluss {
                     C0002: "Nein, danke!"
                 };
         
-                let userInput4 = await ƒS.Menu.getInput(questionChoices4, "class");
+                let userInput4 = await ƒS.Menu.getInput(questionChoices4, "selection");
         
                 switch (userInput4) {
                     case questionChoices4.C0001:

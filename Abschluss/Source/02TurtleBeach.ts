@@ -42,7 +42,7 @@ namespace Abschluss {
     await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0001);
 
 
-    let userInput = await ƒS.Menu.getInput(turtleChoices, "class");
+    let userInput = await ƒS.Menu.getInput(turtleChoices, "selection");
 
     switch (userInput) {
       case turtleChoices.C0001:

@@ -84,7 +84,7 @@ var Abschluss;
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0001);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0001);
-        let userInput = await Abschluss.ƒS.Menu.getInput(turtleChoices, "class");
+        let userInput = await Abschluss.ƒS.Menu.getInput(turtleChoices, "selection");
         switch (userInput) {
             case turtleChoices.C0001:
                 // Schildkröten zum Wasser tragen
@@ -115,7 +115,7 @@ var Abschluss;
         Abschluss.tickerDelay(30);
         let text = {
             Mermaid: {
-                T0000: "Naja, drüben wird der Strand regelmäßig gesäubert. Aber ich glaube das Landet dann alles hier – hinter die Felsen kommen keine Urlauber, da sieht es niemand.",
+                T0000: "Naja, drüben wird der Strand regelmäßig gesäubert. Aber ich glaube das landet dann alles hier – hinter die Felsen kommen keine Urlauber, da sieht es niemand.",
                 T0001: "Und dann werden natürlich noch Unmengen über das Meer angespült. Es wird jedes Jahr schlimmer!",
                 T0002: "Ich habe einmal gehört, wie zwei Meeresbiologen darüber geredet haben.",
                 T0003: "Sie meinten, dass jedes Jahr etwa 2 Millionen Tonnen Plastik über die Flüsse in die Meere gelangt.(1) Nur über Flüsse! Das sind um die 10.500 Blauwale.",
@@ -147,7 +147,11 @@ var Abschluss;
                 T0028: "Aber keine Sorge, hier habe ich noch nie welche gesehen.",
                 T0029: "Ich würde sagen: ja das wäre Möglich und sollte auf jeden Fall passieren. Wer in diesem Fall dafür zuständig ist, weiß ich leider nicht. Die Politik wahrscheinlich in erster Linie",
                 T0030: "Aktuell werden, Kontrollen auf See und in den Häfen einfach zu selten durchgeführt – da fängt das Problem schon an. Außerdem sind auch die Strafen für ein Vergehen, viel zu niedrig.(14)",
-                T0031: "Die Organisation Sea Shepherd setzt sich sehr dafür ein, unsere Meere zu schützen und solche illegalen Machenschaften zu verhindern.(13)"
+                T0031: "Die Organisation Sea Shepherd setzt sich sehr dafür ein, unsere Meere zu schützen und solche illegalen Machenschaften zu verhindern.(13)",
+                T0032: "Super, danke dir! Komm, ich möchte dir noch was zum Pazifischen Müllstrudel zeigen.",
+                T0033: "Schön, dass du fragst. Natürlich kannst du etwas tun.",
+                T0034: "Du kannst zum Beispiel, wenn du das nicht schon tust, auf den Verzehr von Fisch und anderen Meereslebewesen verzichten. So unterstützt du die Fischerei nicht mehr.",
+                T0035: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!"
             },
             Protagonist: {
                 T0000: "Wieso liegt hier denn so viel Müll? ",
@@ -157,13 +161,20 @@ var Abschluss;
                 T0004: "Ja, macht Sinn. So ein Netz lässt sich ja auch nicht wirklich nach Tierart steuern, da ist es ja wirklich unmöglich sowas zu verhindern.",
                 T0005: "Aber du kannst doch nicht laufen, das ist doch dann gar nicht so einfach.",
                 T0006: "Und wenn ich jetzt nicht da wäre, was würdet du dann machen?",
-                T0007: "Aber was ist denn so gefährlich daran, Baby-Schildkröten vor Seevögeln zu schützen?"
+                T0007: "Aber was ist denn so gefährlich daran, Baby-Schildkröten vor Seevögeln zu schützen?",
+                T0008: "Gibt es denn etwas, das ich beispielsweise tun könnte?"
             }
         };
         let questionChoices = {
             C0001: "Wieso wird es immer schlimmer?",
             C0002: "Wieso werden die Eier überhaupt hier abgelegt?",
             C0003: "Müll einsammeln"
+        };
+        let animation = {
+            start: { translation: Abschluss.ƒS.positionPercent(99, 33) },
+            end: { translation: Abschluss.ƒS.positionPercent(8, 32) },
+            duration: 150,
+            playmode: Abschluss.ƒS.ANIMATION_PLAYMODE.LOOP
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.trashBeach);
         Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
@@ -172,11 +183,13 @@ var Abschluss;
         Abschluss.ƒS.Sound.play(Abschluss.sounds.softWavesOnSandyBeach, 0.01, true);
         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(-5, 110));
+        await Abschluss.ƒS.Character.show(Abschluss.characters.BabyTurtle, Abschluss.characters.BabyTurtle.pose.idle, Abschluss.ƒS.positionPercent(98, 33));
+        Abschluss.ƒS.Character.animate(Abschluss.characters.BabyTurtle, Abschluss.characters.BabyTurtle.pose.idle, animation);
         await Abschluss.ƒS.update(1);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0001);
-        let userInput = await Abschluss.ƒS.Menu.getInput(questionChoices, "class");
+        let userInput = await Abschluss.ƒS.Menu.getInput(questionChoices, "selection");
         switch (userInput) {
             case questionChoices.C0001:
                 // Wieso wird es immer schlimmer
@@ -188,23 +201,25 @@ var Abschluss;
                     C0001: "Wieviel wiegt denn so ein Blauwal?",
                     C0002: "Das ist echt ganz schön viel Müll. Liegt das dann alles immer an den Stränden?"
                 };
-                let userInput01 = await Abschluss.ƒS.Menu.getInput(questionChoices01, "class");
+                let userInput01 = await Abschluss.ƒS.Menu.getInput(questionChoices01, "selection");
                 switch (userInput01) {
                     case questionChoices01.C0001:
                         // Wieviel wiegt denn so ein Blauwal?
                         Abschluss.addScore(3);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                        await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                        return "end";
+                        return "end"; // TO DO
                     case questionChoices01.C0002:
                         // Liegt das dann alles immer an den Stränden?
                         Abschluss.addScore(5);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0005);
                         // weiter zu GPGP
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                        await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
@@ -222,13 +237,14 @@ var Abschluss;
                     C0002: "Wie viele Arten von Wasserschildkröten gibt es denn?",
                     C0003: "Und wieso schaust du jetzt nach den Schildkrötenjungen?"
                 };
-                let userInput02 = await Abschluss.ƒS.Menu.getInput(questionChoices02, "class");
+                let userInput02 = await Abschluss.ƒS.Menu.getInput(questionChoices02, "selection");
                 switch (userInput02) {
                     case questionChoices02.C0001:
                         // Wieso kommen sie denn immer nur an den Geburtsstrand zurück?
                         Abschluss.addScore(2);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0008);
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                        await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
@@ -253,7 +269,7 @@ var Abschluss;
                                     C0002: "Bitte sag mir die Lösung."
                                 };
                                 if (!Abschluss.data.correct) {
-                                    let retryInput = await Abschluss.ƒS.Menu.getInput(retryChoices, "class");
+                                    let retryInput = await Abschluss.ƒS.Menu.getInput(retryChoices, "selection");
                                     switch (retryInput) {
                                         case retryChoices.C0001:
                                             count++;
@@ -274,7 +290,7 @@ var Abschluss;
                             C0001: "Warum sind sie vom Aussterben bedroht?",
                             C0002: "Und wieso schaust du jetzt nach den Schildkrötenjungen?"
                         };
-                        let userInput03 = await Abschluss.ƒS.Menu.getInput(questionChoices03, "class");
+                        let userInput03 = await Abschluss.ƒS.Menu.getInput(questionChoices03, "selection");
                         switch (userInput03) {
                             case questionChoices03.C0001:
                                 // Warum sind sie vom Aussterben bedroht?
@@ -289,7 +305,7 @@ var Abschluss;
                                     C0001: "Was meinst du mit Beifang?",
                                     C0002: "Könnte die Fischerei nicht besser kontrolliert werden?"
                                 };
-                                let userInput04 = await Abschluss.ƒS.Menu.getInput(questionChoices04, "class");
+                                let userInput04 = await Abschluss.ƒS.Menu.getInput(questionChoices04, "selection");
                                 switch (userInput04) {
                                     case questionChoices04.C0001:
                                         // Was meinst du mit Beifang?
@@ -302,28 +318,47 @@ var Abschluss;
                                             C0001: "Was genau meinst du?",
                                             C0002: "Was sind denn das für Fangmethoden?"
                                         };
-                                        let userInput05 = await Abschluss.ƒS.Menu.getInput(questionChoices05, "class");
+                                        let userInput05 = await Abschluss.ƒS.Menu.getInput(questionChoices05, "selection");
                                         switch (userInput05) {
                                             case questionChoices05.C0001:
                                                 // Was genau meinst du?
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0018);
-                                                await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
-                                                await Abschluss.ƒS.update(0.5);
-                                                Abschluss.ƒS.Speech.clear();
-                                                Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                                                return "end";
+                                                break;
                                             case questionChoices05.C0002:
                                                 // Was sind denn das für Fangmethoden?
                                                 Abschluss.addScore(5);
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0019);
+                                                let imgTrawling = ["<img src='img/Visualisations/impact2.png' alt='Before Trawling' height='100%' >", "<img src='img/Visualisations/impact3.png' alt='After Trawling' height='100%'>"];
+                                                await Abschluss.nvlMode(imgTrawling, false, "aboutBtn", "visual-content-trawling");
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0020);
-                                                await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
-                                                await Abschluss.ƒS.update(0.5);
-                                                Abschluss.ƒS.Speech.clear();
-                                                Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                                                return "end";
+                                                break;
                                         }
-                                        break;
+                                        Abschluss.addScore(8);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0008);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
+                                        let questionChoices07 = {
+                                            C0001: "Mehr erfahren!",
+                                            C0002: "Nein, danke!"
+                                        };
+                                        let userInput07 = await Abschluss.ƒS.Menu.getInput(questionChoices07, "selection");
+                                        switch (userInput07) {
+                                            case questionChoices07.C0001:
+                                                // Mehr erfahren!
+                                                let learnMore = ["Du kannst  mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meere steht.<br><br>Informiere dich weiter über das Thema. <br><br>Unterstütze keine Aquarien wie Sea Life oder Zoos durch einen Besuch. Auch diese Tiere werden meistens wild gefangen.(19)"];
+                                                Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
+                                                break;
+                                            case questionChoices07.C0002:
+                                                // Nein, danke!
+                                                break;
+                                        }
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0035);
+                                        await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                                        await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
+                                        await Abschluss.ƒS.update(0.5);
+                                        Abschluss.ƒS.Speech.clear();
+                                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                                        return "end";
                                     case questionChoices04.C0002:
                                         // Könnte die Fischerei nicht besser kontrolliert werden?
                                         Abschluss.addScore(5);
@@ -334,7 +369,7 @@ var Abschluss;
                                             C0001: "Mehr erfahren!",
                                             C0002: "Nein danke."
                                         };
-                                        let userInput06 = await Abschluss.ƒS.Menu.getInput(questionChoices06, "class");
+                                        let userInput06 = await Abschluss.ƒS.Menu.getInput(questionChoices06, "selection");
                                         switch (userInput06) {
                                             case questionChoices06.C0001:
                                                 Abschluss.addScore(8);
@@ -344,7 +379,29 @@ var Abschluss;
                                             case questionChoices06.C0002:
                                                 break;
                                         }
+                                        Abschluss.addScore(8);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0008);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
+                                        let questionChoices08 = {
+                                            C0001: "Mehr erfahren!",
+                                            C0002: "Nein danke."
+                                        };
+                                        let userInput08 = await Abschluss.ƒS.Menu.getInput(questionChoices08, "selection");
+                                        switch (userInput08) {
+                                            case questionChoices08.C0001:
+                                                // Mehr erfahren!
+                                                let learnMore = ["Du kannst  mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meere steht.<br><br>Informiere dich weiter über das Thema. <br><br>Unterstütze keine Aquarien wie Sea Life oder Zoos durch einen Besuch. Auch diese Tiere werden meistens wild gefangen.(19)"];
+                                                Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
+                                                break;
+                                            case questionChoices08.C0002:
+                                                // Nein, danke!
+                                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
+                                                break;
+                                        }
+                                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0035);
                                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                                        await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
                                         await Abschluss.ƒS.update(0.5);
                                         Abschluss.ƒS.Speech.clear();
                                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
@@ -361,10 +418,11 @@ var Abschluss;
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0024);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0006);
                                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                                await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
                                 await Abschluss.ƒS.update(0.5);
                                 Abschluss.ƒS.Speech.clear();
                                 Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                                return "end";
+                                return "04";
                         }
                         break;
                     case questionChoices02.C0003:
@@ -376,10 +434,11 @@ var Abschluss;
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0027);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0028);
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                        await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                        return "end";
+                        return "04";
                 }
                 break;
             case questionChoices.C0003:
@@ -391,11 +450,13 @@ var Abschluss;
                 Abschluss.ƒS.Inventory.add(Abschluss.items.recycleBadge);
                 Abschluss.ƒS.Inventory.add(Abschluss.items.plasticBottles);
                 await Abschluss.ƒS.Inventory.open();
+                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0032);
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
                 Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
-                return "04";
+                return "05";
         }
     }
     Abschluss.TrashBeach = TrashBeach;
@@ -457,7 +518,20 @@ var Abschluss;
                 T0025: "So wird beinahe die Hälfte des CO2 in der Atmosphäre im Meer produziert.(11)",
                 T0026: "Ah das kann ich dir sagen! Okay, vielleicht nicht ganz genau, aber…",
                 T0027: "Die Meere beherbergen etwa die Hälfte bis 80% allen Lebens der Erde.(11)",
-                T0028: "Außerdem machen sie auch 99% des gesamten Lebensraums aus.(11)"
+                T0028: "Außerdem machen sie auch 99% des gesamten Lebensraums aus.(11)",
+                T0029: "Tatsächlich weiß aber niemand, wie viele Arten von Meerestieren es gibt. (20)",
+                T0030: "Ja, Wale werden auch heute noch gejagt.",
+                T0031: "Zum einen, aus finanziellem Interesse, zum anderen auch aus häufig Tradition, wobei auch hier eher der finanzielle Aspekt im Vordergrund steht.(21)",
+                T0032: "Wie fändest du es, dein Leben, in einem kleinen Zimmer zu verbringen?",
+                T0033: "Du könntest nicht ans Meer fahren, dich nur innerhalb ein paar Quadratmetern fortbewegen.",
+                T0034: "Ich halte nichts davon. Tieren wird die Freiheit genommen und teilweise werden sie dann noch zu Dingen gezwungen, die für sie nicht natürlich sind.",
+                T0035: "Ja genau.",
+                T0036: "Nein. In Gefangenschaft gezogene Tiere können meist nicht ausgewildert werden.(22)",
+                T0037: "Außerdem, was bringt es eine Art zu retten, deren Lebensraum bald oder bereits nicht mehr existiert?",
+                T0038: "Die Ursache muss bekämpft, nicht die Symptome unterdrückt werden.",
+                T0039: "Keiner Tierart ist mit einem Käfig geholfen.",
+                T0040: "Du könntest beispielsweise Aquarien nicht unterstützen. So trägst du nicht zu unnötigem Tierleid bei und unterstützt den Fang der Wildtiere nicht.(19)",
+                T0041: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!"
             },
             Protagonist: {
                 T0000: "Es ist echt unglaublich, wie groß das Meer doch ist. Und so tief… Ich kann es mir gar nicht richtig vorstellen.",
@@ -465,7 +539,10 @@ var Abschluss;
                 T0002: "Also wissen wir eigentlich noch gar nichts…",
                 T0003: "Und wo genau ist dann das restliche Wasser? In Seen?",
                 T0004: "Stimmt, ich habe schon gehört, dass besonders die Korallen unter der Wassererwärmung leiden.",
-                T0005: "Nicht schlecht! Das war mir bisher gar nicht so bewusst."
+                T0005: "Nicht schlecht! Das war mir bisher gar nicht so bewusst.",
+                T0006: "Wie Kunststücke?",
+                T0007: "Aber sind sie nicht gut, um bedrohte Arten vor dem Aussterben zu retten?",
+                T0008: "Gibt es denn etwas, das ich beispielsweise tun könnte?"
             }
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.waterBeach);
@@ -483,7 +560,7 @@ var Abschluss;
             C0001: "Warst du schon überall?",
             C0002: "Wow, wieviel unterschiedliches Leben es da unten wohl geben muss?"
         };
-        let userInput = await Abschluss.ƒS.Menu.getInput(questionChoices, "class");
+        let userInput = await Abschluss.ƒS.Menu.getInput(questionChoices, "selection");
         switch (userInput) {
             case questionChoices.C0001:
                 // Warst du schon überall?
@@ -501,7 +578,7 @@ var Abschluss;
                     C0001: "Weißt du denn, wieviel Wasser es auf der Erde gibt?",
                     C0002: "Stimmt es denn, dass es den Meeren immer schlechter geht?"
                 };
-                let userInput01 = await Abschluss.ƒS.Menu.getInput(questionChoices01, "class");
+                let userInput01 = await Abschluss.ƒS.Menu.getInput(questionChoices01, "selection");
                 switch (userInput01) {
                     case questionChoices01.C0001:
                         // Weißt du denn, wieviel Wasser es auf der Erde gibt?
@@ -510,6 +587,50 @@ var Abschluss;
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0003);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0011);
+                        let questionChoices02 = {
+                            C0001: "Werden Wale noch immer gejagt?",
+                            C0002: "Was hältst du von Aquarien und Zoos?"
+                        };
+                        let userInput02 = await Abschluss.ƒS.Menu.getInput(questionChoices02, "selection");
+                        switch (userInput02) {
+                            case questionChoices02.C0001:
+                                // Werden Wale noch immer gejagt?
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0030);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0031);
+                                break;
+                            case questionChoices02.C0002:
+                                // Was hältst du von Aquarien und Zoos?
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0032);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0006);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0035);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0007);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0036);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0037);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0038);
+                                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0039);
+                                break;
+                        }
+                        // TO Do was kann ich tun?
+                        await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0008);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0040);
+                        let questionChoices03 = {
+                            C0001: "Mehr erfahren!",
+                            C0002: "Nein, danke!"
+                        };
+                        let userInput03 = await Abschluss.ƒS.Menu.getInput(questionChoices03, "selection");
+                        switch (userInput03) {
+                            case questionChoices03.C0001:
+                                // Mehr erfahren!
+                                let learnMore = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
+                                Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
+                                break;
+                            case questionChoices03.C0002:
+                                // Nein, danke!
+                                break;
+                        }
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0041);
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
@@ -527,40 +648,50 @@ var Abschluss;
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0017);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0018);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0019);
-                        let questionChoices02 = {
+                        let questionChoices04 = {
                             C0001: "Welche Tiere leiden denn noch unter der Wassererwärmung?",
                             C0002: "Stimmt es, dass das Meer auch Sauerstoff selbst produziert?"
                         };
-                        let userInput02 = await Abschluss.ƒS.Menu.getInput(questionChoices02, "class");
-                        switch (userInput02) {
-                            case questionChoices02.C0001:
+                        let userInput04 = await Abschluss.ƒS.Menu.getInput(questionChoices04, "selection");
+                        switch (userInput04) {
+                            case questionChoices04.C0001:
                                 // Welche Tiere leiden denn noch unter der Wassererwärmung?
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0020);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0021);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0022);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0023);
-                                await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
-                                await Abschluss.ƒS.update(0.5);
-                                Abschluss.ƒS.Speech.clear();
-                                Abschluss.ƒS.Sound.fade(Abschluss.sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
-                                return "end";
-                            case questionChoices02.C0002:
+                                break;
+                            case questionChoices04.C0002:
                                 // Stimmt es, dass das Meer auch Sauerstoff selbst produziert?
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0024);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0025);
-                                await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
-                                await Abschluss.ƒS.update(0.5);
-                                Abschluss.ƒS.Speech.clear();
-                                Abschluss.ƒS.Sound.fade(Abschluss.sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
-                                return "end";
+                                break;
                         }
-                        break;
+                        await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0008);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0040);
+                        let questionChoices05 = {
+                            C0001: "Mehr erfahren!",
+                            C0002: "Nein, danke!"
+                        };
+                        let userInput05 = await Abschluss.ƒS.Menu.getInput(questionChoices05, "selection");
+                        switch (userInput05) {
+                            case questionChoices05.C0001:
+                                // Mehr erfahren!
+                                let learnMore = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
+                                Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
+                                break;
+                            case questionChoices04.C0002:
+                                // Nein, danke!
+                                break;
+                        }
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0041);
+                        await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                        await Abschluss.ƒS.update(0.5);
+                        Abschluss.ƒS.Speech.clear();
+                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
+                        return "end";
                 }
-                await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
-                await Abschluss.ƒS.update(0.5);
-                Abschluss.ƒS.Speech.clear();
-                Abschluss.ƒS.Sound.fade(Abschluss.sounds.bigWavesOnSandyBeach, 0.001, 0.1, false);
-                return "end";
+                break;
             case questionChoices.C0002:
                 // Wow, wieviel unterschiedliches Leben es da unten wohl geben muss?
                 Abschluss.addScore(5);
@@ -568,6 +699,51 @@ var Abschluss;
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0027);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0028);
                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0005);
+                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0029);
+                let questionChoices03 = {
+                    C0001: "Werden Wale noch immer gejagt?",
+                    C0002: "Was hältst du von Aquarien und Zoos?"
+                };
+                let userInput03 = await Abschluss.ƒS.Menu.getInput(questionChoices03, "selection");
+                switch (userInput03) {
+                    case questionChoices03.C0001:
+                        // Werden Wale noch immer gejagt?
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0030);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0031);
+                        break;
+                    case questionChoices03.C0002:
+                        // Was hältst du von Aquarien und Zoos?
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0032);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0006);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0035);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0007);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0036);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0037);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0038);
+                        await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0039);
+                        break;
+                }
+                // TO Do was kann ich tun?
+                await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0008);
+                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0040);
+                let questionChoices05 = {
+                    C0001: "Mehr erfahren!",
+                    C0002: "Nein, danke!"
+                };
+                let userInput05 = await Abschluss.ƒS.Menu.getInput(questionChoices05, "selection");
+                switch (userInput05) {
+                    case questionChoices05.C0001:
+                        // Mehr erfahren!
+                        let learnMore = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
+                        Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
+                        break;
+                    case questionChoices05.C0002:
+                        // Nein, danke!
+                        break;
+                }
+                await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0041);
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
@@ -621,13 +797,13 @@ var Abschluss;
         await Abschluss.ƒS.update(1);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
         // Fotos von GPGP in NVL style
-        let imgGPGP = ["<img src='img/Visualisations/garbage_patches.png' alt='garbage_patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP-pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP-pollution2' height='100%'>"];
+        let imgGPGP = ["<img src='img/Visualisations/garbage_patches.png' alt='Garbage Patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP Pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP Pollution 2' height='100%'>"];
         await Abschluss.nvlMode(imgGPGP, false, "aboutBtn", "visual-content");
         let questionChoices = {
             C0001: "Wieviel Müll hat sich da bis jetzt angesammelt?",
             C0002: "Wie groß ist das denn?"
         };
-        let userInput = await Abschluss.ƒS.Menu.getInput(questionChoices, "class");
+        let userInput = await Abschluss.ƒS.Menu.getInput(questionChoices, "selection");
         switch (userInput) {
             case questionChoices.C0001:
                 //Wieviel Müll hat sich da bis jetzt angesammelt?
@@ -649,7 +825,7 @@ var Abschluss;
             C0001: "Wieso sammelt sich der Müll in so einem Strudel?",
             C0002: "Welche Art von Plastikmüll befindet sich in dem Strudel?"
         };
-        let userInput2 = await Abschluss.ƒS.Menu.getInput(questionChoices2, "class");
+        let userInput2 = await Abschluss.ƒS.Menu.getInput(questionChoices2, "selection");
         switch (userInput2) {
             case questionChoices2.C0001:
                 // Wieso sammelt sich der Müll in so einem Strudel?
@@ -670,7 +846,7 @@ var Abschluss;
             C0001: "Könnte ich denn auch etwas gegen die Verschmutzung tun?",
             C0002: "Danke dir, das war wirklich sehr interessant!"
         };
-        let userInput3 = await Abschluss.ƒS.Menu.getInput(questionChoices3, "class");
+        let userInput3 = await Abschluss.ƒS.Menu.getInput(questionChoices3, "selection");
         switch (userInput3) {
             case questionChoices3.C0001:
                 // Könnte ich denn auch etwas gegen die Verschmutzung tun?
@@ -682,7 +858,7 @@ var Abschluss;
                     C0001: "Mehr erfahren!",
                     C0002: "Nein, danke!"
                 };
-                let userInput4 = await Abschluss.ƒS.Menu.getInput(questionChoices4, "class");
+                let userInput4 = await Abschluss.ƒS.Menu.getInput(questionChoices4, "selection");
                 switch (userInput4) {
                     case questionChoices4.C0001:
                         // Mehr erfahren!
@@ -812,6 +988,13 @@ var Abschluss;
                 idle: "Img/Characters/Mermaid/mermaid-idle.png",
                 floating: "Img/Characters/Mermaid/mermaid-floating.png"
             }
+        },
+        BabyTurtle: {
+            name: "Turtle",
+            origin: Abschluss.ƒS.ORIGIN.BOTTOMLEFT,
+            pose: {
+                idle: "Img/Characters/turtle.png"
+            }
         }
     };
     Abschluss.items = {
@@ -858,7 +1041,7 @@ var Abschluss;
     }
     async function credits() {
         // tslint:disable-next-line: quotemark
-        let credits = ['<h3>Quellen - Seite 1</h3> <br> <ol style="list-style-type: decimal;"><li>Laurent C. M. Lebreton, et al., &ldquo;River plastic emissions to the world&rsquo;s oceans,&rdquo; <em>Nature Communications&nbsp;</em>8, no. 15611 (June 2017), <a href="http://doi.org/10.1038/ncomms15611">http://doi.org/10.1038/ncomms15611</a></li><li><a href="https://de.whales.org/wale-delfine/wal-delfin-fakten/blauwale/">https://de.whales.org/wale-delfine/wal-delfin-fakten/blauwale/</a> Aufgerufen: 06/2021</li><li>Pham CK, Ramirez-Llodra E, Alt CHS, Amaro T, Bergmann M, Canals M, et al. (2014) Marine Litter Distribution and Density in European Seas, from the Shelves to Deep Basins. PLoS ONE 9(4): e95839. <a href="https://doi.org/10.1371/journal.pone.0095839">https://doi.org/10.1371/journal.pone.0095839</a></li><li><a href="https://www.nabu.de/natur-und-landschaft/meere/muellkippe-meer/16805.html">https://www.nabu.de/natur-und-landschaft/meere/muellkippe-meer/16805.html</a> Abgerufen: 06/2021</li></ol>', '<h3>Quellen - Seite 2</h3> <br> <ol style="list-style-type: decimal;" start="5"><li><a href="https://www.tierschutzbund.de/information/hintergrund/artenschutz/meeresschildkroeten/">https://www.tierschutzbund.de/information/hintergrund/artenschutz/meeresschildkroeten/</a> Abgerufen: 06/2021</li><li><a href="https://sea-shepherd.de/kampagnen/operation-nyamba/">https://sea-shepherd.de/kampagnen/operation-nyamba/</a> Abgerufen: 06/2021</li><li><a href="https://www.wwf.de/themen-projekte/meere-kuesten/fischerei/ungewollter-beifang">https://www.wwf.de/themen-projekte/meere-kuesten/fischerei/ungewollter-beifang</a> Abgerufen: 06/2021</li><li><a href="https://www.bund.net/meere/belastungen/fischerei/">https://www.bund.net/meere/belastungen/fischerei/</a><span style="color:#0563C1;text-decoration:underline;">&nbsp;</span>Abgerufen: 06/2021</li><li><a href="https://sea-shepherd.de/kampagnen/operation-vanguard/">https://sea-shepherd.de/kampagnen/operation-vanguard/</a> Abgerufen: 06/2021</li></ol>', '<h3>Quellen - Seite 3</h3> <br> <ol style="list-style-type: decimal;" start="10"><li><a href="https://reset.org/blog/anamurs-schildkroetenbabies-ohne-schutz">https://reset.org/blog/anamurs-schildkroetenbabies-ohne-schutz</a> Abgerufen: 06/2021</li><li><a href="http://www.unesco.org/new/en/oceans-day">http://www.unesco.org/new/en/oceans-day</a> Abgerufen: 06/2021</li><li><a href="https://www.wwf.de/themen-projekte/meere-kuesten/klima-und-meer/">https://www.wwf.de/themen-projekte/meere-kuesten/klima-und-meer/</a> Abgerufen: 06/2021</li><li><a href="https://sea-shepherd.de/uber-uns/">https://sea-shepherd.de/uber-uns/</a> Abgerufen: 07/2021</li><li><a href="https://www.greenpeace.de/themen/meere/fischerei">https://www.greenpeace.de/themen/meere/fischerei</a> Abgerufen: 07/2021</li></ol>', '<h3> Quellen - Seite 4</h3> <br> <ol style="list-style-type: decimal;" start="15"><li><a href="https://www.geo.de/geolino/natur-und-umwelt/16513-vdo-umweltverschmutzung-die-fuenf-muellstrudel-der-ozeane">https://www.geo.de/geolino/natur-und-umwelt/16513-vdo-umweltverschmutzung-die-fuenf-muellstrudel-der-ozeane</a> Abgerufen: 07/2021</li><li><a href="https://www.nationalgeographic.org/article/great-pacific-garbage-patch-isnt-what-you-think/?utm_source=BibblioRCM_Row">https://www.nationalgeographic.org/article/great-pacific-garbage-patch-isnt-what-you-think/?utm_source=BibblioRCM_Row</a> Abgerufen: 07/2021</li><li><a href="https://www.nature.com/articles/s41598-018-22939-w">https://www.nature.com/articles/s41598-018-22939-w</a> Abgerufen: 07/2021</li><li><a href="https://theoceancleanup.com/great-pacific-garbage-patch/ ">https://theoceancleanup.com/great-pacific-garbage-patch/ </a> Abgerufen: 07/2021</li></ol> ', '<h3>Credits - Seite 5</h3> <br>Titel: Waves of Hawaii <br>Autor: <a href="florianreichelt">florianreichelt</a> <a href="https://freesound.org/s/450755/">https://freesound.org/s/450755/</a><br>Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">Kein Urheberrechtsschutz</a><br><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">https://creativecommons.org/publicdomain/zero/1.0/deed.de</a><br>Instagram: <a href="https://www.instagram.com/florianreichelt/">https://www.instagram.com/florianreichelt/</a><br><br>Titel: Big waves hit land<br>Autor: <a href="straget">straget</a> <a href="https://freesound.org/s/412308/">https://freesound.org/s/412308/</a><br>Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">Kein Urheberrechtsschutz</a> Wurde in mp3 Datei umgewandelt, kleinere Dateigröße. <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">https://creativecommons.org/publicdomain/zero/1.0/deed.de</a>', '<h3>Credits - Seite 6</h3> <br>Titel: Atlantic ocean waves<br>Autor: <a href="tim.kahn">tim.kahn</a> <a href="https://freesound.org/s/197714/">https://freesound.org/s/197714/</a><br>Lizenz: <a href="https://creativecommons.org/licenses/by-nc/3.0/legalcode">Namensnennung-Nicht kommerziell 3.0</a>. Wurde in mp3 Datei umgewandelt, kleinere Dateigröße.<br><a href="https://creativecommons.org/licenses/by-nc/3.0/deed.de">https://creativecommons.org/licenses/by-nc/3.0/deed.de</a><br><br>Titel: Waves on seaside rocks<br>Autor: <a href="https://freesound.org/people/arnaud%20coutancier/">arnaud coutancier</a> <a href="https://freesound.org/people/arnaud%20coutancier/sounds/213495/">https://freesound.org/people/arnaud%20coutancier/sounds/213495/</a><br>Lizenz: <a href="https://creativecommons.org/licenses/by-nc/3.0/legalcode">Namensnennung-Nicht kommerziell 3.0</a>. Wurde nicht verändert.<br><a href="https://creativecommons.org/licenses/by-nc/3.0/deed.de">https://creativecommons.org/licenses/by-nc/3.0/deed.de</a>', '<h3>Credits - Seite 7</h3> <br>Titel: Wave 2<br>Autor: <a href="https://freesound.org/people/Kayyy/">Kayyy</a> <a href="https://freesound.org/people/Kayyy/sounds/61012/">https://freesound.org/people/Kayyy/sounds/61012/</a><br>Lizenz: <a href="https://creativecommons.org/licenses/by-nc/3.0/legalcode">Namensnennung-Nicht kommerziell 3.0</a>. Wurde nicht verändert.<br><a href="https://creativecommons.org/licenses/by-nc/3.0/deed.de">https://creativecommons.org/licenses/by-nc/3.0/deed.de</a><br><br>Titel: Sea-gulls<br>Autor: <a href="Snapper4298">Snapper4298</a> <a href="https://freesound.org/s/166703/">https://freesound.org/s/166703/</a><br>Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">Kein Urheberrechtsschutz</a><br><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">https://creativecommons.org/publicdomain/zero/1.0/deed.de</a>', '<h3>Credits - Seite 8</h3> <br>Titel: Soft sand steps<br>Autor: <a href="https://freesound.org/people/200221-WeanBekker/">200221-WeanBekker</a> <a href="https://freesound.org/s/543714/">https://freesound.org/s/543714/</a><br>Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">Kein Urheberrechtsschutz</a><br><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">https://creativecommons.org/publicdomain/zero/1.0/deed.de</a><br><br>Titel: Open Sea Morning<br>Autor: Puddle of Infinity <a href="https://youtu.be/iL55mdlUe5w">https://youtu.be/iL55mdlUe5w</a><br>Lizenz: Lizenzfrei<br>Download via YouTube Audio Library'];
+        let credits = ['<h3>Quellen - Seite 1</h3> <br> <ol style="list-style-type: decimal;"><li>Laurent C. M. Lebreton, et al., &ldquo;River plastic emissions to the world&rsquo;s oceans,&rdquo; <em>Nature Communications&nbsp;</em>8, no. 15611 (June 2017), <a href="http://doi.org/10.1038/ncomms15611">http://doi.org/10.1038/ncomms15611</a></li><li><a href="https://de.whales.org/wale-delfine/wal-delfin-fakten/blauwale/">https://de.whales.org/wale-delfine/wal-delfin-fakten/blauwale/</a> Aufgerufen: 06/2021</li><li>Pham CK, Ramirez-Llodra E, Alt CHS, Amaro T, Bergmann M, Canals M, et al. (2014) Marine Litter Distribution and Density in European Seas, from the Shelves to Deep Basins. PLoS ONE 9(4): e95839. <a href="https://doi.org/10.1371/journal.pone.0095839">https://doi.org/10.1371/journal.pone.0095839</a></li><li><a href="https://www.nabu.de/natur-und-landschaft/meere/muellkippe-meer/16805.html">https://www.nabu.de/natur-und-landschaft/meere/muellkippe-meer/16805.html</a> Abgerufen: 06/2021</li></ol>', '<h3>Quellen - Seite 2</h3> <br> <ol style="list-style-type: decimal;" start="5"><li><a href="https://www.tierschutzbund.de/information/hintergrund/artenschutz/meeresschildkroeten/">https://www.tierschutzbund.de/information/hintergrund/artenschutz/meeresschildkroeten/</a> Abgerufen: 06/2021</li><li><a href="https://sea-shepherd.de/kampagnen/operation-nyamba/">https://sea-shepherd.de/kampagnen/operation-nyamba/</a> Abgerufen: 06/2021</li><li><a href="https://www.wwf.de/themen-projekte/meere-kuesten/fischerei/ungewollter-beifang">https://www.wwf.de/themen-projekte/meere-kuesten/fischerei/ungewollter-beifang</a> Abgerufen: 06/2021</li><li><a href="https://www.bund.net/meere/belastungen/fischerei/">https://www.bund.net/meere/belastungen/fischerei/</a><span style="color:#0563C1;text-decoration:underline;">&nbsp;</span>Abgerufen: 06/2021</li><li><a href="https://sea-shepherd.de/kampagnen/operation-vanguard/">https://sea-shepherd.de/kampagnen/operation-vanguard/</a> Abgerufen: 06/2021</li></ol>', '<h3>Quellen - Seite 3</h3> <br> <ol style="list-style-type: decimal;" start="10"><li><a href="https://reset.org/blog/anamurs-schildkroetenbabies-ohne-schutz">https://reset.org/blog/anamurs-schildkroetenbabies-ohne-schutz</a> Abgerufen: 06/2021</li><li><a href="http://www.unesco.org/new/en/oceans-day">http://www.unesco.org/new/en/oceans-day</a> Abgerufen: 06/2021</li><li><a href="https://www.wwf.de/themen-projekte/meere-kuesten/klima-und-meer/">https://www.wwf.de/themen-projekte/meere-kuesten/klima-und-meer/</a> Abgerufen: 06/2021</li><li><a href="https://sea-shepherd.de/uber-uns/">https://sea-shepherd.de/uber-uns/</a> Abgerufen: 07/2021</li><li><a href="https://www.greenpeace.de/themen/meere/fischerei">https://www.greenpeace.de/themen/meere/fischerei</a> Abgerufen: 07/2021</li></ol>', '<h3> Quellen - Seite 4</h3> <br> <ol style="list-style-type: decimal;" start="15"><li><a href="https://www.geo.de/geolino/natur-und-umwelt/16513-vdo-umweltverschmutzung-die-fuenf-muellstrudel-der-ozeane">https://www.geo.de/geolino/natur-und-umwelt/16513-vdo-umweltverschmutzung-die-fuenf-muellstrudel-der-ozeane</a> Abgerufen: 07/2021</li><li><a href="https://www.nationalgeographic.org/article/great-pacific-garbage-patch-isnt-what-you-think/?utm_source=BibblioRCM_Row">https://www.nationalgeographic.org/article/great-pacific-garbage-patch-isnt-what-you-think/?utm_source=BibblioRCM_Row</a> Abgerufen: 07/2021</li><li><a href="https://www.nature.com/articles/s41598-018-22939-w">https://www.nature.com/articles/s41598-018-22939-w</a> Abgerufen: 07/2021</li><li><a href="https://theoceancleanup.com/great-pacific-garbage-patch/ ">https://theoceancleanup.com/great-pacific-garbage-patch/ </a> Abgerufen: 07/2021</li><li><a href="https://www.peta.org/issues/animals-in-entertainment/zoos-pseudo-sanctuaries/aquariums-marine-parks/ ">https://www.peta.org/issues/animals-in-entertainment/zoos-pseudo-sanctuaries/aquariums-marine-parks/</a> Abgerufen: 07/2021</li><li><a href="https://www.stiftung-meeresschutz.org/meerestiere/">https://www.stiftung-meeresschutz.org/meerestiere/</a> Abgerufen: 07/2021</li><li><a href="https://de.whales.org/wdc-ziele/walfang-stoppen/">https://de.whales.org/wdc-ziele/walfang-stoppen/</a> Abgerufen: 07/2021</li><li><a href="https://www.peta.de/themen/Zoo/">https://www.peta.de/themen/Zoo/</a> Abgerufen: 07/2021</li></ol> ', '<h3>Credits - Seite 5</h3> <br>Titel: Waves of Hawaii <br>Autor: <a href="florianreichelt">florianreichelt</a> <a href="https://freesound.org/s/450755/">https://freesound.org/s/450755/</a><br>Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">Kein Urheberrechtsschutz</a><br><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">https://creativecommons.org/publicdomain/zero/1.0/deed.de</a><br>Instagram: <a href="https://www.instagram.com/florianreichelt/">https://www.instagram.com/florianreichelt/</a><br><br>Titel: Big waves hit land<br>Autor: <a href="straget">straget</a> <a href="https://freesound.org/s/412308/">https://freesound.org/s/412308/</a><br>Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">Kein Urheberrechtsschutz</a> Wurde in mp3 Datei umgewandelt, kleinere Dateigröße. <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">https://creativecommons.org/publicdomain/zero/1.0/deed.de</a>', '<h3>Credits - Seite 6</h3> <br>Titel: Atlantic ocean waves<br>Autor: <a href="tim.kahn">tim.kahn</a> <a href="https://freesound.org/s/197714/">https://freesound.org/s/197714/</a><br>Lizenz: <a href="https://creativecommons.org/licenses/by-nc/3.0/legalcode">Namensnennung-Nicht kommerziell 3.0</a>. Wurde in mp3 Datei umgewandelt, kleinere Dateigröße.<br><a href="https://creativecommons.org/licenses/by-nc/3.0/deed.de">https://creativecommons.org/licenses/by-nc/3.0/deed.de</a><br><br>Titel: Waves on seaside rocks<br>Autor: <a href="https://freesound.org/people/arnaud%20coutancier/">arnaud coutancier</a> <a href="https://freesound.org/people/arnaud%20coutancier/sounds/213495/">https://freesound.org/people/arnaud%20coutancier/sounds/213495/</a><br>Lizenz: <a href="https://creativecommons.org/licenses/by-nc/3.0/legalcode">Namensnennung-Nicht kommerziell 3.0</a>. Wurde nicht verändert.<br><a href="https://creativecommons.org/licenses/by-nc/3.0/deed.de">https://creativecommons.org/licenses/by-nc/3.0/deed.de</a>', '<h3>Credits - Seite 7</h3> <br>Titel: Wave 2<br>Autor: <a href="https://freesound.org/people/Kayyy/">Kayyy</a> <a href="https://freesound.org/people/Kayyy/sounds/61012/">https://freesound.org/people/Kayyy/sounds/61012/</a><br>Lizenz: <a href="https://creativecommons.org/licenses/by-nc/3.0/legalcode">Namensnennung-Nicht kommerziell 3.0</a>. Wurde nicht verändert.<br><a href="https://creativecommons.org/licenses/by-nc/3.0/deed.de">https://creativecommons.org/licenses/by-nc/3.0/deed.de</a><br><br>Titel: Sea-gulls<br>Autor: <a href="Snapper4298">Snapper4298</a> <a href="https://freesound.org/s/166703/">https://freesound.org/s/166703/</a><br>Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">Kein Urheberrechtsschutz</a><br><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">https://creativecommons.org/publicdomain/zero/1.0/deed.de</a>', '<h3>Credits - Seite 8</h3> <br>Titel: Soft sand steps<br>Autor: <a href="https://freesound.org/people/200221-WeanBekker/">200221-WeanBekker</a> <a href="https://freesound.org/s/543714/">https://freesound.org/s/543714/</a><br>Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">Kein Urheberrechtsschutz</a><br><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">https://creativecommons.org/publicdomain/zero/1.0/deed.de</a><br><br>Titel: Open Sea Morning<br>Autor: Puddle of Infinity <a href="https://youtu.be/iL55mdlUe5w">https://youtu.be/iL55mdlUe5w></a><br>Lizenz: Lizenzfrei<br>Download via YouTube Audio Library', '<h3>Credits - Seite 9</h3> <br>Alt Text: Before Trawling<br>Credits: <a href=" https://wwwwwfbalticorg.cdn.triggerfish.cloud/uploads/2020/09/wwf-baltic-a-sea-under-pressure_impacts-of-bottom-trawling-2020.pdf "> WWF report - A sea under pressure: Bottom trawling impacts in the Baltic </a><br>Abgerufen: 07/2021<br><br>Alt Text: After Trawling<br>Credits: <a href=" https://wwwwwfbalticorg.cdn.triggerfish.cloud/uploads/2020/09/wwf-baltic-a-sea-under-pressure_impacts-of-bottom-trawling-2020.pdf "> WWF report - A sea under pressure: Bottom trawling impacts in the Baltic </a><br>Abgerufen: 07/2021<br><br> Alt Text: Garbage Patches<br>Credits:<a href="https://www.nationalgeographic.org/encyclopedia/great-pacific-garbage-patch/”>National Geographics Encyclopedia</a><br>Abgerufen: 07/2021', '<h3>Credits - Seite 10</h3> <br>Alt Text: Müllstrudel Größe<br>Credits: <a href=" https://theoceancleanup.com/media-gallery/">The Ocean Cleanup</a><br>Abgerufen: 07/2021<br><br>Alt Text: GPG Pollution<br>Credits: <a href=" https://www.nationalgeographic.org/encyclopedia/great-pacific-garbage-patch/"> National Geographics Encyclopedia </a><br>Abgerufen: 07/2021<br><br> Alt Text: GPG Pollution 2<br>Credits: <a href=" https://www.nationalgeographic.org/encyclopedia/great-pacific-garbage-patch/"> National Geographics Encyclopedia </a><br>Abgerufen: 07/2021<br><br> Restliches Bildmaterial<br>Credits: <a href=" https://pixabay.com/de/"> Lizenzfrei via Pixabay.com</a><br>Abgerufen: 07/2021'];
         let current = 0;
         let buttons = { back: "zurück", next: "weiter", done: "schließen x" };
         let choice;

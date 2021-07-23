@@ -85,6 +85,13 @@ declare namespace Abschluss {
                 floating: string;
             };
         };
+        BabyTurtle: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                idle: string;
+            };
+        };
     };
     let items: {
         recycleBadge: {
