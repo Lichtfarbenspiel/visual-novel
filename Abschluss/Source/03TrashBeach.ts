@@ -76,6 +76,7 @@ namespace Abschluss {
         ƒS.Sound.play(sounds.singleWave, 0.5, false);
         await ƒS.update(transition.wave2.duration, transition.wave2.alpha, transition.wave2.edge);
         await ƒS.update(0.5);
+        ƒS.Sound.play(sounds.softSandSteps, 1.5, true);
         ƒS.Sound.play(sounds.softWavesOnSandyBeach, 0.01, true);
         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
         await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.floating, ƒS.positionPercent(-5, 110));
@@ -115,6 +116,7 @@ namespace Abschluss {
                         await ƒS.update(0.5);
                         ƒS.Speech.clear();
                         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
                         return "end"; // TO DO
                     case questionChoices01.C0002:
                         // Liegt das dann alles immer an den Stränden?
@@ -126,6 +128,7 @@ namespace Abschluss {
                         await ƒS.update(0.5);
                         ƒS.Speech.clear();
                         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
                         return "05";
                 }
                 break;
@@ -154,6 +157,7 @@ namespace Abschluss {
                         await ƒS.update(0.5);
                         ƒS.Speech.clear();
                         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
                         return "end";
                     case questionChoices02.C0002:
                         // Wie viele Arten von Wasserschildkröten gibt es denn?
@@ -282,6 +286,7 @@ namespace Abschluss {
                                         await ƒS.update(0.5);
                                         ƒS.Speech.clear();
                                         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                                        ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
                                         return "end";
                                     case questionChoices04.C0002:
                                         // Könnte die Fischerei nicht besser kontrolliert werden?
@@ -338,6 +343,7 @@ namespace Abschluss {
                                         await ƒS.update(0.5);
                                         ƒS.Speech.clear();
                                         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                                        ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
                                         return "end";
                                 }
                                 break;
@@ -356,6 +362,7 @@ namespace Abschluss {
                                 await ƒS.update(0.5);
                                 ƒS.Speech.clear();
                                 ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                                ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
                                 return "04";
                         }
                         break;
@@ -372,6 +379,7 @@ namespace Abschluss {
                         await ƒS.update(0.5);
                         ƒS.Speech.clear();
                         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
                         return "04";
                 }
                 break;
@@ -390,6 +398,7 @@ namespace Abschluss {
                 await ƒS.update(0.5);
                 ƒS.Speech.clear();
                 ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                ƒS.Sound.fade(sounds.softSandSteps, 0.001, 0.1, false);
                 return "05";  
         }
     }

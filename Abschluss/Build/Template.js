@@ -176,6 +176,7 @@ var Abschluss;
         Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
         await Abschluss.ƒS.update(Abschluss.transition.wave2.duration, Abschluss.transition.wave2.alpha, Abschluss.transition.wave2.edge);
         await Abschluss.ƒS.update(0.5);
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.softSandSteps, 1.5, true);
         Abschluss.ƒS.Sound.play(Abschluss.sounds.softWavesOnSandyBeach, 0.01, true);
         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(-5, 110));
@@ -208,6 +209,7 @@ var Abschluss;
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
                         return "end"; // TO DO
                     case questionChoices01.C0002:
                         // Liegt das dann alles immer an den Stränden?
@@ -219,6 +221,7 @@ var Abschluss;
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
                         return "05";
                 }
                 break;
@@ -244,6 +247,7 @@ var Abschluss;
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
                         return "end";
                     case questionChoices02.C0002:
                         // Wie viele Arten von Wasserschildkröten gibt es denn?
@@ -357,6 +361,7 @@ var Abschluss;
                                         await Abschluss.ƒS.update(0.5);
                                         Abschluss.ƒS.Speech.clear();
                                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
                                         return "end";
                                     case questionChoices04.C0002:
                                         // Könnte die Fischerei nicht besser kontrolliert werden?
@@ -405,6 +410,7 @@ var Abschluss;
                                         await Abschluss.ƒS.update(0.5);
                                         Abschluss.ƒS.Speech.clear();
                                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
                                         return "end";
                                 }
                                 break;
@@ -423,6 +429,7 @@ var Abschluss;
                                 await Abschluss.ƒS.update(0.5);
                                 Abschluss.ƒS.Speech.clear();
                                 Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                                Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
                                 return "04";
                         }
                         break;
@@ -439,6 +446,7 @@ var Abschluss;
                         await Abschluss.ƒS.update(0.5);
                         Abschluss.ƒS.Speech.clear();
                         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
                         return "04";
                 }
                 break;
@@ -457,6 +465,7 @@ var Abschluss;
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
                 Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
+                Abschluss.ƒS.Sound.fade(Abschluss.sounds.softSandSteps, 0.001, 0.1, false);
                 return "05";
         }
     }
