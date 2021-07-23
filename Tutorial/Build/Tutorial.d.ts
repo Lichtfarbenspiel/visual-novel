@@ -25,6 +25,7 @@ declare namespace Tutorial {
     };
     let sound: {
         backgroundTheme: string;
+        dystopian: string;
         click: string;
     };
     let locations: {
@@ -111,7 +112,7 @@ declare namespace Tutorial {
     function decrementSound(): void;
     function showCredits(): void;
     let gameMenu: ƒS.Menu;
-    let testo: boolean;
+    let menu: boolean;
     function leftToRight(): ƒS.AnimationDefinition;
     function fromRightToOutOfCanvas(): ƒS.AnimationDefinition;
 }

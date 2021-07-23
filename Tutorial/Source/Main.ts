@@ -22,6 +22,7 @@ namespace Tutorial {
   export let sound = {
     // Music
     backgroundTheme: "Audio/Nightclub.ogg",
+    dystopian: "Audio/Dystopian.ogg", 
 
     // Sound
     click: ""
@@ -62,17 +63,8 @@ namespace Tutorial {
   };
 
 
-
-
-
   // define items as key-object-pairs, the objects with the properties name, description and an address to an image
   export let items = {
-    // Toy: {
-    //   name: "Fish",
-    //   description: "Fishy fish",
-    //   image: "Images/Items/fishySmall.png"
-    // },
-    // Blobbys
     BlobRED: {
       name: "Blob Red",
       description: "A reddish something",
@@ -198,7 +190,7 @@ namespace Tutorial {
 
 
   // true heißt hier offen und false geschlossen
-  export let testo: boolean = true;
+  export let menu: boolean = true;
 
 
 
@@ -220,16 +212,17 @@ namespace Tutorial {
       //   console.log("Close");
       //   gameMenu.close();
       //   break;
-      // Englische Tastatur beachten, zwei Funktionen mit einer Taste
-      case ƒ.KEYBOARD_CODE.Y:
-        console.log("Open n Close");
-        if (testo) {
+      // Englische Tastatur beachten, Öffnen und Schließen des Inventars mit derselben Taste
+      case ƒ.KEYBOARD_CODE.M:
+        if (menu) {
+          console.log("Close");
           gameMenu.close();
-          testo = false;
+          menu = false;
         }
         else {
+          console.log("Open");
           gameMenu.open();
-          testo = true;
+          menu = true;
         }
         break;
     }
@@ -282,7 +275,7 @@ namespace Tutorial {
     // define the sequence of scenes, each scene as an object with a reference to the scene-function, a name and optionally an id and an id to continue the story with
     let scenes: ƒS.Scenes = [
       // { scene: Text, name: "How To Text"},
-      // { scene: Decision, name: "How To Decide" },
+      { scene: Decision, name: "How To Decide" },
       // { scene: End, name: "End" },
       // { id: "Endo", scene: End, name: "This is an ending", next: "Endo" },
       // { scene: Inventory, name: "How To Make An Inventory" },
