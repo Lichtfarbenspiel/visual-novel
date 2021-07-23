@@ -180,7 +180,7 @@ var Abschluss;
         Abschluss.ƒS.Sound.play(Abschluss.sounds.softWavesOnSandyBeach, 0.01, true);
         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(-5, 110));
-        await Abschluss.ƒS.Character.show(Abschluss.characters.BabyTurtle, Abschluss.characters.BabyTurtle.pose.idle, Abschluss.ƒS.positionPercent(98, 33));
+        await Abschluss.ƒS.Character.show(Abschluss.characters.BabyTurtle, Abschluss.characters.BabyTurtle.pose.idle, Abschluss.ƒS.positionPercent(99, 33));
         Abschluss.ƒS.Character.animate(Abschluss.characters.BabyTurtle, Abschluss.characters.BabyTurtle.pose.idle, animation);
         await Abschluss.ƒS.update(1);
         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0000);

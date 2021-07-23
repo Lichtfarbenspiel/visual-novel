@@ -80,7 +80,7 @@ namespace Abschluss {
         ƒS.Sound.play(sounds.softWavesOnSandyBeach, 0.01, true);
         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
         await ƒS.Character.show(characters.Mermaid, characters.Mermaid.pose.floating, ƒS.positionPercent(-5, 110));
-        await ƒS.Character.show(characters.BabyTurtle, characters.BabyTurtle.pose.idle, ƒS.positionPercent(98, 33));
+        await ƒS.Character.show(characters.BabyTurtle, characters.BabyTurtle.pose.idle, ƒS.positionPercent(99, 33));
         ƒS.Character.animate(characters.BabyTurtle, characters.BabyTurtle.pose.idle, animation);
 
         await ƒS.update(1);
