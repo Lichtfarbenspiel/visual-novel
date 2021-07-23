@@ -1,6 +1,10 @@
 # FUDGE_Story
 A FUDGE module for the easy development of interactive stories, visual novels and simple adventure games
 
+# Links
+- [Zur Visual Novel](https://lichtfarbenspiel.github.io/visual-novel/Abschluss/)
+- [Code](Abschluss/Source)
+- [Code](Abschluss/Docs)
 
 # Reference
 - [APIs](https://jirkadelloro.github.io/FUDGE_Story/Documentation/Reference/#fudge-story-reference)
@@ -10,9 +14,9 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 
 | Nr | Bezeichnung           | Inhalt                                                                                                                                                                                                                                                                         |
 |---:|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    | Titel                 |
-|    | Name                  |
-|    | Matrikelnummer        |
+|    | Titel                 | Wie die Meere Untergehen
+|    | Name                  | Salome Dieterle
+|    | Matrikelnummer        | 259263
 |  1 | Konzeption     | Die Story der Visual Novel wird in einer kurzen Inhaltsangabe beschrieben und der Konzeption beigefügt. In dieser sind jegliche Diagramme, Scribbles sowie entweder ein Storyboard, ein Drehbuch oder Ähnliches enthalten.                                                                                                                            |
 |  2 | Charakter-Konzept     | Kommen Archetypen zum Einsatz? Welche anderweitigen Charaktermodelle existieren (Steckbriefe)?                                                                                                                                                                                |
 |  3 | Auswahlmöglichkeiten | Dialogoptionen stellen _branching plots_ zur Verfügung und lassen den Spieler zu einem gewissen Grad selbstbestimmt handeln. Sind derartige Entscheidungen vorhanden und unterscheidet sich der Dialog je nach getätigter Auswahl?                                                                                                                                                     |
