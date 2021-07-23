@@ -174,7 +174,7 @@ var Abschluss;
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.trashBeach);
         Abschluss.ƒS.Sound.play(Abschluss.sounds.singleWave, 0.5, false);
-        await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
+        await Abschluss.ƒS.update(Abschluss.transition.wave2.duration, Abschluss.transition.wave2.alpha, Abschluss.transition.wave2.edge);
         await Abschluss.ƒS.update(0.5);
         Abschluss.ƒS.Sound.play(Abschluss.sounds.softWavesOnSandyBeach, 0.01, true);
         Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
@@ -1139,8 +1139,8 @@ var Abschluss;
         gameMenu = Abschluss.ƒS.Menu.create(inGameMenu, menuOptions, "gameMenu");
         // gameMenu.close();
         let scenes = [
-            { scene: Abschluss.RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
-            { scene: Abschluss.TurtleBeach, name: "02TurtleBeach", id: "02", next: "null" },
+            // { scene: RockyBeach, name: "01RockyBeach", id: "01", next: "02" },
+            // { scene: TurtleBeach, name: "02TurtleBeach", id: "02", next: "null"},
             { scene: Abschluss.TrashBeach, name: "03TrashBeach", id: "03", next: "null" },
             { scene: Abschluss.WaterBeach, name: "04WaterBeach", id: "04", next: "null" },
             { scene: Abschluss.GPGP, name: "05GPGP", id: "05", next: "null" },
@@ -1224,35 +1224,5 @@ var Abschluss;
         return null;
     }
     Abschluss.endScore = endScore;
-})(Abschluss || (Abschluss = {}));
-var Abschluss;
-(function (Abschluss) {
-    async function SceneTemplate() {
-        console.log("Template scene starting");
-        Abschluss.tickerDelay(30);
-        let text = {
-            Mermaid: {
-                T0000: "",
-                T0001: "",
-                T0002: "",
-                T0003: ""
-            },
-            Protagonist: {
-                T0000: "",
-                T0001: "",
-                T0002: "",
-                T0003: ""
-            }
-        };
-        let templateChoices = {
-            C0001: "",
-            C0002: ""
-        };
-        let userInput = await Abschluss.ƒS.Menu.getInput(templateChoices, "class");
-        await Abschluss.ƒS.Location.show(Abschluss.locations.turtleBeach);
-        await Abschluss.ƒS.update(Abschluss.transition.wave.duration, Abschluss.transition.wave.alpha, Abschluss.transition.wave.edge);
-        await Abschluss.ƒS.update(0.5);
-    }
-    Abschluss.SceneTemplate = SceneTemplate;
 })(Abschluss || (Abschluss = {}));
 //# sourceMappingURL=Template.js.map

@@ -128,6 +128,3 @@ declare namespace Abschluss {
     function throwAway(_event: CustomEvent): void;
     function endScore(): string;
 }
-declare namespace Abschluss {
-    function SceneTemplate(): ƒS.SceneReturn;
-}

@@ -8,8 +8,7 @@
       "../Source/04WaterBeach.ts",
       "../Source/05GPGP.ts",
       "../Source/EndScene.ts",
-      "../Source/Main.ts",
-      "../Source/SceneTemplate.ts"
+      "../Source/Main.ts"
     ],
     "js": {
       "sections": [
@@ -21,7 +20,7 @@
         },
         {
           "pos": 15,
-          "end": 95257,
+          "end": 94222,
           "kind": "text"
         }
       ],
@@ -49,7 +48,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 3425,
+          "end": 3344,
           "kind": "text"
         }
       ]

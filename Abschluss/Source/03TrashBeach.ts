@@ -74,7 +74,7 @@ namespace Abschluss {
 
         await ƒS.Location.show(locations.trashBeach);
         ƒS.Sound.play(sounds.singleWave, 0.5, false);
-        await ƒS.update(transition.wave.duration, transition.wave.alpha, transition.wave.edge);
+        await ƒS.update(transition.wave2.duration, transition.wave2.alpha, transition.wave2.edge);
         await ƒS.update(0.5);
         ƒS.Sound.play(sounds.softWavesOnSandyBeach, 0.01, true);
         ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.2, 0.5, true);
