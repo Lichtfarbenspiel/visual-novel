@@ -45,7 +45,7 @@ namespace Abschluss {
     softWavesOnSandyBeach: "Sounds/412308__straget__big-waves-hit-land.mp3",
     seagull: "Sounds/166703__snapper4298__sea-gulls.wav",
     singleWave: "Sounds/61012__kayyy__wave2.wav",
-    softSandSteps: "Sounds/197714__tim-kahn__atlantic-ocean-waves.wav"
+    softSandSteps: "Sounds/197714__tim-kahn__atlantic-ocean-waves.mp3"
   };
 
   // LOCATIONS
