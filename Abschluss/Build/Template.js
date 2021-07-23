@@ -532,7 +532,7 @@ var Abschluss;
                 T0029: "Tatsächlich weiß aber niemand, wie viele Arten von Meerestieren es gibt. (20)",
                 T0030: "Ja, Wale werden auch heute noch gejagt.",
                 T0031: "Zum einen, aus finanziellem Interesse, zum anderen auch aus häufig Tradition, wobei auch hier eher der finanzielle Aspekt im Vordergrund steht.(21)",
-                T0032: "Wie fändest du es, dein Leben, in einem kleinen Zimmer zu verbringen?",
+                T0032: "Wie fändest du es, dein Leben in einem kleinen Zimmer zu verbringen?",
                 T0033: "Du könntest nicht ans Meer fahren, dich nur innerhalb ein paar Quadratmetern fortbewegen.",
                 T0034: "Ich halte nichts davon. Tieren wird die Freiheit genommen und teilweise werden sie dann noch zu Dingen gezwungen, die für sie nicht natürlich sind.",
                 T0035: "Ja genau.",
@@ -540,7 +540,7 @@ var Abschluss;
                 T0037: "Außerdem, was bringt es eine Art zu retten, deren Lebensraum bald oder bereits nicht mehr existiert?",
                 T0038: "Die Ursache muss bekämpft, nicht die Symptome unterdrückt werden.",
                 T0039: "Keiner Tierart ist mit einem Käfig geholfen.",
-                T0040: "Du könntest beispielsweise Aquarien nicht unterstützen. So trägst du nicht zu unnötigem Tierleid bei und unterstützt den Fang der Wildtiere nicht.(19)",
+                T0040: "Du könntest Aquarien nicht unterstützen. So trägst du weniger zu unnötigem Tierleid bei und unterstützt auch den Fang der Wildtiere nicht.(19)",
                 T0041: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurückgeben. Auch die Schildkröten danken dir!"
             },
             Protagonist: {
