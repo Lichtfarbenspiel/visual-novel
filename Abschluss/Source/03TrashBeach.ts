@@ -248,7 +248,7 @@ namespace Abschluss {
                                                 // Was sind denn das für Fangmethoden?
                                                 addScore(10);
                                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0019);
-                                                let imgTrawling: string[] = ["<img src='img/Visualisations/impact2.png' alt='Before Trawling' height='100%' >", "<img src='img/Visualisations/impact3.png' alt='After Trawling' height='100%'>"];
+                                                let imgTrawling: string[] = ["<img src='Img/Visualisations/impact2.png' alt='Before Trawling' height='100%' >", "<img src='Img/Visualisations/impact3.png' alt='After Trawling' height='100%'>"];
 
                                                 await nvlMode(imgTrawling, false, "aboutBtn", "visual-content-trawling");
                                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0020);

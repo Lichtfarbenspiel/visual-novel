@@ -327,7 +327,7 @@ var Abschluss;
                                                 // Was sind denn das für Fangmethoden?
                                                 Abschluss.addScore(10);
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0019);
-                                                let imgTrawling = ["<img src='img/Visualisations/impact2.png' alt='Before Trawling' height='100%' >", "<img src='img/Visualisations/impact3.png' alt='After Trawling' height='100%'>"];
+                                                let imgTrawling = ["<img src='Img/Visualisations/impact2.png' alt='Before Trawling' height='100%' >", "<img src='Img/Visualisations/impact3.png' alt='After Trawling' height='100%'>"];
                                                 await Abschluss.nvlMode(imgTrawling, false, "aboutBtn", "visual-content-trawling");
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0020);
                                                 break;
@@ -806,7 +806,7 @@ var Abschluss;
         await Abschluss.ƒS.update(1);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
         Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
-        let imgGPGP = ["<img src='img/Visualisations/garbage_patches.png' alt='Garbage Patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP Pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP Pollution 2' height='100%'>"];
+        let imgGPGP = ["<img src='Img/Visualisations/garbage_patches.png' alt='Garbage Patches' height='100%'>", "<img src='Img/Visualisations/GPGP-pollution.jpg' alt='GPGP Pollution' height='100%'>", "<img src='Img/Visualisations/GPGP-pollution2.jpg' alt='GPGP Pollution 2' height='100%'>"];
         await Abschluss.nvlMode(imgGPGP, false, "aboutBtn", "visual-content");
         let questionChoices = {
             C0001: "Wie viel Müll hat sich da bis jetzt angesammelt?",
@@ -824,7 +824,7 @@ var Abschluss;
                 // Wie groß ist das denn?
                 Abschluss.addScore(10);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0003);
-                let gifGPGP = ["<img src='img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
+                let gifGPGP = ["<img src='Img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
                 await Abschluss.nvlMode(gifGPGP, false, "aboutBtn", "visual-content");
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
                 break;

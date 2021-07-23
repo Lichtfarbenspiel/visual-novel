@@ -40,7 +40,7 @@ namespace Abschluss {
         ƒS.Sound.play(sounds.seagull, 0.8, false);
 
 
-        let imgGPGP: string[] = ["<img src='img/Visualisations/garbage_patches.png' alt='Garbage Patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP Pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP Pollution 2' height='100%'>"];
+        let imgGPGP: string[] = ["<img src='Img/Visualisations/garbage_patches.png' alt='Garbage Patches' height='100%'>", "<img src='Img/Visualisations/GPGP-pollution.jpg' alt='GPGP Pollution' height='100%'>", "<img src='Img/Visualisations/GPGP-pollution2.jpg' alt='GPGP Pollution 2' height='100%'>"];
 
         await nvlMode(imgGPGP, false, "aboutBtn", "visual-content");
 
@@ -62,7 +62,7 @@ namespace Abschluss {
                 // Wie groß ist das denn?
                 addScore(10);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0003);
-                let gifGPGP: string[] = ["<img src='img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
+                let gifGPGP: string[] = ["<img src='Img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
                 await nvlMode(gifGPGP, false, "aboutBtn", "visual-content");
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0004);
                 break;
