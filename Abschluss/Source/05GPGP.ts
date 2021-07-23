@@ -23,14 +23,6 @@ namespace Abschluss {
                 T0014: "Und denke daran: es kommt nicht darauf an, alles perfekt zu machen. Jeder kleine Schritt ist ein Schritt in die richtige Richtung! Geh dein Tempo, das wichtigste ist, du bleibst in Bewegung.",
                 T0015: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!",
                 T0016: "Oh nein, ich danke Dir! Danke, dass du mir geholfen hast. Auch die Schildkröten Danken dir dafür!"
-            },
-            Protagonist: {
-                T0000: "",
-                T0001: "",
-                T0002: "",
-                T0003: "",
-                T0004: "",
-                T0005: ""
             }
         };
         await ƒS.Location.show(locations.waterBeach);
@@ -53,7 +45,7 @@ namespace Abschluss {
         await nvlMode(imgGPGP, false, "aboutBtn", "visual-content");
 
         let questionChoices = {
-            C0001: "Wieviel Müll hat sich da bis jetzt angesammelt?",
+            C0001: "Wie viel Müll hat sich da bis jetzt angesammelt?",
             C0002: "Wie groß ist das denn?"
         };
 
@@ -61,16 +53,15 @@ namespace Abschluss {
 
         switch (userInput) {
             case questionChoices.C0001:
-                //Wieviel Müll hat sich da bis jetzt angesammelt?
-                addScore(5);
+                // Wie viel Müll hat sich da bis jetzt angesammelt?
+                addScore(10);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0001);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0002);
                 break;
             case questionChoices.C0002:
                 // Wie groß ist das denn?
-                addScore(5);
+                addScore(10);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0003);
-                // Frankreich animation einbetten
                 let gifGPGP: string[] = ["<img src='img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
                 await nvlMode(gifGPGP, false, "aboutBtn", "visual-content");
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0004);
@@ -87,14 +78,14 @@ namespace Abschluss {
         switch (userInput2) {
             case questionChoices2.C0001:
                 // Wieso sammelt sich der Müll in so einem Strudel?
-                addScore(5);
+                addScore(10);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0005);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0006);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0007);
                 break;
             case questionChoices2.C0002:
                 // Welche Art von Plastikmüll befindet sich in dem Strudel?
-                addScore(5);
+                addScore(10);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0008);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);

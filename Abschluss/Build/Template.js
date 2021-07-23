@@ -55,15 +55,11 @@ var Abschluss;
         let text = {
             Mermaid: {
                 T0000: "Oh das ist super! Kannst du schauen, dass sie alle sicher bis ans Meer gelangen?",
-                T0001: "Nein, besser nicht. Sie müssen das selbst schaffen, aber du kannst aufpassen, dass sie nicht den Seevögeln zum Opfer fallen. Oder in all dem Müll stecken bleiben. Schrecklich ist das.",
-                T0002: "",
-                T0003: ""
+                T0001: "Nein, besser nicht. Sie müssen das selbst schaffen, aber du kannst aufpassen, dass sie nicht den Seevögeln zum Opfer fallen. Oder in all dem Müll stecken bleiben. Schrecklich ist das."
             },
             Protagonist: {
                 T0000: "Muriel! Du wirst es nicht glauben, aber hier hinten sind wirklich kleine Schildkröten. Sie müssen gerade erst geschlüpft sein!",
-                T0001: "Ja natürlich, ich kann sie auch kurz rüber tragen.",
-                T0002: "",
-                T0003: ""
+                T0001: "Ja natürlich, ich kann sie auch kurz rüber tragen."
             }
         };
         let turtleChoices = {
@@ -88,7 +84,7 @@ var Abschluss;
         switch (userInput) {
             case turtleChoices.C0001:
                 // Schildkröten zum Wasser tragen
-                Abschluss.addScore(3);
+                Abschluss.addScore(5);
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
@@ -97,7 +93,7 @@ var Abschluss;
                 return "04";
             case turtleChoices.C0002:
                 // Schildkröten beobachten
-                Abschluss.addScore(5);
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                 await Abschluss.ƒS.update(0.5);
                 Abschluss.ƒS.Speech.clear();
@@ -193,7 +189,7 @@ var Abschluss;
         switch (userInput) {
             case questionChoices.C0001:
                 // Wieso wird es immer schlimmer
-                Abschluss.addScore(5);
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0002);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0003);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T00031);
@@ -205,7 +201,7 @@ var Abschluss;
                 switch (userInput01) {
                     case questionChoices01.C0001:
                         // Wieviel wiegt denn so ein Blauwal?
-                        Abschluss.addScore(3);
+                        Abschluss.addScore(5);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
@@ -215,7 +211,7 @@ var Abschluss;
                         return "end"; // TO DO
                     case questionChoices01.C0002:
                         // Liegt das dann alles immer an den Stränden?
-                        Abschluss.addScore(5);
+                        Abschluss.addScore(10);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0005);
                         // weiter zu GPGP
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
@@ -228,7 +224,7 @@ var Abschluss;
                 break;
             case questionChoices.C0002:
                 // Wieso werden die Eier überhaupt hier abgelegt?
-                Abschluss.addScore(5);
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0006);
                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0001);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0007);
@@ -241,7 +237,7 @@ var Abschluss;
                 switch (userInput02) {
                     case questionChoices02.C0001:
                         // Wieso kommen sie denn immer nur an den Geburtsstrand zurück?
-                        Abschluss.addScore(2);
+                        Abschluss.addScore(10);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0008);
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.BabyTurtle);
@@ -251,7 +247,7 @@ var Abschluss;
                         return "end";
                     case questionChoices02.C0002:
                         // Wie viele Arten von Wasserschildkröten gibt es denn?
-                        Abschluss.addScore(2);
+                        Abschluss.addScore(10);
                         let repeat = 2;
                         let count = 0;
                         for (let i = 0; count <= repeat; i++) {
@@ -294,7 +290,7 @@ var Abschluss;
                         switch (userInput03) {
                             case questionChoices03.C0001:
                                 // Warum sind sie vom Aussterben bedroht?
-                                Abschluss.addScore(5);
+                                Abschluss.addScore(10);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0011);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0002);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0012);
@@ -309,7 +305,7 @@ var Abschluss;
                                 switch (userInput04) {
                                     case questionChoices04.C0001:
                                         // Was meinst du mit Beifang?
-                                        Abschluss.addScore(5);
+                                        Abschluss.addScore(10);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0016);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0004);
@@ -326,14 +322,13 @@ var Abschluss;
                                                 break;
                                             case questionChoices05.C0002:
                                                 // Was sind denn das für Fangmethoden?
-                                                Abschluss.addScore(5);
+                                                Abschluss.addScore(10);
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0019);
                                                 let imgTrawling = ["<img src='img/Visualisations/impact2.png' alt='Before Trawling' height='100%' >", "<img src='img/Visualisations/impact3.png' alt='After Trawling' height='100%'>"];
                                                 await Abschluss.nvlMode(imgTrawling, false, "aboutBtn", "visual-content-trawling");
                                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0020);
                                                 break;
                                         }
-                                        Abschluss.addScore(8);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0008);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
@@ -345,6 +340,7 @@ var Abschluss;
                                         switch (userInput07) {
                                             case questionChoices07.C0001:
                                                 // Mehr erfahren!
+                                                Abschluss.addScore(10);
                                                 let learnMore = ["Du kannst  mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meere steht.<br><br>Informiere dich weiter über das Thema. <br><br>Unterstütze keine Aquarien wie Sea Life oder Zoos durch einen Besuch. Auch diese Tiere werden meistens wild gefangen.(19)"];
                                                 Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
                                                 break;
@@ -361,7 +357,7 @@ var Abschluss;
                                         return "end";
                                     case questionChoices04.C0002:
                                         // Könnte die Fischerei nicht besser kontrolliert werden?
-                                        Abschluss.addScore(5);
+                                        Abschluss.addScore(10);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0029);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0030);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0031);
@@ -372,14 +368,13 @@ var Abschluss;
                                         let userInput06 = await Abschluss.ƒS.Menu.getInput(questionChoices06, "selection");
                                         switch (userInput06) {
                                             case questionChoices06.C0001:
-                                                Abschluss.addScore(8);
+                                                Abschluss.addScore(15);
                                                 let learnMore = ["„Große ausländische industrielle Fabrikschiffe (Schleppnetzschiffe, die in der früheren Sowjetunion gefertigt wurden) hielten sich an der Grenze zu Namibias AWZ auf, überquerten diese heimlich nachts und plünderten Fischbestände. <br><br>Der illegale Fang wurde dann auf große Kühlschiffe verladen, die gleich hinter der Grenze zur AWZ darauf warteten, die Ladung entgegenzunehmen. Kühlschiffe tragen viel zur Verschleierung der IUU-Fischerei bei, da legal gefangene Fische mit illegalen Fängen vermischt werden. <br><br>Das macht es unmöglich, die Herkunft der Fische nachzuvollziehen. Aus diesem Grund verbietet die namibische Verordnung für Meeresressourcen das Umladen auf See und gestattet es nur im Hafen oder unter Aufsicht von Polizeibeamten.“ <br><br> <a href='https://sea-shepherd.de/kampagnen/operation-vanguard/' target='_blank'>Quelle</a> | Stand 06/2021"];
                                                 Abschluss.nvlMode(learnMore, true, "aboutBtn");
                                                 break;
                                             case questionChoices06.C0002:
                                                 break;
                                         }
-                                        Abschluss.addScore(8);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0008);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
@@ -391,6 +386,7 @@ var Abschluss;
                                         switch (userInput08) {
                                             case questionChoices08.C0001:
                                                 // Mehr erfahren!
+                                                Abschluss.addScore(10);
                                                 let learnMore = ["Du kannst  mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meere steht.<br><br>Informiere dich weiter über das Thema. <br><br>Unterstütze keine Aquarien wie Sea Life oder Zoos durch einen Besuch. Auch diese Tiere werden meistens wild gefangen.(19)"];
                                                 Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
                                                 break;
@@ -410,7 +406,7 @@ var Abschluss;
                                 break;
                             case questionChoices03.C0002:
                                 // Und wieso schaust du jetzt nach den Schildkrötenjungen?
-                                Abschluss.addScore(2);
+                                Abschluss.addScore(5);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0021);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0022);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0023);
@@ -443,7 +439,7 @@ var Abschluss;
                 break;
             case questionChoices.C0003:
                 // Müll einsammeln
-                Abschluss.addScore(8);
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Location.show(Abschluss.locations.trashBeachClean);
                 await Abschluss.ƒS.update(Abschluss.transition.swirl.duration, Abschluss.transition.swirl.alpha, Abschluss.transition.swirl.edge);
                 await Abschluss.ƒS.update(1);
@@ -468,7 +464,7 @@ var Abschluss;
         }
         else if (turtleGuess > 0 && turtleGuess < 7 || turtleGuess > 7 && turtleGuess <= 13) {
             Abschluss.data.correct = false;
-            Abschluss.addScore(1);
+            Abschluss.addScore(5);
             return "Ja, fast richtig.";
         }
         else if (turtleGuess > 14) {
@@ -477,7 +473,7 @@ var Abschluss;
         }
         else if (turtleGuess == 7) {
             Abschluss.data.correct = true;
-            Abschluss.addScore(7);
+            Abschluss.addScore(15);
             return "Ja genau!";
         }
         return null;
@@ -582,7 +578,7 @@ var Abschluss;
                 switch (userInput01) {
                     case questionChoices01.C0001:
                         // Weißt du denn, wieviel Wasser es auf der Erde gibt?
-                        Abschluss.addScore(4);
+                        Abschluss.addScore(10);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0009);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0003);
@@ -595,11 +591,13 @@ var Abschluss;
                         switch (userInput02) {
                             case questionChoices02.C0001:
                                 // Werden Wale noch immer gejagt?
+                                Abschluss.addScore(10);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0030);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0031);
                                 break;
                             case questionChoices02.C0002:
                                 // Was hältst du von Aquarien und Zoos?
+                                Abschluss.addScore(10);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0032);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
@@ -623,6 +621,7 @@ var Abschluss;
                         switch (userInput03) {
                             case questionChoices03.C0001:
                                 // Mehr erfahren!
+                                Abschluss.addScore(10);
                                 let learnMore = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
                                 Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
                                 break;
@@ -638,7 +637,7 @@ var Abschluss;
                         return "end";
                     case questionChoices01.C0002:
                         // Stimmt es denn, dass es den Meeren immer schlechter geht?
-                        Abschluss.addScore(6);
+                        Abschluss.addScore(10);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0012);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0013);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0014);
@@ -656,6 +655,7 @@ var Abschluss;
                         switch (userInput04) {
                             case questionChoices04.C0001:
                                 // Welche Tiere leiden denn noch unter der Wassererwärmung?
+                                Abschluss.addScore(10);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0020);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0021);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0022);
@@ -663,6 +663,7 @@ var Abschluss;
                                 break;
                             case questionChoices04.C0002:
                                 // Stimmt es, dass das Meer auch Sauerstoff selbst produziert?
+                                Abschluss.addScore(10);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0024);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0025);
                                 break;
@@ -677,6 +678,7 @@ var Abschluss;
                         switch (userInput05) {
                             case questionChoices05.C0001:
                                 // Mehr erfahren!
+                                Abschluss.addScore(10);
                                 let learnMore = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
                                 Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
                                 break;
@@ -694,7 +696,7 @@ var Abschluss;
                 break;
             case questionChoices.C0002:
                 // Wow, wieviel unterschiedliches Leben es da unten wohl geben muss?
-                Abschluss.addScore(5);
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0026);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0027);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0028);
@@ -708,11 +710,13 @@ var Abschluss;
                 switch (userInput03) {
                     case questionChoices03.C0001:
                         // Werden Wale noch immer gejagt?
+                        Abschluss.addScore(10);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0030);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0031);
                         break;
                     case questionChoices03.C0002:
                         // Was hältst du von Aquarien und Zoos?
+                        Abschluss.addScore(10);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0032);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
@@ -736,6 +740,7 @@ var Abschluss;
                 switch (userInput05) {
                     case questionChoices05.C0001:
                         // Mehr erfahren!
+                        Abschluss.addScore(10);
                         let learnMore = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
                         Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
                         break;
@@ -777,14 +782,6 @@ var Abschluss;
                 T0014: "Und denke daran: es kommt nicht darauf an, alles perfekt zu machen. Jeder kleine Schritt ist ein Schritt in die richtige Richtung! Geh dein Tempo, das wichtigste ist, du bleibst in Bewegung.",
                 T0015: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!",
                 T0016: "Oh nein, ich danke Dir! Danke, dass du mir geholfen hast. Auch die Schildkröten Danken dir dafür!"
-            },
-            Protagonist: {
-                T0000: "",
-                T0001: "",
-                T0002: "",
-                T0003: "",
-                T0004: "",
-                T0005: ""
             }
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.waterBeach);
@@ -800,22 +797,21 @@ var Abschluss;
         let imgGPGP = ["<img src='img/Visualisations/garbage_patches.png' alt='Garbage Patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP Pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP Pollution 2' height='100%'>"];
         await Abschluss.nvlMode(imgGPGP, false, "aboutBtn", "visual-content");
         let questionChoices = {
-            C0001: "Wieviel Müll hat sich da bis jetzt angesammelt?",
+            C0001: "Wie viel Müll hat sich da bis jetzt angesammelt?",
             C0002: "Wie groß ist das denn?"
         };
         let userInput = await Abschluss.ƒS.Menu.getInput(questionChoices, "selection");
         switch (userInput) {
             case questionChoices.C0001:
-                //Wieviel Müll hat sich da bis jetzt angesammelt?
-                Abschluss.addScore(5);
+                // Wie viel Müll hat sich da bis jetzt angesammelt?
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0001);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0002);
                 break;
             case questionChoices.C0002:
                 // Wie groß ist das denn?
-                Abschluss.addScore(5);
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0003);
-                // Frankreich animation einbetten
                 let gifGPGP = ["<img src='img/Visualisations/toc-gpgp-3xfrance.gif' alt='Müllstrudel Größe' height='100%'>"];
                 await Abschluss.nvlMode(gifGPGP, false, "aboutBtn", "visual-content");
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
@@ -829,14 +825,14 @@ var Abschluss;
         switch (userInput2) {
             case questionChoices2.C0001:
                 // Wieso sammelt sich der Müll in so einem Strudel?
-                Abschluss.addScore(5);
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0005);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0006);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0007);
                 break;
             case questionChoices2.C0002:
                 // Welche Art von Plastikmüll befindet sich in dem Strudel?
-                Abschluss.addScore(5);
+                Abschluss.addScore(10);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0008);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0009);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
@@ -889,7 +885,7 @@ var Abschluss;
         Abschluss.tickerDelay(30);
         let text = {
             Mermaid: {
-                T0000: "Vielen Dank für deine Hilfe, " + Abschluss.data.Protagonist.name.toString() + "! Dein erreichter Wissenscore: <b>" + Abschluss.data.score.a + "</b> " + Abschluss.endSore()
+                T0000: "Vielen Dank für deine Hilfe, " + Abschluss.data.Protagonist.name.toString() + "! Dein erreichter Wissenscore: <b>" + Abschluss.data.score.a + "</b> " + Abschluss.endScore()
             }
         };
         await Abschluss.ƒS.Location.show(Abschluss.locations.end);
@@ -904,6 +900,7 @@ var Abschluss;
         };
         let userInput = await Abschluss.ƒS.Menu.getInput(questionChoices, "play-again");
         if (userInput == questionChoices.C0001) {
+            Abschluss.addScore(5);
             await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
             await Abschluss.ƒS.update(0.5);
             Abschluss.ƒS.Speech.clear();
@@ -1178,7 +1175,7 @@ var Abschluss;
         Abschluss.data.score.a -= 10;
     }
     Abschluss.throwAway = throwAway;
-    function endSore() {
+    function endScore() {
         if (Abschluss.data.score.a < 50 && Abschluss.data.score.a > 0)
             return "Guter Anfang!";
         else if (Abschluss.data.score.a >= 50 && Abschluss.data.score.a < 85)
@@ -1189,7 +1186,7 @@ var Abschluss;
             return "Hm, da geht doch noch mehr.";
         return null;
     }
-    Abschluss.endSore = endSore;
+    Abschluss.endScore = endScore;
 })(Abschluss || (Abschluss = {}));
 var Abschluss;
 (function (Abschluss) {

@@ -108,7 +108,7 @@ namespace Abschluss {
                 switch (userInput01) {
                     case questionChoices01.C0001:
                         // Weißt du denn, wieviel Wasser es auf der Erde gibt?
-                        addScore(4);
+                        addScore(10);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
@@ -124,11 +124,13 @@ namespace Abschluss {
                         switch (userInput02) {
                             case questionChoices02.C0001:
                                 // Werden Wale noch immer gejagt?
+                                addScore(10);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0030);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0031);
                                 break;
                             case questionChoices02.C0002:
                                 // Was hältst du von Aquarien und Zoos?
+                                addScore(10);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0032);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0033);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0034);
@@ -156,6 +158,7 @@ namespace Abschluss {
                         switch (userInput03) {
                             case questionChoices03.C0001:
                                 // Mehr erfahren!
+                                addScore(10);
                                 let learnMore: string[] = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
                                 nvlMode(learnMore, true, "aboutBtn", "learnMore");
                                 break;
@@ -172,7 +175,7 @@ namespace Abschluss {
                         return "end";
                     case questionChoices01.C0002:
                         // Stimmt es denn, dass es den Meeren immer schlechter geht?
-                        addScore(6);
+                        addScore(10);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0012);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0013);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
@@ -193,6 +196,7 @@ namespace Abschluss {
                         switch (userInput04) {
                             case questionChoices04.C0001:
                                 // Welche Tiere leiden denn noch unter der Wassererwärmung?
+                                addScore(10);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0020);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0021);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0022);
@@ -200,6 +204,7 @@ namespace Abschluss {
                                 break;
                             case questionChoices04.C0002:
                                 // Stimmt es, dass das Meer auch Sauerstoff selbst produziert?
+                                addScore(10);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0024);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0025);
                                 break;
@@ -218,6 +223,7 @@ namespace Abschluss {
                         switch (userInput05) {
                             case questionChoices05.C0001:
                                 // Mehr erfahren!
+                                addScore(10);
                                 let learnMore: string[] = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
                                 nvlMode(learnMore, true, "aboutBtn", "learnMore");
                                 break;
@@ -237,7 +243,7 @@ namespace Abschluss {
                 break;
             case questionChoices.C0002:
                 // Wow, wieviel unterschiedliches Leben es da unten wohl geben muss?
-                addScore(5);
+                addScore(10);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0026);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0027);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0028);
@@ -254,11 +260,13 @@ namespace Abschluss {
                 switch (userInput03) {
                     case questionChoices03.C0001:
                         // Werden Wale noch immer gejagt?
+                        addScore(10);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0030);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0031);
                         break;
                     case questionChoices03.C0002:
                         // Was hältst du von Aquarien und Zoos?
+                        addScore(10);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0032);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0033);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0034);
@@ -286,6 +294,7 @@ namespace Abschluss {
                 switch (userInput05) {
                     case questionChoices05.C0001:
                         // Mehr erfahren!
+                        addScore(10);
                         let learnMore: string[] = ["Wenn du kannst und das nicht bereits tust, verzichte auf den Verzehr von Fisch und anderen Meerestieren. So trägst du nicht zur Überfischung bei. Fisch aus Aquakulturen ist hier nicht besser. <br><br>Vermeide Kreuzfahrten.<br><br>Du kannst auch mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meerestiere steht.<br><br>Informiere dich weiter über das Thema."];
                         nvlMode(learnMore, true, "aboutBtn", "learnMore");
                         break;

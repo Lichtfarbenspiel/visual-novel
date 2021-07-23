@@ -275,7 +275,7 @@ namespace Abschluss {
     data.score.a -= 10;
   }
 
-  export function endSore(): string {
+  export function endScore(): string {
     if (data.score.a < 50 && data.score.a > 0) return "Guter Anfang!";
     else if (data.score.a >= 50 && data.score.a < 85) return "Klasse, das ist nicht schlecht!";
     else if (data.score.a >= 85) return "Super! Du bist jetzt ja schon Profi.";

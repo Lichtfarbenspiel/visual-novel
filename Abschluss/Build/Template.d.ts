@@ -115,7 +115,7 @@ declare namespace Abschluss {
     function subtractScore(amount: number): void;
     function nvlMode(content: string[], hideSpeech: boolean, buttonClass?: string, textClass?: string): Promise<void>;
     function throwAway(_event: CustomEvent): void;
-    function endSore(): string;
+    function endScore(): string;
 }
 declare namespace Abschluss {
     function SceneTemplate(): ƒS.SceneReturn;

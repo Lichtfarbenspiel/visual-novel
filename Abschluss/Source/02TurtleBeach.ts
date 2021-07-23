@@ -7,15 +7,11 @@ namespace Abschluss {
     let text = {
       Mermaid: {
         T0000: "Oh das ist super! Kannst du schauen, dass sie alle sicher bis ans Meer gelangen?",
-        T0001: "Nein, besser nicht. Sie müssen das selbst schaffen, aber du kannst aufpassen, dass sie nicht den Seevögeln zum Opfer fallen. Oder in all dem Müll stecken bleiben. Schrecklich ist das.",
-        T0002: "",
-        T0003: ""
+        T0001: "Nein, besser nicht. Sie müssen das selbst schaffen, aber du kannst aufpassen, dass sie nicht den Seevögeln zum Opfer fallen. Oder in all dem Müll stecken bleiben. Schrecklich ist das."
       },
       Protagonist: {
         T0000: "Muriel! Du wirst es nicht glauben, aber hier hinten sind wirklich kleine Schildkröten. Sie müssen gerade erst geschlüpft sein!",
-        T0001: "Ja natürlich, ich kann sie auch kurz rüber tragen.",
-        T0002: "",
-        T0003: ""
+        T0001: "Ja natürlich, ich kann sie auch kurz rüber tragen."
       }
     };
 
@@ -47,7 +43,7 @@ namespace Abschluss {
     switch (userInput) {
       case turtleChoices.C0001:
         // Schildkröten zum Wasser tragen
-        addScore(3);
+        addScore(5);
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();
@@ -56,7 +52,7 @@ namespace Abschluss {
         return "04";
       case turtleChoices.C0002:
         // Schildkröten beobachten
-        addScore(5);
+        addScore(10);
         await ƒS.Character.hide(characters.Mermaid);
         await ƒS.update(0.5);
         ƒS.Speech.clear();

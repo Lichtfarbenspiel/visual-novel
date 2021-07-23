@@ -6,7 +6,7 @@ namespace Abschluss {
 
         let text = {
             Mermaid: {
-                T0000: "Vielen Dank für deine Hilfe, " + data.Protagonist.name.toString() + "! Dein erreichter Wissenscore: <b>" + data.score.a + "</b> " + endSore()
+                T0000: "Vielen Dank für deine Hilfe, " + data.Protagonist.name.toString() + "! Dein erreichter Wissenscore: <b>" + data.score.a + "</b> " + endScore()
             }
         };
 
@@ -26,6 +26,7 @@ namespace Abschluss {
         let userInput = await ƒS.Menu.getInput(questionChoices, "play-again");
 
         if (userInput == questionChoices.C0001) {
+            addScore(5);
             await ƒS.Character.hide(characters.Mermaid);
             await ƒS.update(0.5);
             ƒS.Speech.clear();

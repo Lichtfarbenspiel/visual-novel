@@ -94,7 +94,7 @@ namespace Abschluss {
         switch (userInput) {
             case questionChoices.C0001:
                 // Wieso wird es immer schlimmer
-                addScore(5);
+                addScore(10);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0002);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0003);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T00031);
@@ -108,7 +108,7 @@ namespace Abschluss {
                 switch (userInput01) {
                     case questionChoices01.C0001:
                         // Wieviel wiegt denn so ein Blauwal?
-                        addScore(3);
+                        addScore(5);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0004);
                         await ƒS.Character.hide(characters.Mermaid);
                         await ƒS.Character.hide(characters.BabyTurtle);
@@ -118,7 +118,7 @@ namespace Abschluss {
                         return "end"; // TO DO
                     case questionChoices01.C0002:
                         // Liegt das dann alles immer an den Stränden?
-                        addScore(5);
+                        addScore(10);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0005);
                         // weiter zu GPGP
                         await ƒS.Character.hide(characters.Mermaid);
@@ -131,7 +131,7 @@ namespace Abschluss {
                 break;
             case questionChoices.C0002:
                 // Wieso werden die Eier überhaupt hier abgelegt?
-                addScore(5);
+                addScore(10);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0006);
                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0007);
@@ -147,7 +147,7 @@ namespace Abschluss {
                 switch (userInput02) {
                     case questionChoices02.C0001:
                         // Wieso kommen sie denn immer nur an den Geburtsstrand zurück?
-                        addScore(2);
+                        addScore(10);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0008);
                         await ƒS.Character.hide(characters.Mermaid);
                         await ƒS.Character.hide(characters.BabyTurtle);
@@ -157,7 +157,7 @@ namespace Abschluss {
                         return "end";
                     case questionChoices02.C0002:
                         // Wie viele Arten von Wasserschildkröten gibt es denn?
-                        addScore(2);
+                        addScore(10);
 
                         let repeat = 2;
                         let count = 0;
@@ -207,7 +207,7 @@ namespace Abschluss {
                         switch (userInput03) {
                             case questionChoices03.C0001:
                                 // Warum sind sie vom Aussterben bedroht?
-                                addScore(5);
+                                addScore(10);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0011);
                                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0002);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0012);
@@ -225,7 +225,7 @@ namespace Abschluss {
                                 switch (userInput04) {
                                     case questionChoices04.C0001:
                                         // Was meinst du mit Beifang?
-                                        addScore(5);
+                                        addScore(10);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0016);
                                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0004);
@@ -245,7 +245,7 @@ namespace Abschluss {
                                                 break;
                                             case questionChoices05.C0002:
                                                 // Was sind denn das für Fangmethoden?
-                                                addScore(5);
+                                                addScore(10);
                                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0019);
                                                 let imgTrawling: string[] = ["<img src='img/Visualisations/impact2.png' alt='Before Trawling' height='100%' >", "<img src='img/Visualisations/impact3.png' alt='After Trawling' height='100%'>"];
 
@@ -253,7 +253,6 @@ namespace Abschluss {
                                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0020);
                                                 break;
                                         }
-                                        addScore(8);
                                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0008);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0033);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0034);
@@ -268,6 +267,7 @@ namespace Abschluss {
                                         switch (userInput07) {
                                             case questionChoices07.C0001:
                                                 // Mehr erfahren!
+                                                addScore(10);
                                                 let learnMore: string[] = ["Du kannst  mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meere steht.<br><br>Informiere dich weiter über das Thema. <br><br>Unterstütze keine Aquarien wie Sea Life oder Zoos durch einen Besuch. Auch diese Tiere werden meistens wild gefangen.(19)"];
                                                 nvlMode(learnMore, true, "aboutBtn", "learnMore");
                                                 break;
@@ -284,7 +284,7 @@ namespace Abschluss {
                                         return "end";
                                     case questionChoices04.C0002:
                                         // Könnte die Fischerei nicht besser kontrolliert werden?
-                                        addScore(5);
+                                        addScore(10);
                                         
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid. T0029);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid. T0030);
@@ -299,7 +299,7 @@ namespace Abschluss {
 
                                         switch (userInput06) {
                                             case questionChoices06.C0001:
-                                                addScore(8);
+                                                addScore(15);
                                                 let learnMore: string[] = ["„Große ausländische industrielle Fabrikschiffe (Schleppnetzschiffe, die in der früheren Sowjetunion gefertigt wurden) hielten sich an der Grenze zu Namibias AWZ auf, überquerten diese heimlich nachts und plünderten Fischbestände. <br><br>Der illegale Fang wurde dann auf große Kühlschiffe verladen, die gleich hinter der Grenze zur AWZ darauf warteten, die Ladung entgegenzunehmen. Kühlschiffe tragen viel zur Verschleierung der IUU-Fischerei bei, da legal gefangene Fische mit illegalen Fängen vermischt werden. <br><br>Das macht es unmöglich, die Herkunft der Fische nachzuvollziehen. Aus diesem Grund verbietet die namibische Verordnung für Meeresressourcen das Umladen auf See und gestattet es nur im Hafen oder unter Aufsicht von Polizeibeamten.“ <br><br> <a href='https://sea-shepherd.de/kampagnen/operation-vanguard/' target='_blank'>Quelle</a> | Stand 06/2021"];
                                                 nvlMode(learnMore, true, "aboutBtn");
                                                 break;
@@ -307,7 +307,6 @@ namespace Abschluss {
                                                 break;
                                         }
 
-                                        addScore(8);
                                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0008);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0033);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0034);
@@ -322,6 +321,7 @@ namespace Abschluss {
                                         switch (userInput08) {
                                             case questionChoices08.C0001:
                                                 // Mehr erfahren!
+                                                addScore(10);
                                                 let learnMore: string[] = ["Du kannst  mit Freunden, Familie usw. darüber reden. So entsteht ein größeres Bewusstsein in der Gesellschaft. Viele sind sich gar nicht bewusst, wie es tatsächlich um unsere Meere steht.<br><br>Informiere dich weiter über das Thema. <br><br>Unterstütze keine Aquarien wie Sea Life oder Zoos durch einen Besuch. Auch diese Tiere werden meistens wild gefangen.(19)"];
                                                 nvlMode(learnMore, true, "aboutBtn", "learnMore");
                                                 break;
@@ -341,7 +341,7 @@ namespace Abschluss {
                                 break;
                             case questionChoices03.C0002:
                                 // Und wieso schaust du jetzt nach den Schildkrötenjungen?
-                                addScore(2);
+                                addScore(5);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0021);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0022);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0023);
@@ -374,7 +374,7 @@ namespace Abschluss {
                 break;
             case questionChoices.C0003:
                 // Müll einsammeln
-                addScore(8);
+                addScore(10);
                 await ƒS.Location.show(locations.trashBeachClean);
                 await ƒS.update(transition.swirl.duration, transition.swirl.alpha, transition.swirl.edge);
                 await ƒS.update(1);
@@ -399,7 +399,7 @@ namespace Abschluss {
         } 
         else if (turtleGuess > 0 && turtleGuess < 7 || turtleGuess > 7 && turtleGuess <= 13) {
             data.correct = false;
-            addScore(1);
+            addScore(5);
             return "Ja, fast richtig.";
         }
         else if (turtleGuess > 14) {
@@ -408,7 +408,7 @@ namespace Abschluss {
         }
         else if (turtleGuess == 7) {
             data.correct = true;
-            addScore(7);
+            addScore(15);
             return "Ja genau!";
         }
         return null;
