@@ -147,7 +147,7 @@ var Abschluss;
                 T0032: "Super, danke dir! Komm, ich möchte dir noch was zum Pazifischen Müllstrudel zeigen.",
                 T0033: "Schön, dass du fragst. Natürlich kannst du etwas tun.",
                 T0034: "Du kannst zum Beispiel, wenn du das nicht schon tust, auf den Verzehr von Fisch und anderen Meereslebewesen verzichten. So unterstützt du die Fischerei nicht mehr.",
-                T0035: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!"
+                T0035: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurückgeben. Auch die Schildkröten danken dir!"
             },
             Protagonist: {
                 T0000: "Wieso liegt hier denn so viel Müll? ",
@@ -541,7 +541,7 @@ var Abschluss;
                 T0038: "Die Ursache muss bekämpft, nicht die Symptome unterdrückt werden.",
                 T0039: "Keiner Tierart ist mit einem Käfig geholfen.",
                 T0040: "Du könntest beispielsweise Aquarien nicht unterstützen. So trägst du nicht zu unnötigem Tierleid bei und unterstützt den Fang der Wildtiere nicht.(19)",
-                T0041: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!"
+                T0041: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurückgeben. Auch die Schildkröten danken dir!"
             },
             Protagonist: {
                 T0000: "Es ist echt unglaublich, wie groß das Meer doch ist. Und so tief… Ich kann es mir gar nicht richtig vorstellen.",
@@ -801,7 +801,7 @@ var Abschluss;
                 T0012: "Du könntest beispielsweise versuchen, wenn du das nicht sowieso schon tust, auf den Verzehr von Fisch und anderen Meerestieren zu verzichten.",
                 T0013: "So trägst du nicht indirekt zur Verschmutzung durch Fischereigut bei und verursachst zusätzlich kein Tierleid.",
                 T0014: "Und denke daran: es kommt nicht darauf an, alles perfekt zu machen. Jeder kleine Schritt ist ein Schritt in die richtige Richtung! Geh dein Tempo, das wichtigste ist, du bleibst in Bewegung.",
-                T0015: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!",
+                T0015: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurückgeben. Auch die Schildkröten danken dir!",
                 T0016: "Oh nein, ich danke Dir! Danke, dass du mir geholfen hast. Auch die Schildkröten Danken dir dafür!"
             }
         };

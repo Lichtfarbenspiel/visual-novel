@@ -43,7 +43,7 @@ namespace Abschluss {
             T0032: "Super, danke dir! Komm, ich möchte dir noch was zum Pazifischen Müllstrudel zeigen.",
             T0033: "Schön, dass du fragst. Natürlich kannst du etwas tun.",
             T0034: "Du kannst zum Beispiel, wenn du das nicht schon tust, auf den Verzehr von Fisch und anderen Meereslebewesen verzichten. So unterstützt du die Fischerei nicht mehr.",
-            T0035: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!"    
+            T0035: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurückgeben. Auch die Schildkröten danken dir!"    
         },
           Protagonist: {
             T0000: "Wieso liegt hier denn so viel Müll? ",

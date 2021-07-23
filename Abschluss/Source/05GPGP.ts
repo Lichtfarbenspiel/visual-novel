@@ -21,7 +21,7 @@ namespace Abschluss {
                 T0012: "Du könntest beispielsweise versuchen, wenn du das nicht sowieso schon tust, auf den Verzehr von Fisch und anderen Meerestieren zu verzichten.",
                 T0013: "So trägst du nicht indirekt zur Verschmutzung durch Fischereigut bei und verursachst zusätzlich kein Tierleid.",
                 T0014: "Und denke daran: es kommt nicht darauf an, alles perfekt zu machen. Jeder kleine Schritt ist ein Schritt in die richtige Richtung! Geh dein Tempo, das wichtigste ist, du bleibst in Bewegung.",
-                T0015: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurück geben. Auch die Schildkröten danken dir!",
+                T0015: "Vielen Dank für deine Hilfe! Ich hoffe, ich konnte auch dir etwas zurückgeben. Auch die Schildkröten danken dir!",
                 T0016: "Oh nein, ich danke Dir! Danke, dass du mir geholfen hast. Auch die Schildkröten Danken dir dafür!"
             }
         };
