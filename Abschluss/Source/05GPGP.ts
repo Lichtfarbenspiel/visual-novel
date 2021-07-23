@@ -37,8 +37,8 @@ namespace Abschluss {
         await ƒS.update(1);
 
         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0000);
+        ƒS.Sound.play(sounds.seagull, 0.8, false);
 
-        // Fotos von GPGP in NVL style
 
         let imgGPGP: string[] = ["<img src='img/Visualisations/garbage_patches.png' alt='Garbage Patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP Pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP Pollution 2' height='100%'>"];
 
@@ -89,6 +89,7 @@ namespace Abschluss {
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0008);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
+                ƒS.Sound.play(sounds.seagull, 0.8, false);
                 break;
         }
 
@@ -120,18 +121,31 @@ namespace Abschluss {
                         let learnMore: string[] = ["Allgemein weniger Müll verursachen - wiederverwendbare Produkte nutzen, wie beispielsweise Mehrwegflaschen.<br><br>Sammle Müll ein – auch auf dem Land, fern ab vom Meer, ist es wichtig, keinen Müll in der Natur zu hinterlassen. Zudem könnte auch dieser über Flüsse in die Meere gelangen.<br><br>Mülltrennung nicht vergessen! <br><br>Sprich darüber! Rede mit deinen Freunden, Familie, Kollegen usw. darüber. Dadurch entsteht ein größeres Bewusstsein."];
                         nvlMode(learnMore, true, "aboutBtn", "learnMore");
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
+                        ƒS.Sound.play(sounds.seagull, 0.8, false);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
+                        await ƒS.Character.hide(characters.Mermaid);
+                        await ƒS.update(0.5);
+                        ƒS.Speech.clear();
+                        ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
                         return "end";
                     case questionChoices4.C0002:
                         // Nein, danke!
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
+                        await ƒS.Character.hide(characters.Mermaid);
+                        await ƒS.update(0.5);
+                        ƒS.Speech.clear();
+                        ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
                         return "end";
                 }
                 break;
             case questionChoices3.C0002:
                 // Danke dir, das war wirklich sehr interessant!
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0016);
+                await ƒS.Character.hide(characters.Mermaid);
+                await ƒS.update(0.5);
+                ƒS.Speech.clear();
+                ƒS.Sound.fade(sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
                 return "end";
         }
     }

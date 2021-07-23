@@ -103,6 +103,12 @@ namespace Abschluss {
       image: "Img/Items/plastic-bottles.png",
       static: false,
       handler: throwAway
+    },
+    turtleBadge: {
+      name: "Turtle Badge",
+      description: "Es gibt insgesamt 7 Arten von Meeresschildkröten.",
+      image: "Img/Items/turtle-badge.png",
+      static: true
     }
   };
   

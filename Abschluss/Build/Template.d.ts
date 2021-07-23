@@ -107,6 +107,12 @@ declare namespace Abschluss {
             static: boolean;
             handler: typeof throwAway;
         };
+        turtleBadge: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
     };
     function increaseSound(): void;
     function decreaseSound(): void;

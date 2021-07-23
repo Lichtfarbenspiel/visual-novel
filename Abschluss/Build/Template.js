@@ -280,6 +280,8 @@ var Abschluss;
                             else
                                 break;
                         }
+                        Abschluss.ƒS.Inventory.add(Abschluss.items.turtleBadge);
+                        await Abschluss.ƒS.Inventory.open();
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
                         Abschluss.data.correct = false;
                         let questionChoices03 = {
@@ -294,6 +296,7 @@ var Abschluss;
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0011);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0002);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0012);
+                                Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0013);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0003);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0014);
@@ -377,6 +380,7 @@ var Abschluss;
                                         }
                                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0008);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
+                                        Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
                                         let questionChoices08 = {
                                             C0001: "Mehr erfahren!",
@@ -410,6 +414,7 @@ var Abschluss;
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0021);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0022);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0023);
+                                Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0005);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0024);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0006);
@@ -565,6 +570,7 @@ var Abschluss;
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0003);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0004);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0005);
+                Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0001);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0006);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0007);
@@ -606,6 +612,7 @@ var Abschluss;
                                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0007);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0036);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0037);
+                                Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0038);
                                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0039);
                                 break;
@@ -641,6 +648,7 @@ var Abschluss;
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0012);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0013);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0014);
+                        Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0016);
                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0004);
@@ -686,6 +694,7 @@ var Abschluss;
                                 // Nein, danke!
                                 break;
                         }
+                        Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0041);
                         await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
                         await Abschluss.ƒS.update(0.5);
@@ -700,6 +709,7 @@ var Abschluss;
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0026);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0027);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0028);
+                Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                 await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0005);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0029);
                 let questionChoices03 = {
@@ -718,6 +728,7 @@ var Abschluss;
                         // Was hältst du von Aquarien und Zoos?
                         Abschluss.addScore(10);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0032);
+                        Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0033);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0034);
                         await Abschluss.ƒS.Speech.tell(Abschluss.data.Protagonist, text.Protagonist.T0006);
@@ -727,6 +738,7 @@ var Abschluss;
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0037);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0038);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0039);
+                        Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                         break;
                 }
                 // TO Do was kann ich tun?
@@ -793,7 +805,7 @@ var Abschluss;
         await Abschluss.ƒS.Character.show(Abschluss.characters.Mermaid, Abschluss.characters.Mermaid.pose.floating, Abschluss.ƒS.positionPercent(40, 115));
         await Abschluss.ƒS.update(1);
         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0000);
-        // Fotos von GPGP in NVL style
+        Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
         let imgGPGP = ["<img src='img/Visualisations/garbage_patches.png' alt='Garbage Patches' height='100%'>", "<img src='img/Visualisations/GPGP-pollution.jpg' alt='GPGP Pollution' height='100%'>", "<img src='img/Visualisations/GPGP-pollution2.jpg' alt='GPGP Pollution 2' height='100%'>"];
         await Abschluss.nvlMode(imgGPGP, false, "aboutBtn", "visual-content");
         let questionChoices = {
@@ -836,6 +848,7 @@ var Abschluss;
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0008);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0009);
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0010);
+                Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                 break;
         }
         let questionChoices3 = {
@@ -861,18 +874,31 @@ var Abschluss;
                         let learnMore = ["Allgemein weniger Müll verursachen - wiederverwendbare Produkte nutzen, wie beispielsweise Mehrwegflaschen.<br><br>Sammle Müll ein – auch auf dem Land, fern ab vom Meer, ist es wichtig, keinen Müll in der Natur zu hinterlassen. Zudem könnte auch dieser über Flüsse in die Meere gelangen.<br><br>Mülltrennung nicht vergessen! <br><br>Sprich darüber! Rede mit deinen Freunden, Familie, Kollegen usw. darüber. Dadurch entsteht ein größeres Bewusstsein."];
                         Abschluss.nvlMode(learnMore, true, "aboutBtn", "learnMore");
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0014);
+                        Abschluss.ƒS.Sound.play(Abschluss.sounds.seagull, 0.8, false);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
+                        await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                        await Abschluss.ƒS.update(0.5);
+                        Abschluss.ƒS.Speech.clear();
+                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
                         return "end";
                     case questionChoices4.C0002:
                         // Nein, danke!
                         await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0015);
+                        await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                        await Abschluss.ƒS.update(0.5);
+                        Abschluss.ƒS.Speech.clear();
+                        Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
                         return "end";
                 }
                 break;
             case questionChoices3.C0002:
                 // Danke dir, das war wirklich sehr interessant!
                 await Abschluss.ƒS.Speech.tell(Abschluss.characters.Mermaid, text.Mermaid.T0016);
+                await Abschluss.ƒS.Character.hide(Abschluss.characters.Mermaid);
+                await Abschluss.ƒS.update(0.5);
+                Abschluss.ƒS.Speech.clear();
+                Abschluss.ƒS.Sound.fade(Abschluss.sounds.softWavesOnSandyBeach, 0.001, 0.1, false);
                 return "end";
         }
     }
@@ -1007,6 +1033,12 @@ var Abschluss;
             image: "Img/Items/plastic-bottles.png",
             static: false,
             handler: throwAway
+        },
+        turtleBadge: {
+            name: "Turtle Badge",
+            description: "Es gibt insgesamt 7 Arten von Meeresschildkröten.",
+            image: "Img/Items/turtle-badge.png",
+            static: true
         }
     };
     // MENU AUDIO FUNCTIONS

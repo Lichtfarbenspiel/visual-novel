@@ -166,7 +166,6 @@ namespace Abschluss {
                             console.log("correct? " + data.correct);
 
                             if (!data.correct) {
-
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0009);
                                 let turtleGuess = await ƒS.Speech.getInput();
                                 console.log(turtleGuess);
@@ -192,7 +191,8 @@ namespace Abschluss {
                                 } else break;
                             } else break;
                         }
-                        
+                        ƒS.Inventory.add(items.turtleBadge);
+                        await ƒS.Inventory.open();
 
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0010);
                         data.correct = false;
@@ -211,6 +211,7 @@ namespace Abschluss {
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0011);
                                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0002);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0012);
+                                ƒS.Sound.play(sounds.seagull, 0.8, false);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0013);
                                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0003);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
@@ -309,6 +310,7 @@ namespace Abschluss {
 
                                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0008);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0033);
+                                        ƒS.Sound.play(sounds.seagull, 0.8, false);
                                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0034);
                                         
                                         let questionChoices08 = {
@@ -345,6 +347,7 @@ namespace Abschluss {
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0021);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0022);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0023);
+                                ƒS.Sound.play(sounds.seagull, 0.8, false);
                                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0005);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0024);
                                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0006);

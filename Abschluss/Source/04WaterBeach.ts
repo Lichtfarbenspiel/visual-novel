@@ -92,6 +92,7 @@ namespace Abschluss {
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0003);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0004);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0005);
+                ƒS.Sound.play(sounds.seagull, 0.8, false);
                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0001);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0006);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0007);
@@ -139,6 +140,7 @@ namespace Abschluss {
                                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0007);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0036);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0037);
+                                ƒS.Sound.play(sounds.seagull, 0.8, false);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0038);
                                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0039);
                                 break;
@@ -179,6 +181,7 @@ namespace Abschluss {
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0012);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0013);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0014);
+                        ƒS.Sound.play(sounds.seagull, 0.8, false);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0015);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0016);
                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0004);
@@ -231,7 +234,7 @@ namespace Abschluss {
                                 // Nein, danke!
                                 break;
                         }
-        
+                        ƒS.Sound.play(sounds.seagull, 0.8, false);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0041);
 
                         await ƒS.Character.hide(characters.Mermaid);
@@ -247,6 +250,7 @@ namespace Abschluss {
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0026);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0027);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0028);
+                ƒS.Sound.play(sounds.seagull, 0.8, false);
                 await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0005);
                 await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0029);
 
@@ -268,6 +272,7 @@ namespace Abschluss {
                         // Was hältst du von Aquarien und Zoos?
                         addScore(10);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0032);
+                        ƒS.Sound.play(sounds.seagull, 0.8, false);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0033);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0034);
                         await ƒS.Speech.tell(data.Protagonist, text.Protagonist.T0006);
@@ -277,6 +282,7 @@ namespace Abschluss {
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0037);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0038);
                         await ƒS.Speech.tell(characters.Mermaid, text.Mermaid.T0039);
+                        ƒS.Sound.play(sounds.seagull, 0.8, false);
                         break;
                 }
 
